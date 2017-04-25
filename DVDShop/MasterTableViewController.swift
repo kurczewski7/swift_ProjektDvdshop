@@ -9,6 +9,11 @@
 import UIKit
 
 class MasterTableViewController: UITableViewController {
+    
+        let titles = ["Ostatni wojownik","Ogniem i mieczem","Jak zostać królem"]
+        let actors = ["Bruce Lee","Dustin Hoffman","Harisson Ford"]
+        let types = ["Science ficton","Horror","Komedia romantyczna"]
+        let prices = ["22.50","17.99","34.40"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +48,11 @@ class MasterTableViewController: UITableViewController {
 
         // Configure the cell...
         //cell.detailTextLabel?.text = "aaa"
-        cell.titleLabel.text = "aaaa"
-        cell.actorsLabel.text = "xxx"
-        cell.priceLabel.text = "bbb"
+        
+        cell.titleLabel.text = titles[indexPath.row]
+        cell.actorsLabel.text = actors[indexPath.row]
+        cell.typLabel.text = types[indexPath.row]
+        cell.priceLabel.text = prices[indexPath.row]
 
         return cell
     }

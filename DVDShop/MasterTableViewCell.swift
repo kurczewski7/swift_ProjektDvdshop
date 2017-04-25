@@ -13,7 +13,7 @@ class MasterTableViewCell: UITableViewCell {
     @IBOutlet var DVDImage: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var actorsLabel: UILabel!
-    @IBOutlet var typeLabel: UIView!
+    @IBOutlet var typLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     
     override func awakeFromNib() {
