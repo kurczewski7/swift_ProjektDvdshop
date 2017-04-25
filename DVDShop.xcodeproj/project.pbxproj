@@ -14,6 +14,8 @@
 		2C1573A31EAFFC8C00B48306 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1573A11EAFFC8C00B48306 /* LaunchScreen.storyboard */; };
 		2C1573AE1EAFFC8D00B48306 /* DVDShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1573AD1EAFFC8D00B48306 /* DVDShopTests.swift */; };
 		2C1573B91EAFFC8D00B48306 /* DVDShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1573B81EAFFC8D00B48306 /* DVDShopUITests.swift */; };
+		2C1573CA1EAFFFEE00B48306 /* MasterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1573C91EAFFFEE00B48306 /* MasterTableViewCell.swift */; };
+		2C1573CC1EB0060100B48306 /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1573CB1EB0060100B48306 /* MasterTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		2C1573B41EAFFC8D00B48306 /* DVDShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DVDShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C1573B81EAFFC8D00B48306 /* DVDShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVDShopUITests.swift; sourceTree = "<group>"; };
 		2C1573BA1EAFFC8D00B48306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C1573C91EAFFFEE00B48306 /* MasterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableViewCell.swift; sourceTree = "<group>"; };
+		2C1573CB1EB0060100B48306 /* MasterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				2C1573991EAFFC8C00B48306 /* Main.storyboard */,
+				2C1573CB1EB0060100B48306 /* MasterTableViewController.swift */,
 			);
 			name = VIEWS;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				2C1573951EAFFC8C00B48306 /* AppDelegate.swift */,
+				2C1573C91EAFFFEE00B48306 /* MasterTableViewCell.swift */,
 			);
 			name = CONTROLERS;
 			sourceTree = "<group>";
@@ -287,6 +293,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C15739E1EAFFC8C00B48306 /* DVDShop.xcdatamodeld in Sources */,
+				2C1573CC1EB0060100B48306 /* MasterTableViewController.swift in Sources */,
+				2C1573CA1EAFFFEE00B48306 /* MasterTableViewCell.swift in Sources */,
 				2C1573961EAFFC8C00B48306 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
