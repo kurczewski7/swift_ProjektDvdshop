@@ -37,15 +37,19 @@ class MasterTableViewController: UITableViewController {
         return 3
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MasterTableViewCell
 
         // Configure the cell...
+        //cell.detailTextLabel?.text = "aaa"
+        cell.titleLabel.text = "aaaa"
+        cell.actorsLabel.text = "xxx"
+        cell.priceLabel.text = "bbb"
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
