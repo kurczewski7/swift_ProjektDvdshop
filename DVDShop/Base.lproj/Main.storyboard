@@ -69,10 +69,17 @@
                                                 <constraint firstItem="C1f-A5-6LZ" firstAttribute="top" secondItem="SXD-O2-8QT" secondAttribute="bottom" constant="2" id="mIU-Go-F7d"/>
                                             </constraints>
                                         </stackView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="DyJ-l6-3f1">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="144"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="DyJ-l6-3f1" firstAttribute="leading" secondItem="4sF-8c-sGG" secondAttribute="leading" id="0zX-A8-TSz"/>
+                                        <constraint firstItem="DyJ-l6-3f1" firstAttribute="top" secondItem="4sF-8c-sGG" secondAttribute="top" id="5Fu-Z3-bqt"/>
                                         <constraint firstItem="haR-Ow-yZO" firstAttribute="top" secondItem="4sF-8c-sGG" secondAttribute="topMargin" constant="2" id="77j-Wt-ohT"/>
+                                        <constraint firstAttribute="trailing" secondItem="DyJ-l6-3f1" secondAttribute="trailing" id="DmD-VH-Tgy"/>
                                         <constraint firstItem="haR-Ow-yZO" firstAttribute="leading" secondItem="h0Z-Zi-LyT" secondAttribute="trailing" constant="5" id="DqO-yF-mXr"/>
+                                        <constraint firstAttribute="bottom" secondItem="DyJ-l6-3f1" secondAttribute="bottom" id="GEw-4X-H1M"/>
                                         <constraint firstItem="h0Z-Zi-LyT" firstAttribute="centerY" secondItem="4sF-8c-sGG" secondAttribute="centerY" id="MpU-7V-J1F"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="haR-Ow-yZO" secondAttribute="bottom" constant="8" id="NMG-1t-v4q"/>
                                         <constraint firstItem="h0Z-Zi-LyT" firstAttribute="leading" secondItem="4sF-8c-sGG" secondAttribute="leadingMargin" id="OEK-mU-N9K"/>
@@ -101,4 +108,7 @@
             <point key="canvasLocation" x="773.60000000000002" y="123.68815592203899"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cell-bg-gradient" width="375" height="31"/>
+    </resources>
 </document>
