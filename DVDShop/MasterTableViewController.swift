@@ -10,7 +10,7 @@ import UIKit
 
 class MasterTableViewController: UITableViewController {
     
-        let titles = ["Ostatni wojownik","Ogniem i mieczem","Jak zostać królem"]
+//        let titles = ["Ostatni wojownik","Ogniem i mieczem","Jak zostać królem"]
         let actors = ["Bruce Lee","Dustin Hoffman","Harisson Ford"]
         let types = ["Science ficton","Horror","Komedia romantyczna"]
         let prices = ["22.50","17.99","34.40"]
@@ -27,7 +27,14 @@ class MasterTableViewController: UITableViewController {
     }
     var film: TypeOfFilm = .horror
     
-    var dvd = (picture: "obrazek", title: "tytul", actors: "Aktorzy",type: "Rodzaj", price:"Cena" )
+    let  dvdFilm: (picture: String, title: String, actors: String, type: TypeOfFilm, price: String) = (picture: "obrazek",  title: "tytul",  actors: "Aktorzy", type: .horror, price: "Cena")
+    var dvdFilms = [(picture: String, title: String, actors: String, type: TypeOfFilm, price: String)]()
+    
+    var myDvd = ("aaa", "bbb", "cccc", TypeOfFilm.komedia)
+    //let(panstwo,stolica)=stolicePanstw[IndexPath.item]
+    
+    
+    
     let obrazki = ["ambassada-dvd-w-iext36127150",
                  "anatomia-zla-w-iext41886960",
                  "angry-birds-film-w-iext46097674",
@@ -291,6 +298,14 @@ class MasterTableViewController: UITableViewController {
         cell.actorsLabel.text = actors[indexPath.row % 3]
         cell.typLabel.text = types[indexPath.row % 3]
         cell.priceLabel.text = prices[indexPath.row % 3]
+        if indexPath.row % 3 == 2 {
+            cell.backgroundColor=UIColor.green
+        }
+        else
+        {
+            cell.backgroundColor=UIColor.clear
+            //cell.seec
+        }
 
         return cell
     }
