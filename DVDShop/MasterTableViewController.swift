@@ -177,6 +177,7 @@ class MasterTableViewController: UITableViewController {
         // Configure the cell...
         //cell.detailTextLabel?.text = "aaa"
         
+        cell.DVDImage.image=UIImage(named: obrazki[indexPath.row])
         cell.titleLabel.text = obrazki[indexPath.row]
         cell.actorsLabel.text = actors[indexPath.row % 3]
         cell.typLabel.text = types[indexPath.row % 3]
