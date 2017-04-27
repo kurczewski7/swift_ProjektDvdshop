@@ -103,7 +103,7 @@
                             <outlet property="delegate" destination="GZk-Eu-sMi" id="9de-dV-08r"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Sklep DVD" id="s72-hp-1eM"/>
+                    <navigationItem key="navigationItem" title="Filmy" id="s72-hp-1eM"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoq-Bp-dr6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,9 +222,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="OCX-ho-ore" kind="relationship" relationship="viewControllers" id="gUh-jt-zhu"/>
-                        <segue destination="eck-tW-Jaf" kind="relationship" relationship="viewControllers" id="Hwu-b4-PhB"/>
-                        <segue destination="xCx-hG-ogr" kind="relationship" relationship="viewControllers" id="0jl-dk-Sae"/>
-                        <segue destination="vhQ-7g-xQ0" kind="relationship" relationship="viewControllers" id="0if-tE-dGe"/>
+                        <segue destination="fI0-wB-d5q" kind="relationship" relationship="viewControllers" id="Hwu-b4-PhB"/>
+                        <segue destination="YNu-1k-TvJ" kind="relationship" relationship="viewControllers" id="0jl-dk-Sae"/>
+                        <segue destination="nQU-1F-0W3" kind="relationship" relationship="viewControllers" id="0if-tE-dGe"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x8C-B1-60g" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,27 +242,18 @@
                     <view key="view" contentMode="scaleToFill" id="8aM-gb-0Gm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Płatności" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPS-th-bkm">
-                                <rect key="frame" x="176" y="278" width="70" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Płatności" image="Shopping" id="aqi-BE-3Bc"/>
+                    <navigationItem key="navigationItem" title="Płatności" id="rel-Py-Hf4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mG-hz-eYM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-590" y="1108"/>
+            <point key="canvasLocation" x="800.79999999999995" y="908.9955022488756"/>
         </scene>
-        <!--Favorites View Controller-->
+        <!--Favorites Collection View Controller-->
         <scene sceneID="cOB-A6-2c2">
             <objects>
-                <viewController title="Favorites View Controller" id="xCx-hG-ogr" sceneMemberID="viewController">
+                <viewController title="Favorites View Controller" id="xCx-hG-ogr" userLabel="Favorites Collection View Controller" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U0a-ST-rAy"/>
                         <viewControllerLayoutGuide type="bottom" id="cbd-Ij-vTz"/>
@@ -271,21 +262,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Patności" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jL8-TM-saK">
-                                <rect key="frame" x="142" y="294" width="66" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ulubione" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jL8-TM-saK">
+                                <rect key="frame" x="153" y="10" width="69" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R5u-WQ-ZOQ" userLabel="Background Image View">
+                                <rect key="frame" x="0.0" y="74" width="375" height="486"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R0X-Hy-aQr">
+                                <rect key="frame" x="46" y="115" width="281" height="374"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PnZ-SZ-I6i">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="C71-8y-QHc">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Wybrane" image="Like" selectedImage="Shopping" id="rBi-SL-hhB"/>
+                    <navigationItem key="navigationItem" title="Wybrane" id="BzP-h1-z5I"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2d-UD-Bkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77.599999999999994" y="1090.704647676162"/>
+            <point key="canvasLocation" x="2344.8000000000002" y="930.58470764617698"/>
         </scene>
         <!--Filtr View Controller-->
         <scene sceneID="XCO-Oj-rzx">
@@ -298,22 +314,70 @@
                     <view key="view" contentMode="scaleToFill" id="bKp-C1-U8g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Filtr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgB-sj-NCe">
-                                <rect key="frame" x="160" y="279" width="29" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Filtr" image="Filter" id="3eW-F0-vNf"/>
+                    <navigationItem key="navigationItem" title="Filtr" id="aHi-yt-4ja"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kv-OU-uQm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="790" y="877"/>
+            <point key="canvasLocation" x="4560.8000000000002" y="935.98200899550227"/>
+        </scene>
+        <!--Wybrane-->
+        <scene sceneID="SVH-UY-PdK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YNu-1k-TvJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Wybrane" image="Like" id="rBi-SL-hhB"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wVo-we-jDv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xCx-hG-ogr" kind="relationship" relationship="rootViewController" id="dGS-8q-QNS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J44-8P-a08" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1712.8" y="930.58470764617698"/>
+        </scene>
+        <!--Płatności-->
+        <scene sceneID="KYf-7f-OND">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nQU-1F-0W3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Płatności" image="Shopping" id="aqi-BE-3Bc"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dGD-RY-L8U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vhQ-7g-xQ0" kind="relationship" relationship="rootViewController" id="7Fr-MZ-4c4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2km-Cd-CUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-138.40000000000001" y="908.9955022488756"/>
+        </scene>
+        <!--Filtr-->
+        <scene sceneID="bxd-R6-WtG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fI0-wB-d5q" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Filtr" image="Filter" id="3eW-F0-vNf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3eD-Bb-RLF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eck-tW-Jaf" kind="relationship" relationship="rootViewController" id="are-NI-vn7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V7m-Xb-6I1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3621.5999999999999" y="935.98200899550227"/>
         </scene>
     </scenes>
     <resources>
