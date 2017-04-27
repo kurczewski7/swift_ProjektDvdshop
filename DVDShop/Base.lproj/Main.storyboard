@@ -191,11 +191,11 @@
             </objects>
             <point key="canvasLocation" x="3204" y="123.68815592203899"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Filmy-->
         <scene sceneID="bmE-6a-r3o">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OCX-ho-ore" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="3eS-7f-9Nc"/>
+                    <tabBarItem key="tabBarItem" title="Filmy" image="DVD" id="3eS-7f-9Nc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mDx-Ix-F9V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -216,6 +216,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="GR9-tE-Suh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="WWT-PQ-lOg">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -242,7 +243,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Patności" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jL8-TM-saK">
-                                <rect key="frame" x="166" y="294" width="66" height="21"/>
+                                <rect key="frame" x="142" y="294" width="66" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -251,7 +252,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="rBi-SL-hhB"/>
+                    <tabBarItem key="tabBarItem" title="Zakupy" image="Shopping" selectedImage="Shopping" id="rBi-SL-hhB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2d-UD-Bkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -279,7 +280,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="3eW-F0-vNf"/>
+                    <tabBarItem key="tabBarItem" title="Wybrane" image="Like" id="3eW-F0-vNf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kv-OU-uQm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -287,6 +288,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DVD" width="25" height="25"/>
+        <image name="Like" width="25" height="25"/>
+        <image name="Shopping" width="25" height="25"/>
         <image name="cell-bg-gradient" width="375" height="31"/>
     </resources>
 </document>

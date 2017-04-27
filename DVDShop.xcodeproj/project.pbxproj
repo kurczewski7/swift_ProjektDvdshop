@@ -145,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				2C1573991EAFFC8C00B48306 /* Main.storyboard */,
-				2C6D277E1EB21AD50056AFFC /* FavoritesViewController.swift */,
 			);
 			name = VIEWS;
 			sourceTree = "<group>";
@@ -157,6 +156,7 @@
 				2C1573CB1EB0060100B48306 /* MasterTableViewController.swift */,
 				2C1F5A751EB1528100A68B4B /* DetailViewController.swift */,
 				2C1573C91EAFFFEE00B48306 /* MasterTableViewCell.swift */,
+				2C6D277E1EB21AD50056AFFC /* FavoritesViewController.swift */,
 			);
 			name = CONTROLERS;
 			sourceTree = "<group>";
