@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OCX-ho-ore">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GR9-tE-Suh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -107,7 +107,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoq-Bp-dr6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1521" y="124"/>
+            <point key="canvasLocation" x="2460" y="123.68815592203899"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="f5X-8w-N0a">
@@ -189,12 +189,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVW-UK-Tjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2264.8000000000002" y="123.68815592203899"/>
+            <point key="canvasLocation" x="3204" y="123.68815592203899"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bmE-6a-r3o">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OCX-ho-ore" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="3eS-7f-9Nc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mDx-Ix-F9V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -207,7 +208,82 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhL-Nj-HRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1712.8" y="123.68815592203899"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="UpC-zb-DQP">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="GR9-tE-Suh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="WWT-PQ-lOg">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="OCX-ho-ore" kind="relationship" relationship="viewControllers" id="gUh-jt-zhu"/>
+                        <segue destination="eck-tW-Jaf" kind="relationship" relationship="viewControllers" id="Hwu-b4-PhB"/>
+                        <segue destination="xCx-hG-ogr" kind="relationship" relationship="viewControllers" id="0jl-dk-Sae"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x8C-B1-60g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="773.60000000000002" y="123.68815592203899"/>
+        </scene>
+        <!--Payment View Controller-->
+        <scene sceneID="cOB-A6-2c2">
+            <objects>
+                <viewController title="Payment View Controller" id="xCx-hG-ogr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U0a-ST-rAy"/>
+                        <viewControllerLayoutGuide type="bottom" id="cbd-Ij-vTz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Fj-Sk-tlB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Patności" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jL8-TM-saK">
+                                <rect key="frame" x="166" y="294" width="66" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="rBi-SL-hhB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a2d-UD-Bkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="77.599999999999994" y="1090.704647676162"/>
+        </scene>
+        <!--Favorites View Controller-->
+        <scene sceneID="XCO-Oj-rzx">
+            <objects>
+                <viewController title="Favorites View Controller" id="eck-tW-Jaf" customClass="FavoritesViewController" customModule="DVDShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bp3-S7-j8Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="txf-WN-StN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bKp-C1-U8g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgB-sj-NCe">
+                                <rect key="frame" x="160" y="279" width="70" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="3eW-F0-vNf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Kv-OU-uQm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="790" y="877"/>
         </scene>
     </scenes>
     <resources>
