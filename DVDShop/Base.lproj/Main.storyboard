@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -273,9 +274,8 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R0X-Hy-aQr">
-                                <rect key="frame" x="0.0" y="102" width="375" height="430"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R0X-Hy-aQr">
+                                <rect key="frame" x="0.0" y="102" width="375" height="463"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="10" id="PnZ-SZ-I6i">
                                     <size key="itemSize" width="250" height="380"/>
@@ -285,12 +285,33 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="C71-8y-QHc">
-                                        <rect key="frame" x="20" y="25" width="250" height="380"/>
+                                        <rect key="frame" x="20" y="42" width="250" height="380"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="250" height="380"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yto-P3-dFc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="250" height="337"/>
+                                                </imageView>
+                                                <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Euq-AG-Niq">
+                                                    <rect key="frame" x="0.0" y="305" width="250" height="75"/>
+                                                </view>
+                                            </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Euq-AG-Niq" secondAttribute="trailing" id="1yb-m6-JtS"/>
+                                            <constraint firstItem="yto-P3-dFc" firstAttribute="centerX" secondItem="C71-8y-QHc" secondAttribute="centerX" id="CvV-nb-tGS"/>
+                                            <constraint firstItem="yto-P3-dFc" firstAttribute="top" secondItem="C71-8y-QHc" secondAttribute="top" id="Lx8-44-KCC"/>
+                                            <constraint firstItem="yto-P3-dFc" firstAttribute="leading" secondItem="Euq-AG-Niq" secondAttribute="leading" id="NyS-OF-0vD"/>
+                                            <constraint firstAttribute="bottom" secondItem="Euq-AG-Niq" secondAttribute="bottom" id="U98-wZ-3RX"/>
+                                            <constraint firstAttribute="bottom" secondItem="Euq-AG-Niq" secondAttribute="bottom" id="WJj-HK-QXn"/>
+                                            <constraint firstItem="Euq-AG-Niq" firstAttribute="leading" secondItem="C71-8y-QHc" secondAttribute="leading" id="XFf-nT-02h"/>
+                                            <constraint firstItem="yto-P3-dFc" firstAttribute="height" secondItem="Euq-AG-Niq" secondAttribute="height" multiplier="4.5" id="bFb-gQ-zPu"/>
+                                            <constraint firstItem="yto-P3-dFc" firstAttribute="trailing" secondItem="Euq-AG-Niq" secondAttribute="trailing" id="eHY-K2-QGA"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="yto-P3-dFc" secondAttribute="bottom" constant="35" id="zlj-za-2w5"/>
+                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -315,14 +336,19 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="FEP-Ca-aKS" secondAttribute="trailing" constant="5" id="1go-j2-iuK"/>
                             <constraint firstItem="FEP-Ca-aKS" firstAttribute="top" secondItem="U0a-ST-rAy" secondAttribute="bottom" constant="5" id="JCs-bl-rvh"/>
+                            <constraint firstItem="R0X-Hy-aQr" firstAttribute="top" secondItem="FEP-Ca-aKS" secondAttribute="bottom" constant="11" id="YMh-GL-QeG"/>
+                            <constraint firstItem="R0X-Hy-aQr" firstAttribute="centerX" secondItem="9Fj-Sk-tlB" secondAttribute="centerX" id="ibJ-xo-NQO"/>
                             <constraint firstItem="FEP-Ca-aKS" firstAttribute="leading" secondItem="9Fj-Sk-tlB" secondAttribute="leadingMargin" constant="5" id="p3N-Pf-TE6"/>
+                            <constraint firstItem="R0X-Hy-aQr" firstAttribute="centerY" secondItem="9Fj-Sk-tlB" secondAttribute="centerY" id="tOB-lS-oXl"/>
+                            <constraint firstItem="R0X-Hy-aQr" firstAttribute="leading" secondItem="9Fj-Sk-tlB" secondAttribute="leading" id="x5y-Cw-npp"/>
+                            <constraint firstAttribute="trailing" secondItem="R0X-Hy-aQr" secondAttribute="trailing" id="z0A-Us-RDh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Wybrane" id="BzP-h1-z5I"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2d-UD-Bkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2460" y="931"/>
+            <point key="canvasLocation" x="2460" y="930.58470764617698"/>
         </scene>
         <!--Filtr View Controller-->
         <scene sceneID="XCO-Oj-rzx">
