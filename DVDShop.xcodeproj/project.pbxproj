@@ -17,6 +17,7 @@
 		2C1573CA1EAFFFEE00B48306 /* MasterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1573C91EAFFFEE00B48306 /* MasterTableViewCell.swift */; };
 		2C1573CC1EB0060100B48306 /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1573CB1EB0060100B48306 /* MasterTableViewController.swift */; };
 		2C1F5A761EB1528100A68B4B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F5A751EB1528100A68B4B /* DetailViewController.swift */; };
+		2C49798D1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49798C1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		2C1573C91EAFFFEE00B48306 /* MasterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableViewCell.swift; sourceTree = "<group>"; };
 		2C1573CB1EB0060100B48306 /* MasterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
 		2C1F5A751EB1528100A68B4B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2C49798C1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				2C1573991EAFFC8C00B48306 /* Main.storyboard */,
+				2C49798C1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift */,
 			);
 			name = VIEWS;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				2C1573CC1EB0060100B48306 /* MasterTableViewController.swift in Sources */,
 				2C1F5A761EB1528100A68B4B /* DetailViewController.swift in Sources */,
 				2C1573CA1EAFFFEE00B48306 /* MasterTableViewCell.swift in Sources */,
+				2C49798D1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift in Sources */,
 				2C1573961EAFFC8C00B48306 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
