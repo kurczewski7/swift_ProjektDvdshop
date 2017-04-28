@@ -254,7 +254,7 @@
         <!--Favorites Collection View Controller-->
         <scene sceneID="cOB-A6-2c2">
             <objects>
-                <viewController title="Favorites View Controller" id="xCx-hG-ogr" userLabel="Favorites Collection View Controller" sceneMemberID="viewController">
+                <viewController title="Favorites View Controller" id="xCx-hG-ogr" userLabel="Favorites Collection View Controller" customClass="FavoritViewController" customModule="DVDShop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U0a-ST-rAy"/>
                         <viewControllerLayoutGuide type="bottom" id="cbd-Ij-vTz"/>
@@ -282,7 +282,7 @@
                                     <inset key="sectionInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="C71-8y-QHc">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="C71-8y-QHc" customClass="FavoriteCollectionViewCell" customModule="DVDShop" customModuleProvider="target">
                                         <rect key="frame" x="20" y="42" width="250" height="380"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -294,6 +294,21 @@
                                                 </imageView>
                                                 <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Euq-AG-Niq">
                                                     <rect key="frame" x="0.0" y="305" width="250" height="75"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0B-2c-1o0">
+                                                            <rect key="frame" x="105" y="35" width="40" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="awT-qW-FQ1"/>
+                                                            </constraints>
+                                                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <state key="normal" image="heart"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="u0B-2c-1o0" firstAttribute="centerX" secondItem="Euq-AG-Niq" secondAttribute="centerX" id="UnN-wo-bww"/>
+                                                        <constraint firstItem="u0B-2c-1o0" firstAttribute="top" secondItem="Euq-AG-Niq" secondAttribute="top" constant="35" id="XdJ-0E-qqu"/>
+                                                        <constraint firstAttribute="bottom" secondItem="u0B-2c-1o0" secondAttribute="bottom" id="z9b-wD-rCE"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                         </view>
@@ -310,8 +325,19 @@
                                             <constraint firstItem="yto-P3-dFc" firstAttribute="trailing" secondItem="Euq-AG-Niq" secondAttribute="trailing" id="eHY-K2-QGA"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="yto-P3-dFc" secondAttribute="bottom" constant="35" id="zlj-za-2w5"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="yto-P3-dFc" id="ARm-oW-dsc"/>
+                                            <outlet property="likeButton" destination="u0B-2c-1o0" id="8dp-zl-GT7"/>
+                                            <outlet property="priceLabel" destination="pfl-nt-jPj" id="O8Q-OB-bwi"/>
+                                            <outlet property="titleLabel" destination="FEP-Ca-aKS" id="Bj6-Hk-fM9"/>
+                                            <outlet property="typeLabel" destination="kAq-nE-kFN" id="HSm-KL-wha"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="xCx-hG-ogr" id="wYW-MX-tmz"/>
+                                    <outlet property="delegate" destination="xCx-hG-ogr" id="wED-De-BNU"/>
+                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEP-Ca-aKS">
                                 <rect key="frame" x="21" y="69" width="333" height="22"/>
@@ -360,6 +386,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Wybrane" id="BzP-h1-z5I"/>
+                    <connections>
+                        <outlet property="collectionView" destination="R0X-Hy-aQr" id="C3h-QL-bdL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2d-UD-Bkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -448,5 +477,6 @@
         <image name="Like" width="25" height="25"/>
         <image name="Shopping" width="25" height="25"/>
         <image name="cell-bg-gradient" width="375" height="31"/>
+        <image name="heart" width="128" height="128"/>
     </resources>
 </document>
