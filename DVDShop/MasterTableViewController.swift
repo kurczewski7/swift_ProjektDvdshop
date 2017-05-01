@@ -136,13 +136,12 @@ class MasterTableViewController: UITableViewController {
                      let destinatonController = segue.destination as! DetailViewController
                     destinatonController.dvdImageTmp = obrazki[indexPath.row]
                     destinatonController.titleLabelTmp = tytuly[indexPath.row]
-                    destinatonController.typeLabelTmp = "Komiedia"
+                    destinatonController.typeLabelTmp = "Komedia"
                     destinatonController.priceLabelTmp = "22.50"
                 }
             }
     }
-    
-    
+
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "Usuń"
     }

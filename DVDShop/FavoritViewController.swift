@@ -47,7 +47,7 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
         cell.titleLabel.text=tytuly[indexPath.row]
         cell.typeLabel.text="bbbb"
         cell.priceLabel.text="22.50"
-        //UIImage(named: dvdImageTmp)
+      
         cell.imageView.image = UIImage(named: obrazki[indexPath.row])
         cell.isLiked=true
         return cell
