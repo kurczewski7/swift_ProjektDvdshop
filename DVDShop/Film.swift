@@ -51,15 +51,13 @@ struct Film {
     
     public mutating func fill(pictureName: String, titleName: String, price: Double, type: TypeOfFilm, filmDescription: String, actor: String, isLiked: Bool ){
         
-        
-        
-        self.title=titleName
+        self.title = titleName
         self.actors = actor
         self.type = .obyczajowy
         self.description = filmDescription
         self.price = price
         self.price_str = String(format: "%6.2f",  price)
-        self.filmImage = UIImage(named: pictureName)
+        self.filmImage =  UIImage(named: pictureName)
         self.isLiked = isLiked
         
         let index=(pictureName.index(pictureName.endIndex, offsetBy: -8))
@@ -67,7 +65,7 @@ struct Film {
     }
     
     
-    func giveData( indexPath: Int) -> (filmId: String, title: String, actors: String, type: String, description: String, price: String, filmImage: UIImage, isLiked: Bool){
+    func giveCurrentData() -> (filmId: String, title: String, actors: String, type: String, description: String, price: String, filmImage: UIImage, isLiked: Bool){
         var type_str: String
         
         switch type {
@@ -80,6 +78,14 @@ struct Film {
         case .dlaDzieci:  type_str = "Dla dzieci"
         case .muzyczny:   type_str = "Muzyczny"
         }
+        print("----------------")
+        print("filmId=\(filmId)")
+        print("title=\(title)")
+        print("actors=\(actors)")
+        print("type=\(type)")
+        print("description=\(description)")
+        print("price=\(price)")
+        print("filmId=\(filmId)")
         
      return (filmId: self.filmId, title: self.title, actors: self.actors, type: type_str, description: self.description, price: price_str, filmImage: self.filmImage!, isLiked: self.isLiked)
     }

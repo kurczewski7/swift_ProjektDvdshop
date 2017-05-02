@@ -20,6 +20,7 @@
 		2C49798D1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49798C1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift */; };
 		2C49798F1EB3F8ED000A2E33 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49798E1EB3F8ED000A2E33 /* Film.swift */; };
 		2C4979911EB3FF37000A2E33 /* FavoritViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4979901EB3FF37000A2E33 /* FavoritViewController.swift */; };
+		2C710A551EB89150007C81AF /* FilmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C710A541EB89150007C81AF /* FilmList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		2C49798C1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C49798E1EB3F8ED000A2E33 /* Film.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		2C4979901EB3FF37000A2E33 /* FavoritViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritViewController.swift; sourceTree = "<group>"; };
+		2C710A541EB89150007C81AF /* FilmList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				2C49798E1EB3F8ED000A2E33 /* Film.swift */,
+				2C710A541EB89150007C81AF /* FilmList.swift */,
 				2C15739C1EAFFC8C00B48306 /* DVDShop.xcdatamodeld */,
 			);
 			name = MODELS;
@@ -309,6 +312,7 @@
 				2C1573CC1EB0060100B48306 /* MasterTableViewController.swift in Sources */,
 				2C1F5A761EB1528100A68B4B /* DetailViewController.swift in Sources */,
 				2C1573CA1EAFFFEE00B48306 /* MasterTableViewCell.swift in Sources */,
+				2C710A551EB89150007C81AF /* FilmList.swift in Sources */,
 				2C49798D1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift in Sources */,
 				2C1573961EAFFC8C00B48306 /* AppDelegate.swift in Sources */,
 				2C49798F1EB3F8ED000A2E33 /* Film.swift in Sources */,

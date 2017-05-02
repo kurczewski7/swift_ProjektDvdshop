@@ -48,9 +48,12 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
         
         
         let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FavoriteCollectionViewCell
+   
         
-        film.fill(pictureName: obrazki[indexPath.row], titleName: tytuly[indexPath.row], price: cenyFilmow[indexPath.row], type: typyFilmow[indexPath.row], filmDescription: opisyFilmow[indexPath.row], actor: aktorzy[indexPath.row], isLiked: true)
-        let dane = film.giveData(indexPath: indexPath.row)
+        //film.fill(pictureName: obrazki[indexPath.row], titleName: tytuly[indexPath.row], price: cenyFilmow[indexPath.row], type: typyFilmow[indexPath.row], filmDescription: opisyFilmow[indexPath.row], actor: aktorzy[indexPath.row], isLiked: true)
+        
+        //let dane = filmList.film.giveData(row: indexPath.row)
+        let dane = filmList.give(row: indexPath.row)
         
         cell.titleLabel.text = dane.title    //tytuly[indexPath.row]
         cell.typeLabel.text = dane.type

@@ -6,6 +6,7 @@
 //  Copyright © 2017 Slawomir Kurczewski. All rights reserved.
 //
 import UIKit
+var filmList:FilmList = FilmList(filmsName: obrazki, titles: tytuly, actorsList: aktorzy, typeList: typyFilmow, descriptions: opisyFilmow, priceList: cenyFilmow, likedList: polubienia)
 
 class MasterTableViewController: UITableViewController {
     
@@ -30,14 +31,27 @@ class MasterTableViewController: UITableViewController {
         for i in 1...obrazki.count{
             typyFilmow.append((i % 2 == 0) ? TypeOfFilm.sensacja : TypeOfFilm.obyczajowy)
             cenyFilmow.append((i % 2 == 0) ? 22.50 : 35.20)
-            typyFilmow.append(.dlaDzieci)
-            cenyFilmow.append(44.20)
             opisyFilmow.append("Super Film")
             aktorzy.append("Gal anonim")
-            
-            
-            
+            polubienia.append(false)
         }
+        polubienia[0]=true
+        polubienia[2]=true
+        polubienia[5]=true
+        polubienia[8]=true
+        polubienia[14]=true
+        polubienia[21]=true
+        polubienia[35]=true
+
+        
+        print("========")
+        print("typyFilmow\(typyFilmow[0])")
+        print("cenyFilmow\(cenyFilmow[0])")
+        print("opisyFilmow\(opisyFilmow[0])")
+        print("aktorzy\(aktorzy[0])")
+        print("typyFilmow\(typyFilmow)")
+        print("polubienia=\(polubienia)")
+        
         
 
         // Uncomment the following line to preserve selection between presentations

@@ -24,6 +24,9 @@ var typyFilmow: [TypeOfFilm] = []
 var cenyFilmow: [Double] = []
 var opisyFilmow: [String] = []
 var aktorzy: [String] = []
+var polubienia: [Bool] = []
+
+
 
 let obrazki = ["ambassada-dvd-w-iext36127150",
                "anatomia-zla-w-iext41886960",
@@ -248,8 +251,6 @@ let tytuly=["Ambassada",
             "Zjawa",
             "Zwierzeta nocy",
             "Żywioł deepwater horizon"]
-
-
 
 
 
