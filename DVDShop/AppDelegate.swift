@@ -8,6 +8,23 @@
 
 import UIKit
 import CoreData
+
+enum TypeOfFilm {
+    case komedia
+    case horror
+    case sensacja
+    case kostiumowy
+    case wojenny
+    case obyczajowy
+    case dlaDzieci
+    case muzyczny
+}
+
+var typyFilmow: [TypeOfFilm] = []
+var cenyFilmow: [Double] = []
+var opisyFilmow: [String] = []
+var aktorzy: [String] = []
+
 let obrazki = ["ambassada-dvd-w-iext36127150",
                "anatomia-zla-w-iext41886960",
                "angry-birds-film-w-iext46097674",
@@ -231,6 +248,11 @@ let tytuly=["Ambassada",
             "Zjawa",
             "Zwierzeta nocy",
             "Żywioł deepwater horizon"]
+
+
+
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

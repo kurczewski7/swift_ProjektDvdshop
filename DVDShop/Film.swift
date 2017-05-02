@@ -11,21 +11,26 @@ struct Film {
     var filmId = ""
     var title = ""
     var actors = ""
-    var type = ""
+    var type : TypeOfFilm = .obyczajowy
+    var type_str=""
     var description = ""
     var price: Double = 0.0
     var price_str = ""
     var filmImage:UIImage?
     var isLiked = false
     
-    init(filmId: String, title: String, actors: String, type: String, description: String, price: Double, filmImage: UIImage!, isLiked: Bool){
+    init(){
+        
+    }
+    
+    init(filmId: String, title: String, actors: String, type: TypeOfFilm, description: String, price: Double, filmImage: UIImage!, isLiked: Bool){
         self.filmId=filmId
         self.title=title
         self.actors=actors
         self.type=type
         self.description=description
-        self.price_str = String(format: "%6.2f",  price)
         self.price=price
+        self.price_str = String(format: "%6.2f",  price)
         self.filmImage=filmImage
         self.isLiked=isLiked
     }
@@ -33,13 +38,51 @@ struct Film {
         
         self.title=titleName
         self.actors = "Ronald Regan"
-        self.type = "Komedia"
+        self.type = .obyczajowy
         self.description = "Ciekawy film"
         self.price = price
+        self.price_str = String(format: "%6.2f",  price)
         self.filmImage = UIImage(named: pictureName)
         self.isLiked = true
         
+        let index=(pictureName.index(pictureName.endIndex, offsetBy: -8))
+        self.filmId = pictureName.substring(from: index)
         }
+    
+    public mutating func fill(pictureName: String, titleName: String, price: Double, type: TypeOfFilm, filmDescription: String, actor: String, isLiked: Bool ){
+        
+        
+        
+        self.title=titleName
+        self.actors = actor
+        self.type = .obyczajowy
+        self.description = filmDescription
+        self.price = price
+        self.price_str = String(format: "%6.2f",  price)
+        self.filmImage = UIImage(named: pictureName)
+        self.isLiked = isLiked
+        
+        let index=(pictureName.index(pictureName.endIndex, offsetBy: -8))
+        self.filmId = pictureName.substring(from: index)
+    }
+    
+    
+    func giveData( indexPath: Int) -> (filmId: String, title: String, actors: String, type: String, description: String, price: String, filmImage: UIImage, isLiked: Bool){
+        var type_str: String
+        
+        switch type {
+        case .komedia:    type_str = "Komedia"
+        case .horror:     type_str = "Horror"
+        case .sensacja:   type_str = "Sensacja"
+        case .kostiumowy: type_str = "Kostiumowy"
+        case .wojenny:    type_str = "Wojenny"
+        case .obyczajowy: type_str = "obyczajowy"
+        case .dlaDzieci:  type_str = "Dla dzieci"
+        case .muzyczny:   type_str = "Muzyczny"
+        }
+        
+     return (filmId: self.filmId, title: self.title, actors: self.actors, type: type_str, description: self.description, price: price_str, filmImage: self.filmImage!, isLiked: self.isLiked)
+    }
     
     
 }

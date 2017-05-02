@@ -14,16 +14,6 @@ class MasterTableViewController: UITableViewController {
         let types = ["Science ficton","Horror","Komedia romantyczna"]
         let prices = ["22.50","17.99","34.40"]
     
-    enum TypeOfFilm {
-        case komedia
-        case horror
-        case sensacja
-        case kostiumowy
-        case wojenny
-        case obyczajowy
-        case dlaDzieci
-        case muzyczny
-    }
     var film: TypeOfFilm = .horror
     
     let  dvdFilm: (picture: String, title: String, actors: String, type: TypeOfFilm, price: String) = (picture: "obrazek",  title: "tytul",  actors: "Aktorzy", type: .horror, price: "Cena")
@@ -37,6 +27,18 @@ class MasterTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for i in 1...obrazki.count{
+            typyFilmow.append((i % 2 == 0) ? TypeOfFilm.sensacja : TypeOfFilm.obyczajowy)
+            cenyFilmow.append((i % 2 == 0) ? 22.50 : 35.20)
+            typyFilmow.append(.dlaDzieci)
+            cenyFilmow.append(44.20)
+            opisyFilmow.append("Super Film")
+            aktorzy.append("Gal anonim")
+            
+            
+            
+        }
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

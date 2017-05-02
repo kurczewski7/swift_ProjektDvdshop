@@ -10,6 +10,8 @@ import UIKit
 
 class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
     
+    var film: Film = Film()
+    
     @IBOutlet var collectionView: UICollectionView!
     
 
@@ -43,13 +45,19 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
         return 5
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        
         let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FavoriteCollectionViewCell
-        cell.titleLabel.text=tytuly[indexPath.row]
-        cell.typeLabel.text="bbbb"
-        cell.priceLabel.text="22.50"
+        
+        film.fill(pictureName: obrazki[indexPath.row], titleName: tytuly[indexPath.row], price: cenyFilmow[indexPath.row], type: typyFilmow[indexPath.row], filmDescription: opisyFilmow[indexPath.row], actor: aktorzy[indexPath.row], isLiked: true)
+        let dane = film.giveData(indexPath: indexPath.row)
+        
+        cell.titleLabel.text = dane.title    //tytuly[indexPath.row]
+        cell.typeLabel.text = dane.type
+        cell.priceLabel.text = dane.price
       
-        cell.imageView.image = UIImage(named: obrazki[indexPath.row])
-        cell.isLiked=true
+        cell.imageView.image = dane.filmImage          //UIImage(named: obrazki[indexPath.row])
+        cell.isLiked=dane.isLiked
         return cell
     }
 
