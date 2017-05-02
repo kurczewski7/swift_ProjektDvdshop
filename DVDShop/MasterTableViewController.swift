@@ -38,8 +38,9 @@ class MasterTableViewController: UITableViewController {
         polubienia[14]=true
         polubienia[21]=true
         polubienia[35]=true
-        polubienia[8]=true
-        polubienia[102]=true
+        polubienia[45]=true
+        polubienia[82]=true
+        polubienia[97]=true
         polubienia[109]=true
         
         

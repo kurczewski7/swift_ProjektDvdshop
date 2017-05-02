@@ -370,7 +370,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2d-UD-Bkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2460" y="930.58470764617698"/>
+            <point key="canvasLocation" x="3399.1999999999998" y="930.58470764617698"/>
         </scene>
         <!--Filtr View Controller-->
         <scene sceneID="XCO-Oj-rzx">
@@ -389,7 +389,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kv-OU-uQm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4560.8000000000002" y="935.98200899550227"/>
+            <point key="canvasLocation" x="5500" y="935.98200899550227"/>
         </scene>
         <!--Wybrane-->
         <scene sceneID="SVH-UY-PdK">
@@ -408,11 +408,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J44-8P-a08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1712.8" y="930.58470764617698"/>
+            <point key="canvasLocation" x="2652" y="930.58470764617698"/>
         </scene>
         <!--Płatności-->
         <scene sceneID="KYf-7f-OND">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2km-Cd-CUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nQU-1F-0W3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Płatności" image="Shopping" id="aqi-BE-3Bc"/>
                     <toolbarItems/>
@@ -422,35 +423,64 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ySp-BM-LJx" kind="relationship" relationship="rootViewController" id="LgM-gl-Qm0"/>
+                        <segue destination="ySp-BM-LJx" kind="relationship" relationship="rootViewController" id="ipf-HF-0iy"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2km-Cd-CUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-138.40000000000001" y="908.9955022488756"/>
         </scene>
-        <!--Płatności-->
+        <!--Płatność za-->
         <scene sceneID="RMa-vf-BtK">
             <objects>
-                <collectionViewController id="ySp-BM-LJx" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pMx-rL-2Sb">
+                <collectionViewController id="ySp-BM-LJx" customClass="PaymentCollectionViewController" customModule="DVDShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pMx-rL-2Sb" userLabel="Platnosci Collection View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cvv-xo-Iml">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="90" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="DWM-tI-dcJ">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="DWM-tI-dcJ" customClass="PaymentCollectionViewCell" customModule="DVDShop" customModuleProvider="target">
+                                <rect key="frame" x="10" y="0.0" width="90" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oy6-O4-rBJ">
+                                            <rect key="frame" x="5" y="0.0" width="80" height="115"/>
+                                            <color key="backgroundColor" red="0.33333333329999998" green="0.72549019609999998" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV6-1B-cNV">
+                                            <rect key="frame" x="0.0" y="115" width="80" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="M5e-1q-dDW"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="DV6-1B-cNV" secondAttribute="bottom" id="D4w-8a-RyF"/>
+                                    <constraint firstItem="DV6-1B-cNV" firstAttribute="top" secondItem="Oy6-O4-rBJ" secondAttribute="bottom" id="LAA-Jf-yrW"/>
+                                    <constraint firstItem="Oy6-O4-rBJ" firstAttribute="leading" secondItem="DWM-tI-dcJ" secondAttribute="leading" constant="5" id="LXl-YS-yN7"/>
+                                    <constraint firstAttribute="trailing" secondItem="Oy6-O4-rBJ" secondAttribute="trailing" constant="5" id="MCN-2L-dXT"/>
+                                    <constraint firstAttribute="trailing" secondItem="DV6-1B-cNV" secondAttribute="trailing" constant="10" id="fQH-sy-ILS"/>
+                                    <constraint firstItem="Oy6-O4-rBJ" firstAttribute="top" secondItem="DWM-tI-dcJ" secondAttribute="top" id="kga-cZ-tR0"/>
+                                    <constraint firstItem="DV6-1B-cNV" firstAttribute="leading" secondItem="DWM-tI-dcJ" secondAttribute="leading" id="zhy-E7-9gO"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="filmImageView" destination="Oy6-O4-rBJ" id="SLs-ee-Lwl"/>
+                                    <outlet property="priceLabel" destination="DV6-1B-cNV" id="GvU-Fk-hxA"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -458,11 +488,11 @@
                             <outlet property="delegate" destination="ySp-BM-LJx" id="H39-e0-rCn"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Płatności" id="Rbl-4W-m4b"/>
+                    <navigationItem key="navigationItem" title="Płatność za" id="Rbl-4W-m4b"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VgJ-qt-R5L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="719" y="925"/>
+            <point key="canvasLocation" x="816.79999999999995" y="908.9955022488756"/>
         </scene>
         <!--Filtr-->
         <scene sceneID="bxd-R6-WtG">
@@ -481,7 +511,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7m-Xb-6I1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3621.5999999999999" y="935.98200899550227"/>
+            <point key="canvasLocation" x="4560.8000000000002" y="935.98200899550227"/>
         </scene>
     </scenes>
     <resources>
