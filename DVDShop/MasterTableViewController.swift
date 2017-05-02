@@ -103,21 +103,12 @@ class MasterTableViewController: UITableViewController {
      
         
         let dane = filmList.give(row: indexPath.row)
-//        
-//        cell.titleLabel.text = dane.title
-//        cell.typeLabel.text = dane.type
-//        cell.priceLabel.text = dane.price
-//        
-//        cell.imageView.image = dane.filmImage
-//        cell.isLiked=dane.isLiked
-
         
-        
-        cell.DVDImage.image = dane.filmImage //UIImage(named: obrazki[indexPath.row])
-        cell.titleLabel.text = dane.title    // tytuly[indexPath.row]
-        cell.actorsLabel.text = dane.actors  // actors[indexPath.row % 3]
-        cell.typLabel.text = dane.type       //types[indexPath.row % 3]
-        cell.priceLabel.text = dane.price    //prices[indexPath.row % 3]
+        cell.DVDImage.image = dane.filmImage
+        cell.titleLabel.text = dane.title
+        cell.actorsLabel.text = dane.actors
+        cell.typLabel.text = dane.type
+        cell.priceLabel.text = dane.price    
         
         
         if dane.isLiked==true {
