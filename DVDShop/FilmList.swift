@@ -41,8 +41,12 @@ struct FilmList {
       
         return film.giveCurrentData()
     }
+        func giveIcon(row: Int) -> (name: String, price: Double, isFeatured: Bool) {
+            return (name: filmsName[row], price: priceList[row], isFeatured: true)
+    }
+
 
     
-        
+    
 }
 

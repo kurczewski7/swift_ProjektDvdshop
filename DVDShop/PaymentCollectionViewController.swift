@@ -19,7 +19,9 @@ class PaymentCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        // wykasowane
+        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -58,27 +60,15 @@ class PaymentCollectionViewController: UICollectionViewController {
         // Configure the cell
         
         let dane = filmList.give(row: listaUlubionych[indexPath.row])
-        cell.filmImageView.image = dane.filmImage        // UIImage(named:  obrazki[indexPath.row])
-        cell.priceLabel.text =  dane.price           //"17.77"
+        cell.filmImageView.image = dane.filmImage
+        cell.priceLabel.text =  dane.price
+        
+        if indexPath.row==1 || indexPath.row==5 {
+            cell.backgroundColor=UIColor.red
+        }
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        let dane = filmList.give(row: listaUlubionych[indexPath.row])
-//        
-//        cell.titleLabel.text = dane.title
-//        cell.typeLabel.text = dane.type
-//        cell.priceLabel.text = dane.price
-//        
-//        cell.imageView.image = dane.filmImage
+    
 //        cell.isLiked=dane.isLiked
 
     

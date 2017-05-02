@@ -28,6 +28,9 @@ var polubienia: [Bool] = []
 
 var listaUlubionych: [Int] = []
 
+var zestawIcon: [Icon] = []
+//var daneTmp: (filmId: String, title: String, actors: String, type: TypeOfFilm, description: String, price: String, filmImage: UIImage, isLiked: Bool)
+// = ("", "")
 
 
 let obrazki = ["ambassada-dvd-w-iext36127150",

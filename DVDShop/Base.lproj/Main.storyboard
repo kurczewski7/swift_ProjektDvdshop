@@ -488,11 +488,44 @@
                             <outlet property="delegate" destination="ySp-BM-LJx" id="H39-e0-rCn"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Płatność za" id="Rbl-4W-m4b"/>
+                    <navigationItem key="navigationItem" title="Płatność za" id="Rbl-4W-m4b">
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="5bx-VW-tM1">
+                            <connections>
+                                <segue destination="Jw3-qJ-yUg" kind="show" id="rVe-Tv-WEV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VgJ-qt-R5L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="816.79999999999995" y="908.9955022488756"/>
+        </scene>
+        <!--Oblicz View Controller-->
+        <scene sceneID="Wqw-Y1-mqI">
+            <objects>
+                <viewController id="Jw3-qJ-yUg" userLabel="Oblicz View Controller" customClass="ObliczViewController" customModule="DVDShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n9x-NL-GGQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Msi-nL-7Qm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qch-db-XxZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="naleznosc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmt-bI-c1V">
+                                <rect key="frame" x="148" y="82" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4VT-As-fYo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="909"/>
         </scene>
         <!--Filtr-->
         <scene sceneID="bxd-R6-WtG">

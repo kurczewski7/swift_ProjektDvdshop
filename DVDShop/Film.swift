@@ -17,6 +17,7 @@ struct Film {
     var price: Double = 0.0
     var price_str = ""
     var filmImage:UIImage?
+    var pictureName=""
     var isLiked = false
     
     init(){
@@ -43,6 +44,7 @@ struct Film {
         self.price = price
         self.price_str = String(format: "%6.2f",  price)
         self.filmImage = UIImage(named: pictureName)
+        self.pictureName=pictureName
         self.isLiked = true
         
         let index=(pictureName.index(pictureName.endIndex, offsetBy: -8))
@@ -58,6 +60,7 @@ struct Film {
         self.price = price
         self.price_str = String(format: "%6.2f",  price)
         self.filmImage =  UIImage(named: pictureName)
+        self.pictureName=pictureName
         self.isLiked = isLiked
         
         let index=(pictureName.index(pictureName.endIndex, offsetBy: -8))
@@ -89,7 +92,6 @@ struct Film {
         print("-")
         
      return (filmId: self.filmId, title: self.title, actors: self.actors, type: type_str, description: self.description, price: price_str, filmImage: self.filmImage!, isLiked: self.isLiked)
-    }
-    
+    }    
     
 }

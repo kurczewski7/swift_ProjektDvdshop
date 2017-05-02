@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2C147E831EB91AE900E0E92A /* PaymentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C147E821EB91AE900E0E92A /* PaymentCollectionViewCell.swift */; };
 		2C147E851EB91B8D00E0E92A /* PaymentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C147E841EB91B8D00E0E92A /* PaymentCollectionViewController.swift */; };
+		2C147E871EB930D200E0E92A /* ObliczViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C147E861EB930D200E0E92A /* ObliczViewController.swift */; };
+		2C147E891EB93AE800E0E92A /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C147E881EB93AE800E0E92A /* Icon.swift */; };
 		2C1573961EAFFC8C00B48306 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1573951EAFFC8C00B48306 /* AppDelegate.swift */; };
 		2C15739B1EAFFC8C00B48306 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1573991EAFFC8C00B48306 /* Main.storyboard */; };
 		2C15739E1EAFFC8C00B48306 /* DVDShop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C15739C1EAFFC8C00B48306 /* DVDShop.xcdatamodeld */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		2C147E821EB91AE900E0E92A /* PaymentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C147E841EB91B8D00E0E92A /* PaymentCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentCollectionViewController.swift; sourceTree = "<group>"; };
+		2C147E861EB930D200E0E92A /* ObliczViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObliczViewController.swift; sourceTree = "<group>"; };
+		2C147E881EB93AE800E0E92A /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		2C1573921EAFFC8C00B48306 /* DVDShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DVDShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C1573951EAFFC8C00B48306 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C15739A1EAFFC8C00B48306 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 			children = (
 				2C49798E1EB3F8ED000A2E33 /* Film.swift */,
 				2C710A541EB89150007C81AF /* FilmList.swift */,
+				2C147E881EB93AE800E0E92A /* Icon.swift */,
 				2C15739C1EAFFC8C00B48306 /* DVDShop.xcdatamodeld */,
 			);
 			name = MODELS;
@@ -157,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				2C1573991EAFFC8C00B48306 /* Main.storyboard */,
+				2C147E861EB930D200E0E92A /* ObliczViewController.swift */,
 			);
 			name = VIEWS;
 			sourceTree = "<group>";
@@ -320,7 +326,9 @@
 				2C1F5A761EB1528100A68B4B /* DetailViewController.swift in Sources */,
 				2C1573CA1EAFFFEE00B48306 /* MasterTableViewCell.swift in Sources */,
 				2C710A551EB89150007C81AF /* FilmList.swift in Sources */,
+				2C147E871EB930D200E0E92A /* ObliczViewController.swift in Sources */,
 				2C49798D1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift in Sources */,
+				2C147E891EB93AE800E0E92A /* Icon.swift in Sources */,
 				2C147E831EB91AE900E0E92A /* PaymentCollectionViewCell.swift in Sources */,
 				2C1573961EAFFC8C00B48306 /* AppDelegate.swift in Sources */,
 				2C49798F1EB3F8ED000A2E33 /* Film.swift in Sources */,

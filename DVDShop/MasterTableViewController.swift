@@ -53,6 +53,13 @@ class MasterTableViewController: UITableViewController {
                 print("element\(i)")
             }
         }
+        
+        for i in 0..<polubienia.count {
+           zestawIcon.append(Icon(name: filmList.giveIcon(row: i).name, price: filmList.giveIcon(row: i).price, isFeatured: true))
+            print("zestawIcon name\(i)  \(zestawIcon[i].name)")
+            print("zestawIcon price\(i)  \(zestawIcon[i].price)")
+        }
+
 
         
         print("========")
@@ -65,6 +72,7 @@ class MasterTableViewController: UITableViewController {
     
     
     }
+    
     
     
     override func viewDidLoad() {
