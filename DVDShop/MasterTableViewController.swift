@@ -23,11 +23,7 @@ class MasterTableViewController: UITableViewController {
     var myDvd = ("aaa", "bbb", "cccc", TypeOfFilm.komedia)
     //let(panstwo,stolica)=stolicePanstw[IndexPath.item]
     
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func readSampleData() {
         for i in 1...obrazki.count{
             typyFilmow.append((i % 2 == 0) ? TypeOfFilm.sensacja : TypeOfFilm.obyczajowy)
             cenyFilmow.append((i % 2 == 0) ? 22.50 : 35.20)
@@ -35,13 +31,27 @@ class MasterTableViewController: UITableViewController {
             aktorzy.append("Gal anonim")
             polubienia.append(false)
         }
-        polubienia[0]=true
+        polubienia[1]=true
         polubienia[2]=true
         polubienia[5]=true
         polubienia[8]=true
         polubienia[14]=true
         polubienia[21]=true
         polubienia[35]=true
+        polubienia[8]=true
+        polubienia[102]=true
+        polubienia[109]=true
+        
+        
+
+        
+        print("=======polubienia========")
+        for i in 0..<polubienia.count {
+            if(polubienia[i]){
+                listaUlubionych.append(i)
+                print("element\(i)")
+            }
+        }
 
         
         print("========")
@@ -51,7 +61,14 @@ class MasterTableViewController: UITableViewController {
         print("aktorzy\(aktorzy[0])")
         print("typyFilmow\(typyFilmow)")
         print("polubienia=\(polubienia)")
-        
+    
+    
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        readSampleData()
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -83,14 +100,27 @@ class MasterTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MasterTableViewCell
 
         // Configure the cell...
-        //cell.detailTextLabel?.text = "aaa"
+     
         
-        cell.DVDImage.image=UIImage(named: obrazki[indexPath.row])
-        cell.titleLabel.text = tytuly[indexPath.row]
-        cell.actorsLabel.text = actors[indexPath.row % 3]
-        cell.typLabel.text = types[indexPath.row % 3]
-        cell.priceLabel.text = prices[indexPath.row % 3]
-        if indexPath.row % 3 == 2 {
+        let dane = filmList.give(row: indexPath.row)
+//        
+//        cell.titleLabel.text = dane.title
+//        cell.typeLabel.text = dane.type
+//        cell.priceLabel.text = dane.price
+//        
+//        cell.imageView.image = dane.filmImage
+//        cell.isLiked=dane.isLiked
+
+        
+        
+        cell.DVDImage.image = dane.filmImage //UIImage(named: obrazki[indexPath.row])
+        cell.titleLabel.text = dane.title    // tytuly[indexPath.row]
+        cell.actorsLabel.text = dane.actors  // actors[indexPath.row % 3]
+        cell.typLabel.text = dane.type       //types[indexPath.row % 3]
+        cell.priceLabel.text = dane.price    //prices[indexPath.row % 3]
+        
+        
+        if dane.isLiked==true {
             cell.backgroundColor=UIColor.green
         }
         else

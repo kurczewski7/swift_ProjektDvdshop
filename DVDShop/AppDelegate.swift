@@ -26,6 +26,8 @@ var opisyFilmow: [String] = []
 var aktorzy: [String] = []
 var polubienia: [Bool] = []
 
+var listaUlubionych: [Int] = []
+
 
 
 let obrazki = ["ambassada-dvd-w-iext36127150",

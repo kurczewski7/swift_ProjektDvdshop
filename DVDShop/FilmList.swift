@@ -36,8 +36,8 @@ struct FilmList {
         
         print("row=\(row)")
         
-//         film.fill(pictureName: filmsName[row], titleName: titles[row], price: priceList[row], type: typeList[row], filmDescription: descriptions[row], actor: actorsList[row], isLiked: likedList[row])
-        self.film.fill(pictureName: filmsName[row], titleName: titles[row], price: priceList[row], type: .muzyczny, filmDescription: "Beznadziejny", actor: "Bruce", isLiked: false)
+         film.fill(pictureName: filmsName[row], titleName: titles[row], price: priceList[row], type: typeList[row], filmDescription: descriptions[row], actor: actorsList[row], isLiked: likedList[row])
+        //self.film.fill(pictureName: filmsName[row], titleName: titles[row], price: priceList[row], type: .muzyczny, filmDescription: "Beznadziejny", actor: "Bruce", isLiked: false)
       
         return film.giveCurrentData()
     }

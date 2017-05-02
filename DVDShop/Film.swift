@@ -85,7 +85,8 @@ struct Film {
         print("type=\(type)")
         print("description=\(description)")
         print("price=\(price)")
-        print("filmId=\(filmId)")
+        print(isLiked ? "isLiked=true": "isLiked=false")
+        print("-")
         
      return (filmId: self.filmId, title: self.title, actors: self.actors, type: type_str, description: self.description, price: price_str, filmImage: self.filmImage!, isLiked: self.isLiked)
     }
