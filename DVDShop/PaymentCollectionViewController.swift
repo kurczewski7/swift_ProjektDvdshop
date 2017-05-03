@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//  € $
 
 private let reuseIdentifier = "Cell"
 
@@ -16,10 +17,10 @@ class PaymentCollectionViewController: UICollectionViewController {
     
     @IBOutlet var trashButton: UIBarButtonItem!
     
-    
     // MARK: Action metod
     @IBAction func trashButtonTapped(sender: AnyObject) {
         print("trashEnabled=\(trashEnabled)")
+        printIcon()
         if trashEnabled {
             print("&&&&&")
             if selectedIcons.count  > 0
@@ -41,6 +42,7 @@ class PaymentCollectionViewController: UICollectionViewController {
             
                     }
                 }
+                collectionView?.reloadData()
             }
         }
         else
@@ -51,49 +53,22 @@ class PaymentCollectionViewController: UICollectionViewController {
             trashButton.style=UIBarButtonItemStyle.done
         }
     }
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Sprawdza czy tryb trash jest włączony inaczej kończy metodę
-        guard trashEnabled else {
-            return
-        }
-        // okrela wybraną metodę użyeaną w indexPath
-        let selectedIcon=zestawIcon[indexPath.row]
-        
-        // dodaje ikonę do tablicy wybranych
-        selectedIcons.append(selectedIcon)
-        
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        // sprawdza czy tryb kosza jest dostępny, jeli nie kończy metodę
-        guard trashEnabled else {
-            return
-        }
-        let deSelectedIcon=zestawIcon[indexPath.row]
-        // szuka indeksu odznaczonej ikony
-        if let index=selectedIcons.index(where: {$0.name == deSelectedIcon.name}){
-            selectedIcons.remove(at: index)
-        }
-    }
     
     override func viewDidLoad() {
-    
         super.viewDidLoad()
-        
-        
         
         print("===============")
         print("polubienia.count \(polubienia.count)")
         zestawIcon.removeAll(keepingCapacity: false)
                 for i in 0..<polubienia.count {
                     if polubienia[i] == true {
-                        zestawIcon.append(Icon(name: filmList.giveIcon(row: i).name, price: filmList.giveIcon(row: i).price, isFeatured: (i % 3  == 0) ? true: false ))
-                }
+                        zestawIcon.append(Icon(name: filmList.giveIcon(row: i).name, price: filmList.giveIcon(row: i).price,  isFeatured: true))
             }
         print("zestawIcon.count \(zestawIcon.count)")
         for i in 0..<zestawIcon.count{
              print("zestawIcon name\(i)  \(zestawIcon[i].name)")
              print("zestawIcon price\(i)  \(zestawIcon[i].price)")
+             print("zestawIcon isFeatured\(i)  \(zestawIcon[i].isFeatured)")
             }
 
         // Uncomment the following line to preserve selection between presentations
@@ -105,9 +80,38 @@ class PaymentCollectionViewController: UICollectionViewController {
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+        }
     }
+    
+     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Sprawdza czy tryb trash jest włączony inaczej kończy metodę
+        guard trashEnabled else {
+            return
+        }
+        // okrela wybraną metodę użyeaną w indexPath
+        let selectedIcon=zestawIcon[indexPath.row]
+        
+        // dodaje ikonę do tablicy wybranych
+        selectedIcons.append(selectedIcon)
+        zestawIcon[indexPath.row].isFeatured=false
+        
+    }
+    
+     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        // sprawdza czy tryb kosza jest dostępny, jeli nie kończy metodę
+        guard trashEnabled else {
+            return
+        }
+        let deSelectedIcon=zestawIcon[indexPath.row]
+        // szuka indeksu odznaczonej ikony
+        if let index=selectedIcons.index(where: {$0.name == deSelectedIcon.name}){
+            selectedIcons.remove(at: index)
+            zestawIcon[indexPath.row].isFeatured=true
+        }
+    }
+    
 
-    override func didReceiveMemoryWarning() {
+     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -144,25 +148,21 @@ class PaymentCollectionViewController: UICollectionViewController {
         
         let icon=zestawIcon[indexPath.row]
         let price_str = String(format: "%6.2f", icon.price)
-        
         cell.filmImageView.image = UIImage(named: icon.name)
         cell.priceLabel.text = "\(price_str) zł"
         
         // cell.backgroundView=(icon.isFeatured) ? UIImageView(image: UIImage(named: "feature-bg")) : nil
+        if !icon.isFeatured {            cell.backgroundColor=UIColor.red        }
+        else  { cell.backgroundColor = nil }
+        
         cell.selectedBackgroundView=UIImageView(image: UIImage(named: "icon-selected"))
-        
-        
-//        if icon.isFeatured {
-//            cell.backgroundColor=UIColor.red
-//        }
-    
-        
-//dane.price
-//dane.filmImage
-//        cell.isLiked=dane.isLiked
-
     
         return cell
+    }
+    
+    func printIcon()
+    {
+    print("Icon=\(zestawIcon[0].isFeatured),\(zestawIcon[1].isFeatured),\(zestawIcon[2].isFeatured),\(zestawIcon[3].isFeatured),\(zestawIcon[4].isFeatured),\(zestawIcon[5].isFeatured),\(zestawIcon[6].isFeatured),\(zestawIcon[7].isFeatured),\(zestawIcon[8].isFeatured)")
     }
 
     // MARK: UICollectionViewDelegate
@@ -195,5 +195,8 @@ class PaymentCollectionViewController: UICollectionViewController {
     
     }
     */
+    @IBAction  func unwindBeck(segue: UIStoryboardSegue) {
+        
+    }
 
 }

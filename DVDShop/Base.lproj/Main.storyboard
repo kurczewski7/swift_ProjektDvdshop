@@ -523,28 +523,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmt-bI-c1V">
-                                <rect key="frame" x="148" y="82" width="78" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmt-bI-c1V">
+                                <rect key="frame" x="36" y="84" width="303" height="17"/>
                                 <attributedString key="attributedText">
                                     <fragment content="naleznosc">
                                         <attributes>
                                             <font key="NSFont" size="17" name="Courier"/>
                                             <font key="NSOriginalFont" size="17" name="Courier"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             <integer key="NSStrikethrough" value="1"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zxz-wF-5zL">
+                                <rect key="frame" x="36" y="124" width="303" height="29"/>
+                                <segments>
+                                    <segment title="Złoty"/>
+                                    <segment title="USD"/>
+                                    <segment title="Euro"/>
+                                </segments>
+                                <connections>
+                                    <action selector="zmianaWalutySegment:" destination="Jw3-qJ-yUg" eventType="valueChanged" id="GOb-9M-o9a"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waluta $ €" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LI-Bs-ZPI">
+                                <rect key="frame" x="36" y="182" width="303" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kurs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3PH-en-QEJ">
+                                <rect key="frame" x="36" y="231.5" width="303" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="jmt-bI-c1V" secondAttribute="trailing" constant="20" id="1Sa-md-nIK"/>
+                            <constraint firstItem="7LI-Bs-ZPI" firstAttribute="top" secondItem="zxz-wF-5zL" secondAttribute="bottom" constant="30" id="2Qi-oR-obh"/>
+                            <constraint firstItem="zxz-wF-5zL" firstAttribute="leading" secondItem="jmt-bI-c1V" secondAttribute="leading" id="4ch-W8-tUt"/>
+                            <constraint firstItem="jmt-bI-c1V" firstAttribute="leading" secondItem="qch-db-XxZ" secondAttribute="leadingMargin" constant="20" id="GsK-I7-mYq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3PH-en-QEJ" secondAttribute="trailing" constant="20" id="WEn-19-azX"/>
+                            <constraint firstItem="zxz-wF-5zL" firstAttribute="trailing" secondItem="jmt-bI-c1V" secondAttribute="trailing" id="ZbO-NY-WaT"/>
+                            <constraint firstItem="zxz-wF-5zL" firstAttribute="top" secondItem="jmt-bI-c1V" secondAttribute="bottom" constant="23" id="bKh-00-9NI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7LI-Bs-ZPI" secondAttribute="trailing" constant="20" id="cjW-LT-z6t"/>
+                            <constraint firstItem="7LI-Bs-ZPI" firstAttribute="leading" secondItem="qch-db-XxZ" secondAttribute="leadingMargin" constant="20" id="enZ-Zd-SbO"/>
+                            <constraint firstItem="jmt-bI-c1V" firstAttribute="top" secondItem="n9x-NL-GGQ" secondAttribute="bottom" constant="20" id="mCD-3H-DUD"/>
+                            <constraint firstItem="3PH-en-QEJ" firstAttribute="leading" secondItem="qch-db-XxZ" secondAttribute="leadingMargin" constant="20" id="wgu-cl-GQj"/>
+                            <constraint firstItem="3PH-en-QEJ" firstAttribute="top" secondItem="7LI-Bs-ZPI" secondAttribute="bottom" constant="30" id="zNC-z6-gtA"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Rachunek" id="97M-cU-SVm">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="rewind" id="XsH-uN-TC9">
+                            <connections>
+                                <segue destination="94E-gx-2YC" kind="unwind" unwindAction="unwindBeckWithSegue:" id="B7K-VR-Pie"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="kursLabel" destination="3PH-en-QEJ" id="fJs-UU-vcz"/>
+                        <outlet property="naleznoscLabel" destination="jmt-bI-c1V" id="9Yb-D3-jbN"/>
+                        <outlet property="walutySegment" destination="zxz-wF-5zL" id="AW8-yv-Vdx"/>
+                        <outlet property="wartoscWalucieLabel" destination="7LI-Bs-ZPI" id="eVy-rt-P1O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4VT-As-fYo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="94E-gx-2YC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1609" y="909"/>
+            <point key="canvasLocation" x="1608.8" y="908.9955022488756"/>
         </scene>
         <!--Filtr-->
         <scene sceneID="bxd-R6-WtG">

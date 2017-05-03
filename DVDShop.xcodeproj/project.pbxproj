@@ -162,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				2C1573991EAFFC8C00B48306 /* Main.storyboard */,
-				2C147E861EB930D200E0E92A /* ObliczViewController.swift */,
 			);
 			name = VIEWS;
 			sourceTree = "<group>";
@@ -178,6 +177,7 @@
 				2C49798C1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift */,
 				2C147E841EB91B8D00E0E92A /* PaymentCollectionViewController.swift */,
 				2C147E821EB91AE900E0E92A /* PaymentCollectionViewCell.swift */,
+				2C147E861EB930D200E0E92A /* ObliczViewController.swift */,
 			);
 			name = CONTROLERS;
 			sourceTree = "<group>";
