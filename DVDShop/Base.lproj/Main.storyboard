@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -413,7 +414,6 @@
         <!--Płatności-->
         <scene sceneID="KYf-7f-OND">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2km-Cd-CUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nQU-1F-0W3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Płatności" image="Shopping" id="aqi-BE-3Bc"/>
                     <toolbarItems/>
@@ -426,6 +426,7 @@
                         <segue destination="ySp-BM-LJx" kind="relationship" relationship="rootViewController" id="ipf-HF-0iy"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2km-Cd-CUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-138.40000000000001" y="908.9955022488756"/>
         </scene>
@@ -489,12 +490,22 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Płatność za" id="Rbl-4W-m4b">
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="5bx-VW-tM1">
-                            <connections>
-                                <segue destination="Jw3-qJ-yUg" kind="show" id="rVe-Tv-WEV"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="organize" id="5bx-VW-tM1">
+                                <connections>
+                                    <segue destination="Jw3-qJ-yUg" kind="show" id="rVe-Tv-WEV"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="done" systemItem="trash" id="MCk-UU-D9F">
+                                <connections>
+                                    <action selector="trashButtonTapped:" destination="ySp-BM-LJx" id="zea-F3-MhC"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="trashButton" destination="MCk-UU-D9F" id="LUn-Xp-ukB"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VgJ-qt-R5L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

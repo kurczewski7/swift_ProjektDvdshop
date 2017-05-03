@@ -11,24 +11,29 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class PaymentCollectionViewController: UICollectionViewController {
-
+    @IBOutlet var trashButton: UIBarButtonItem!
+    @IBAction func trashButtonTapped(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
+    
         super.viewDidLoad()
+        
+        
         
         print("===============")
         print("polubienia.count \(polubienia.count)")
         zestawIcon.removeAll(keepingCapacity: false)
                 for i in 0..<polubienia.count {
                     if polubienia[i] == true {
-                   zestawIcon.append(Icon(name: filmList.giveIcon(row: i).name, price: filmList.giveIcon(row: i).price, isFeatured: true))
+                        zestawIcon.append(Icon(name: filmList.giveIcon(row: i).name, price: filmList.giveIcon(row: i).price, isFeatured: (i % 3  == 0) ? true: false ))
                 }
             }
         print("zestawIcon.count \(zestawIcon.count)")
         for i in 0..<zestawIcon.count{
              print("zestawIcon name\(i)  \(zestawIcon[i].name)")
              print("zestawIcon price\(i)  \(zestawIcon[i].price)")
-        }
-
+            }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -82,9 +87,10 @@ class PaymentCollectionViewController: UICollectionViewController {
         cell.filmImageView.image = UIImage(named: icon.name)       //dane.filmImage
         cell.priceLabel.text = "\(price_str) zł"          //dane.price
         
-        if indexPath.row==1 || indexPath.row==5 {
+        if icon.isFeatured {
             cell.backgroundColor=UIColor.red
         }
+    
         
         
     
