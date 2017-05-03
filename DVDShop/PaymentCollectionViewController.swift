@@ -11,8 +11,69 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class PaymentCollectionViewController: UICollectionViewController {
+    private var trashEnabled=false
+    private var selectedIcons: [Icon]=[]
+    
     @IBOutlet var trashButton: UIBarButtonItem!
-    @IBAction func trashButtonTapped(_ sender: Any) {
+    
+    
+    // MARK: Action metod
+    @IBAction func trashButtonTapped(sender: AnyObject) {
+        print("trashEnabled=\(trashEnabled)")
+        if trashEnabled {
+            print("&&&&&")
+            if selectedIcons.count  > 0
+            {
+            print("selectedIcons.count=\(selectedIcons.count)" )
+            // Deselect all selected items
+            if let indexPaths=collectionView?.indexPathsForSelectedItems {
+                for indexPath in indexPaths {
+                    collectionView?.deselectItem(at: indexPath, animated: false)
+                    
+                    // Remowe all items for selectedIcons array
+                    selectedIcons.removeAll(keepingCapacity: true)
+                        
+                    // change the trash mode to NO
+                    trashEnabled=false
+                    collectionView?.allowsMultipleSelection=false
+                    trashButton.title = "Odznacz"
+                    trashButton.style=UIBarButtonItemStyle.plain
+            
+                    }
+                }
+            }
+        }
+        else
+        {
+            trashEnabled=true
+            collectionView?.allowsMultipleSelection=true
+            trashButton.title="Usuń"
+            trashButton.style=UIBarButtonItemStyle.done
+        }
+    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Sprawdza czy tryb trash jest włączony inaczej kończy metodę
+        guard trashEnabled else {
+            return
+        }
+        // okrela wybraną metodę użyeaną w indexPath
+        let selectedIcon=zestawIcon[indexPath.row]
+        
+        // dodaje ikonę do tablicy wybranych
+        selectedIcons.append(selectedIcon)
+        
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        // sprawdza czy tryb kosza jest dostępny, jeli nie kończy metodę
+        guard trashEnabled else {
+            return
+        }
+        let deSelectedIcon=zestawIcon[indexPath.row]
+        // szuka indeksu odznaczonej ikony
+        if let index=selectedIcons.index(where: {$0.name == deSelectedIcon.name}){
+            selectedIcons.remove(at: index)
+        }
     }
     
     override func viewDidLoad() {
@@ -84,16 +145,20 @@ class PaymentCollectionViewController: UICollectionViewController {
         let icon=zestawIcon[indexPath.row]
         let price_str = String(format: "%6.2f", icon.price)
         
-        cell.filmImageView.image = UIImage(named: icon.name)       //dane.filmImage
-        cell.priceLabel.text = "\(price_str) zł"          //dane.price
+        cell.filmImageView.image = UIImage(named: icon.name)
+        cell.priceLabel.text = "\(price_str) zł"
         
-        if icon.isFeatured {
-            cell.backgroundColor=UIColor.red
-        }
+        // cell.backgroundView=(icon.isFeatured) ? UIImageView(image: UIImage(named: "feature-bg")) : nil
+        cell.selectedBackgroundView=UIImageView(image: UIImage(named: "icon-selected"))
+        
+        
+//        if icon.isFeatured {
+//            cell.backgroundColor=UIColor.red
+//        }
     
         
-        
-    
+//dane.price
+//dane.filmImage
 //        cell.isLiked=dane.isLiked
 
     

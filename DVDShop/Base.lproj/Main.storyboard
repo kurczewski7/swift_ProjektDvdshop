@@ -496,9 +496,9 @@
                                     <segue destination="Jw3-qJ-yUg" kind="show" id="rVe-Tv-WEV"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem style="done" systemItem="trash" id="MCk-UU-D9F">
+                            <barButtonItem title="Odznacz" style="done" id="MCk-UU-D9F">
                                 <connections>
-                                    <action selector="trashButtonTapped:" destination="ySp-BM-LJx" id="zea-F3-MhC"/>
+                                    <action selector="trashButtonTappedWithSender:" destination="ySp-BM-LJx" id="Mdu-by-CJI"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
