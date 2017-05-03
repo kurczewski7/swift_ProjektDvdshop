@@ -14,6 +14,21 @@ class PaymentCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("===============")
+        print("polubienia.count \(polubienia.count)")
+        zestawIcon.removeAll(keepingCapacity: false)
+                for i in 0..<polubienia.count {
+                    if polubienia[i] == true {
+                   zestawIcon.append(Icon(name: filmList.giveIcon(row: i).name, price: filmList.giveIcon(row: i).price, isFeatured: true))
+                }
+            }
+        print("zestawIcon.count \(zestawIcon.count)")
+        for i in 0..<zestawIcon.count{
+             print("zestawIcon name\(i)  \(zestawIcon[i].name)")
+             print("zestawIcon price\(i)  \(zestawIcon[i].price)")
+        }
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -51,7 +66,7 @@ class PaymentCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return listaUlubionych.count
+        return zestawIcon.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -59,9 +74,13 @@ class PaymentCollectionViewController: UICollectionViewController {
     
         // Configure the cell
         
-        let dane = filmList.give(row: listaUlubionych[indexPath.row])
-        cell.filmImageView.image = dane.filmImage
-        cell.priceLabel.text =  dane.price
+        //let dane = filmList.give(row: listaUlubionych[indexPath.row])
+        
+        let icon=zestawIcon[indexPath.row]
+        let price_str = String(format: "%6.2f", icon.price)
+        
+        cell.filmImageView.image = UIImage(named: icon.name)       //dane.filmImage
+        cell.priceLabel.text = "\(price_str) zł"          //dane.price
         
         if indexPath.row==1 || indexPath.row==5 {
             cell.backgroundColor=UIColor.red

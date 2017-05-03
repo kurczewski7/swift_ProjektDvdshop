@@ -26,7 +26,7 @@ class MasterTableViewController: UITableViewController {
     func readSampleData() {
         for i in 1...obrazki.count{
             typyFilmow.append((i % 2 == 0) ? TypeOfFilm.sensacja : TypeOfFilm.obyczajowy)
-            cenyFilmow.append((i % 2 == 0) ? 22.50 : 35.20)
+            cenyFilmow.append((i % 2 == 0) ? 122.50 : 35.20)
             opisyFilmow.append("Super Film")
             aktorzy.append("Gal anonim")
             polubienia.append(false)
@@ -54,11 +54,11 @@ class MasterTableViewController: UITableViewController {
             }
         }
         
-        for i in 0..<polubienia.count {
-           zestawIcon.append(Icon(name: filmList.giveIcon(row: i).name, price: filmList.giveIcon(row: i).price, isFeatured: true))
-            print("zestawIcon name\(i)  \(zestawIcon[i].name)")
-            print("zestawIcon price\(i)  \(zestawIcon[i].price)")
-        }
+//        for i in 0..<polubienia.count {
+//           zestawIcon.append(Icon(name: filmList.giveIcon(row: i).name, price: filmList.giveIcon(row: i).price, isFeatured: true))
+//            print("zestawIcon name\(i)  \(zestawIcon[i].name)")
+//            print("zestawIcon price\(i)  \(zestawIcon[i].price)")
+//        }
 
 
         
@@ -67,8 +67,8 @@ class MasterTableViewController: UITableViewController {
         print("cenyFilmow\(cenyFilmow[0])")
         print("opisyFilmow\(opisyFilmow[0])")
         print("aktorzy\(aktorzy[0])")
-        print("typyFilmow\(typyFilmow)")
-        print("polubienia=\(polubienia)")
+        //print("typyFilmow\(typyFilmow)")
+        //print("polubienia=\(polubienia)")
     
     
     }
