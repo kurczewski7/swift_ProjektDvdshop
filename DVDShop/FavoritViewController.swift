@@ -8,11 +8,12 @@
 
 import UIKit
 
-class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
+class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,FavoriteCollectionViewCellDelegate {
     
     var film: Film = Film()
-    
     @IBOutlet var collectionView: UICollectionView!
+    
+    //private
     
 
     override func viewDidLoad() {
@@ -58,5 +59,15 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
         cell.isLiked=dane.isLiked
         return cell
     }
+    
+    // MARK: wypełnienie mojego zdefiniowanego protokółu
+    func didLikeButtonPressed(cell: FavoriteCollectionViewCell) {
+//        if let indexPath=collectionView.indexPath(for: cell) {
+//            let newValue = filmList.give(row: indexPath.row).isLiked ? false : true
+//            cell.isLiked = newValue //filmList.give(row: indexPath.row).isLiked
+//            filmList.setIsLike(row: indexPath.row, isLike: newValue)
+//         }
+    }
+    
 
 }

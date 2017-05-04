@@ -44,6 +44,9 @@ struct FilmList {
         func giveIcon(row: Int) -> (name: String, price: Double, isFeatured: Bool) {
             return (name: filmsName[row], price: priceList[row], isFeatured: true)
     }
+    mutating func setIsLike(row: Int, isLike: Bool){
+      likedList[row] = isLike
+    }
 
 
     
