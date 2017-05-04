@@ -8,20 +8,37 @@
 
 import UIKit
 
-class ObliczViewController: UIViewController {
-
+class ObliczViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+//    var kantor = Kantor()
+    
     @IBOutlet var naleznoscLabel: UILabel!
     @IBOutlet var walutySegment: UISegmentedControl!
     @IBOutlet var wartoscWalucieLabel: UILabel!
     @IBOutlet var kursLabel: UILabel!
+    @IBOutlet var bankiPickerView: UIPickerView!
+    @IBOutlet var numerTransakcjiLabel: UILabel!
+    @IBOutlet var numerKontaLabel: UILabel!
     
-    @IBAction func zmianaWalutySegment(_ sender: Any) {
+    
+    @IBAction func zmianaWalutySegment(sender: UISegmentedControl) {
+        wartoscWalucieLabel.text = kantor.giveValuteText(country: walutySegment.selectedSegmentIndex)
+        kursLabel.text=kantor.giveKursText(country: walutySegment.selectedSegmentIndex)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+   
         let wynik=policz(selectedDvd: zestawIcon)
-        naleznoscLabel.text=String.init(format: "%7.2f zł", wynik)
+        kantor.setTotalPrice(totalPrice: wynik)
+        naleznoscLabel.text = kantor.giveValuteText(country: 0)  //String.init(format: "%7.2f zł", wynik)
+        wartoscWalucieLabel.text = kantor.giveValuteText(country: 0)  //String.init(format: "%7.2f zł", wynik)
+        kursLabel.text=kantor.giveKursText(country: 0)
+        // bankiPickerView.backgroundColor=UIColor.cyan
         
+        kantor.setTransactionId()
+
+
+       
 
         // Do any additional setup after loading the view.
     }
@@ -50,5 +67,23 @@ class ObliczViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction  func unwindBeck(segue: UIStoryboardSegue) {
+        
+    }
+    // MARK: Picker View
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return kantor.giveBankCount()
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        //var allCodes=[String](kantor.urlBanku)
+        //var kode=allCodes[row]
+        return kantor.giveNameBank(nrBanku: row)
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        kantor.numerBanku=row
+    }
 
 }

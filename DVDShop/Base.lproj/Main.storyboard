@@ -392,6 +392,50 @@
             </objects>
             <point key="canvasLocation" x="5500" y="935.98200899550227"/>
         </scene>
+        <!--Przelew-->
+        <scene sceneID="7ZU-Lb-WcT">
+            <objects>
+                <viewController id="iNH-gl-zO7" customClass="PrzelewViewController" customModule="DVDShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tMk-n1-eQS"/>
+                        <viewControllerLayoutGuide type="bottom" id="vFH-tY-p9b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WWr-3E-7Zp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jk-7p-vYO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="iNH-gl-zO7" id="ycK-JL-Cdv"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7jk-7p-vYO" firstAttribute="leading" secondItem="WWr-3E-7Zp" secondAttribute="leading" id="XWf-CH-BVx"/>
+                            <constraint firstAttribute="bottom" secondItem="7jk-7p-vYO" secondAttribute="bottom" id="YJp-sg-icg"/>
+                            <constraint firstItem="7jk-7p-vYO" firstAttribute="top" secondItem="tMk-n1-eQS" secondAttribute="bottom" id="kao-Qz-lFm"/>
+                            <constraint firstAttribute="trailing" secondItem="7jk-7p-vYO" secondAttribute="trailing" id="pMV-dK-OBp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Przelew" id="rnu-8f-IEf">
+                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="3Vd-Q6-wsr">
+                            <connections>
+                                <segue destination="8Eh-OW-WH3" kind="unwind" unwindAction="unwindBeckWithSegue:" id="fRq-dd-JJw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="PrzelewWebView" destination="7jk-7p-vYO" id="ndz-Dp-uAa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3E5-uE-pZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8Eh-OW-WH3" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2292" y="905.3973013493254"/>
+        </scene>
         <!--Wybrane-->
         <scene sceneID="SVH-UY-PdK">
             <objects>
@@ -538,24 +582,48 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zxz-wF-5zL">
-                                <rect key="frame" x="36" y="124" width="303" height="29"/>
+                                <rect key="frame" x="36" y="109" width="303" height="29"/>
                                 <segments>
                                     <segment title="Złoty"/>
                                     <segment title="USD"/>
                                     <segment title="Euro"/>
                                 </segments>
                                 <connections>
-                                    <action selector="zmianaWalutySegment:" destination="Jw3-qJ-yUg" eventType="valueChanged" id="GOb-9M-o9a"/>
+                                    <action selector="zmianaWalutySegmentWithSender:" destination="Jw3-qJ-yUg" eventType="valueChanged" id="xPM-1b-BpM"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waluta $ €" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LI-Bs-ZPI">
-                                <rect key="frame" x="36" y="182" width="303" height="19.5"/>
+                                <rect key="frame" x="36" y="158" width="303" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kurs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3PH-en-QEJ">
-                                <rect key="frame" x="36" y="231.5" width="303" height="21"/>
+                                <rect key="frame" x="36" y="185" width="303" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q40-cj-Nb4">
+                                <rect key="frame" x="16" y="324" width="355" height="141"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="141" id="jtg-2T-1zj"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Jw3-qJ-yUg" id="TVt-7p-kAg"/>
+                                    <outlet property="delegate" destination="Jw3-qJ-yUg" id="UKT-cb-skv"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tranzakcja" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT2-HF-2GP">
+                                <rect key="frame" x="148" y="501" width="79" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Numer konta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HV-Y7-9h7">
+                                <rect key="frame" x="138" y="554" width="99" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -564,17 +632,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="jmt-bI-c1V" secondAttribute="trailing" constant="20" id="1Sa-md-nIK"/>
-                            <constraint firstItem="7LI-Bs-ZPI" firstAttribute="top" secondItem="zxz-wF-5zL" secondAttribute="bottom" constant="30" id="2Qi-oR-obh"/>
+                            <constraint firstItem="7LI-Bs-ZPI" firstAttribute="top" secondItem="zxz-wF-5zL" secondAttribute="bottom" constant="21" id="2Qi-oR-obh"/>
                             <constraint firstItem="zxz-wF-5zL" firstAttribute="leading" secondItem="jmt-bI-c1V" secondAttribute="leading" id="4ch-W8-tUt"/>
+                            <constraint firstAttribute="trailing" secondItem="q40-cj-Nb4" secondAttribute="trailing" constant="4" id="9hy-Kb-MH8"/>
                             <constraint firstItem="jmt-bI-c1V" firstAttribute="leading" secondItem="qch-db-XxZ" secondAttribute="leadingMargin" constant="20" id="GsK-I7-mYq"/>
+                            <constraint firstItem="q40-cj-Nb4" firstAttribute="top" secondItem="3PH-en-QEJ" secondAttribute="bottom" constant="118" id="IUT-Ff-Gkg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3PH-en-QEJ" secondAttribute="trailing" constant="20" id="WEn-19-azX"/>
                             <constraint firstItem="zxz-wF-5zL" firstAttribute="trailing" secondItem="jmt-bI-c1V" secondAttribute="trailing" id="ZbO-NY-WaT"/>
-                            <constraint firstItem="zxz-wF-5zL" firstAttribute="top" secondItem="jmt-bI-c1V" secondAttribute="bottom" constant="23" id="bKh-00-9NI"/>
+                            <constraint firstItem="zxz-wF-5zL" firstAttribute="top" secondItem="jmt-bI-c1V" secondAttribute="bottom" constant="8" id="bKh-00-9NI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7LI-Bs-ZPI" secondAttribute="trailing" constant="20" id="cjW-LT-z6t"/>
+                            <constraint firstItem="q40-cj-Nb4" firstAttribute="leading" secondItem="qch-db-XxZ" secondAttribute="leading" constant="16" id="eIP-5a-hqy"/>
                             <constraint firstItem="7LI-Bs-ZPI" firstAttribute="leading" secondItem="qch-db-XxZ" secondAttribute="leadingMargin" constant="20" id="enZ-Zd-SbO"/>
                             <constraint firstItem="jmt-bI-c1V" firstAttribute="top" secondItem="n9x-NL-GGQ" secondAttribute="bottom" constant="20" id="mCD-3H-DUD"/>
                             <constraint firstItem="3PH-en-QEJ" firstAttribute="leading" secondItem="qch-db-XxZ" secondAttribute="leadingMargin" constant="20" id="wgu-cl-GQj"/>
-                            <constraint firstItem="3PH-en-QEJ" firstAttribute="top" secondItem="7LI-Bs-ZPI" secondAttribute="bottom" constant="30" id="zNC-z6-gtA"/>
+                            <constraint firstItem="3PH-en-QEJ" firstAttribute="top" secondItem="7LI-Bs-ZPI" secondAttribute="bottom" constant="7.5" id="zNC-z6-gtA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Rachunek" id="97M-cU-SVm">
@@ -583,10 +654,18 @@
                                 <segue destination="94E-gx-2YC" kind="unwind" unwindAction="unwindBeckWithSegue:" id="B7K-VR-Pie"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="D8N-vP-7QW">
+                            <connections>
+                                <segue destination="iNH-gl-zO7" kind="show" id="RI8-8e-2aP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bankiPickerView" destination="q40-cj-Nb4" id="jnT-O0-eeC"/>
                         <outlet property="kursLabel" destination="3PH-en-QEJ" id="fJs-UU-vcz"/>
                         <outlet property="naleznoscLabel" destination="jmt-bI-c1V" id="9Yb-D3-jbN"/>
+                        <outlet property="numerKontaLabel" destination="5HV-Y7-9h7" id="JMx-wn-4nX"/>
+                        <outlet property="numerTransakcjiLabel" destination="LT2-HF-2GP" id="rHA-3V-Alm"/>
                         <outlet property="walutySegment" destination="zxz-wF-5zL" id="AW8-yv-Vdx"/>
                         <outlet property="wartoscWalucieLabel" destination="7LI-Bs-ZPI" id="eVy-rt-P1O"/>
                     </connections>
