@@ -16,7 +16,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var likeButton: UIButton!
     
-    var isLiked: Bool = true {
+    var isLiked: Bool = false {
         didSet {
                 if isLiked {   likeButton.setImage(UIImage(named: "heartfull"), for: .normal)        }
                 else       {    likeButton.setImage(UIImage(named: "heart"), for: .normal)           }

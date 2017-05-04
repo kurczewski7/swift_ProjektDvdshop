@@ -84,6 +84,7 @@ class PaymentCollectionViewController: UICollectionViewController {
     }
     
      override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("did Select ItemA=\(indexPath.row)")
         // Sprawdza czy tryb trash jest włączony inaczej kończy metodę
         guard trashEnabled else {
             return
@@ -98,6 +99,7 @@ class PaymentCollectionViewController: UICollectionViewController {
     }
     
      override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        print("did Deselect ItemAt=\(indexPath.row)")
         // sprawdza czy tryb kosza jest dostępny, jeli nie kończy metodę
         guard trashEnabled else {
             return
@@ -152,10 +154,11 @@ class PaymentCollectionViewController: UICollectionViewController {
         cell.priceLabel.text = "\(price_str) zł"
         
         // cell.backgroundView=(icon.isFeatured) ? UIImageView(image: UIImage(named: "feature-bg")) : nil
-        if !icon.isFeatured {            cell.backgroundColor=UIColor.red        }
+        if !icon.isFeatured {            cell.backgroundColor=UIColor.yellow        }
         else  { cell.backgroundColor = nil }
         
         cell.selectedBackgroundView=UIImageView(image: UIImage(named: "icon-selected"))
+        //
     
         return cell
     }
