@@ -17,8 +17,17 @@ class ObliczViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet var wartoscWalucieLabel: UILabel!
     @IBOutlet var kursLabel: UILabel!
     @IBOutlet var bankiPickerView: UIPickerView!
-    @IBOutlet var numerTransakcjiLabel: UILabel!
-    @IBOutlet var numerKontaLabel: UILabel!
+    @IBOutlet var numerTransakcjiLabel: UILabel! {
+        didSet {
+            kantor.setTransactionId()
+            numerTransakcjiLabel.text=kantor.giveTransactionNumberTxt()
+        }
+    }
+    @IBOutlet var numerKontaLabel: UILabel! {
+        didSet {
+            numerKontaLabel.text=kantor.numerKonta
+        }
+    }
     
     
     @IBAction func zmianaWalutySegment(sender: UISegmentedControl) {
@@ -30,12 +39,12 @@ class ObliczViewController: UIViewController, UIPickerViewDelegate, UIPickerView
    
         let wynik=policz(selectedDvd: zestawIcon)
         kantor.setTotalPrice(totalPrice: wynik)
+
         naleznoscLabel.text = kantor.giveValuteText(country: 0)  //String.init(format: "%7.2f zł", wynik)
         wartoscWalucieLabel.text = kantor.giveValuteText(country: 0)  //String.init(format: "%7.2f zł", wynik)
         kursLabel.text=kantor.giveKursText(country: 0)
-        // bankiPickerView.backgroundColor=UIColor.cyan
         
-        kantor.setTransactionId()
+        //kantor.setTransactionId()
 
 
        

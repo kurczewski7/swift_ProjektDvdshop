@@ -13,7 +13,7 @@ class Kantor  {
     var euroKurs: Double
     var totalPriceInZloty: Double = 0
     var numerKonta="58 1240 1112 1111 0010 0944 9739"
-    var nrTransakcji: String="201703041655001234swift"
+    var nrTransakcji: String="201703041655001234"
     var kursyWalut: [Double]=[1.0, 3.86, 4.21]
     var urlBanku: [String]=["https://www.payu.pl","https://www.paypal.com/pl/home","https://www.mbank.com.pl","https://aliorbank.pl","https://moj.raiffeisenpolbank.com","https://www.pekao24.pl"]
     var nazwaBanku: [String]=["PayU","PayPal","mBank","Alior","Raiffeisen polbank", "PKO"]
@@ -79,11 +79,13 @@ class Kantor  {
         let hour=calendar.component(.hour, from: date)
         let minute=calendar.component(.minute, from: date)
         let secunde=calendar.component(.second, from: date)
-        let nanosecond=calendar.component(.nanosecond, from: date)
-        let wynik=String.init(format: "%4d%02d%02d%2d%2d%2d%%6d", year,month,day,hour,minute,secunde,nanosecond)
-        print(wynik)
-        
-        nrTransakcji=wynik
+
+        let randomValue=arc4random_uniform(999)
+        nrTransakcji=String.init(format: "%4d%02d%02d%02d%02d%02d%04d", year,month,day, hour,minute,secunde, randomValue)
+    }
+    func giveTransactionNumberTxt() -> String
+    {
+        return "Tranzakcja: \(nrTransakcji)"
     }
     
     
