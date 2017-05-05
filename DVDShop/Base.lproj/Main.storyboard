@@ -155,7 +155,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="hK6-hd-fQG"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -210,10 +210,10 @@
             </objects>
             <point key="canvasLocation" x="3204" y="123.68815592203899"/>
         </scene>
-        <!--Opis-->
+        <!--Video View Controller-->
         <scene sceneID="wdi-zY-ZET">
             <objects>
-                <viewController id="hjO-wM-wPk" sceneMemberID="viewController">
+                <viewController id="hjO-wM-wPk" userLabel="Video View Controller" customClass="VideoViewController" customModule="DVDShop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hXy-YT-LIi"/>
                         <viewControllerLayoutGuide type="bottom" id="G26-dm-6jC"/>
@@ -251,13 +251,17 @@
                             <constraint firstAttribute="trailing" secondItem="rKi-UL-BwG" secondAttribute="trailing" constant="20" id="uhw-nD-GUh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Opis" id="CEO-db-NtR">
+                    <navigationItem key="navigationItem" title="Video" id="CEO-db-NtR">
                         <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="6wl-vM-lik">
                             <connections>
                                 <segue destination="D0p-zm-607" kind="unwind" unwindAction="unwindBeckWithSegue:" id="yBE-X6-bNt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="VideoView" destination="dnV-y7-5FJ" id="q00-B8-Gff"/>
+                        <outlet property="videoView" destination="dnV-y7-5FJ" id="zRm-Du-4So"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCO-Gp-QgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="D0p-zm-607" userLabel="Exit" sceneMemberID="exit"/>

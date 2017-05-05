@@ -22,6 +22,10 @@ enum TypeOfFilm {
 var polubienia: [Bool] = []
 var typyFilmow: [TypeOfFilm] = []
 var cenyFilmow: [Double] = []
+var youtubeUrls: [String]=["Teig07gHEY8","MZk4AbdcSvE","rzlHEPmz0E4","ttm0wH1mVnQ","yqHgLFKIo50","sb6Z47Qfzt8","Tw9ILjZFjec","71_E3Hh2Jqg","jxfoDDmNQtM","jGRg8DQleZI",
+                           "ldSUFmGJ6_8","m1RDsbxJWyQ"]
+
+
 var opisyFilmow: [String] = ["Przełom sierpnia i września 2012 roku. Młode małżeństwo – Melania (Magda Grąziowska) i Przemek (Bartosz Porczyk) – przyjeżdża do Warszawy, aby zająć się luksusowym apartamentem stryja (Jan Englert). Mieszkanie położone jest w centrum miasta, w miejscu gdzie od 1946 roku znajdował się parking, a przed wojną ambasada III Rzeszy. Młodzi bohaterowie nie podejrzewają, że przysługa oddana stryjowi zmieni się w największą przygodę ich życia, a także zmieni losy Warszawy, Polski, a nawet… całego świata!",
     "Incydent w Nangar Khel.Zamach na generała policji.Tajemnicze zniknięcie dziennikarzy.Zabójstwa na zlecenie.Scenariusz nowego thrillera Jacka Bromskiego, twórcy „Zabij mnie glino” zainspirowały najgłośniejsze sprawy kryminalne ostatnich lat, które wstrząsnęły Polską.Płatny zabójca o pseudonimie „Lulek” (Stroiński) dostaje propozycję nie do odrzucenia od skorumpowanego prokuratora (Głowacki). Ma zlikwidować komendanta Centralnego Biura Śledczego. „Lulek” angażuje do pomocy eks-snajpera Staszka (Kowalczyk) z elitarnej jednostki, który został kozłem ofiarnym nieudanej misji w Afganistanie, gdzie z ręki polskich żołnierzy zginęli cywile. Sprawa sięga najwyższych kręgów władzy i biznesu. Komendant stoi na drodze kontraktowi wartemu miliardy dolarów.",
     "a przezabawna animowana komedia przygodowa daje w końcu odpowiedź na pytanie, czemu ptaki są tak rozzłoszczone. Na rajskiej wyspie zamieszkałej całkowicie przez szczęśliwe nieloty - no, prawie całkowicie - Red, ptak o wybuchowym temperamencie, szybki Chuck i zmienny Bomba zawsze trzymali się na uboczu. Ale kiedy na wyspę przybywają tajemnicze zielone świnki, to właśnie do trójki tych dziwnych, niedobranych wyrzutków należy odkrycie jakie zamiary mają i co tak naprawdę knują zieloni goście.",

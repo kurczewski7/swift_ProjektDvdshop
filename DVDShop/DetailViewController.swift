@@ -14,8 +14,9 @@ class DetailViewController: UIViewController {
     var titleLabelTmp = ""
     var actorsLabelTmp = ""
     var typeLabelTmp = ""
-    var descriptionLabelTmp = "to jest film dobry"
+    var descriptionLabelTmp = ""
     var priceLabelTmp = ""
+    
 
     @IBOutlet var dvdImage: UIImageView!
     @IBOutlet var titleLabel: UILabel! {
@@ -35,9 +36,6 @@ class DetailViewController: UIViewController {
         didSet {
             priceLabel.text=priceLabelTmp
         }    }
-    
-    
-    
     
     
     override func viewDidLoad() {

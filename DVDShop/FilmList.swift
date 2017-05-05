@@ -16,11 +16,12 @@ struct FilmList {
     var typeList: [TypeOfFilm]
     var descriptions: [String]
     var priceList: [Double]
+    var youtubeUrlList: [String]
     var likedList: [Bool]
-    
+    var defaultYoutubeUrls: [String] = ["7ynBUJPNEdM",  "WyHv2WqkPCQ","WlYC8gDvutc","WyHv2WqkPCQ"]
     
 
-    init(filmsName: [String], titles: [String], actorsList: [String], typeList: [TypeOfFilm], descriptions: [String], priceList: [Double], likedList: [Bool]) {
+    init(filmsName: [String], titles: [String], actorsList: [String], typeList: [TypeOfFilm], descriptions: [String], priceList: [Double],  youtubeUrlList : [String], likedList: [Bool]) {
         
         film=Film()
         
@@ -31,6 +32,8 @@ struct FilmList {
         self.descriptions=descriptions
         self.priceList=priceList
         self.likedList=likedList
+        self.youtubeUrlList=youtubeUrlList
+    
     }
     public mutating func give(row: Int) -> (filmId: String, title: String, actors: String, type: String, description: String, price: String, filmImage: UIImage, isLiked: Bool) {
         
@@ -49,6 +52,17 @@ struct FilmList {
     }
     mutating func setDescriptionList(descriptions: [String]){
         self.descriptions=descriptions
+    }
+    func giveYoutubeUrl(row: Int) -> String{
+        var value: String
+        if row < youtubeUrlList.count {
+            value=youtubeUrlList[row]
+        }
+        else{
+          let randomElem=Int(arc4random_uniform(UInt32(defaultYoutubeUrls.count)))
+          value=defaultYoutubeUrls[randomElem]
+        }
+        return value
     }
 
 

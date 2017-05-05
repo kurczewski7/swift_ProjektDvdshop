@@ -6,7 +6,7 @@
 //  Copyright © 2017 Slawomir Kurczewski. All rights reserved.
 //
 import UIKit
-var filmList:FilmList = FilmList(filmsName: obrazki, titles: tytuly, actorsList: aktorzy, typeList: typyFilmow, descriptions: opisyFilmow, priceList: cenyFilmow, likedList: polubienia)
+var filmList:FilmList = FilmList(filmsName: obrazki, titles: tytuly, actorsList: aktorzy, typeList: typyFilmow, descriptions: opisyFilmow, priceList: cenyFilmow, youtubeUrlList: youtubeUrls, likedList: polubienia)
 
 class MasterTableViewController: UITableViewController {
     
