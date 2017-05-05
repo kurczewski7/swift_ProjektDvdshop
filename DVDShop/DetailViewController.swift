@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     var typeLabelTmp = ""
     var descriptionLabelTmp = ""
     var priceLabelTmp = ""
+    var youtubeUrlTmp = ""
     
 
     @IBOutlet var dvdImage: UIImageView!
@@ -67,5 +68,18 @@ class DetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier=="showYoutube" {
+           
+                let destinatonController = segue.destination as! VideoViewController
+                
+                destinatonController.titleLabelTmp = titleLabelTmp
+                destinatonController.typeLabelTmp  = typeLabelTmp
+                destinatonController.priceLabelTmp = priceLabelTmp
+                destinatonController.youtubeUrlTmp = youtubeUrlTmp
+                destinatonController.dvdImageTmp   = dvdImageTmp
+        }
+    }
 }

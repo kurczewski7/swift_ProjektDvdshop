@@ -179,6 +179,7 @@
 				2C1573951EAFFC8C00B48306 /* AppDelegate.swift */,
 				2C1573CB1EB0060100B48306 /* MasterTableViewController.swift */,
 				2C1F5A751EB1528100A68B4B /* DetailViewController.swift */,
+				2C17DB0F1EBC9B2800575581 /* VideoViewController.swift */,
 				2C1573C91EAFFFEE00B48306 /* MasterTableViewCell.swift */,
 				2C4979901EB3FF37000A2E33 /* FavoritViewController.swift */,
 				2C49798C1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift */,
@@ -186,7 +187,6 @@
 				2C147E821EB91AE900E0E92A /* PaymentCollectionViewCell.swift */,
 				2C147E861EB930D200E0E92A /* ObliczViewController.swift */,
 				2C603CA81EBB52EB00F4BC17 /* PrzelewViewController.swift */,
-				2C17DB0F1EBC9B2800575581 /* VideoViewController.swift */,
 			);
 			name = CONTROLERS;
 			sourceTree = "<group>";

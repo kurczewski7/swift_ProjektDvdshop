@@ -11,6 +11,7 @@ struct Film {
     var filmId = ""
     var title = ""
     var actors = ""
+    var filmDirector = ""
     var type : TypeOfFilm = .obyczajowy
     var type_str=""
     var description = ""
@@ -18,21 +19,24 @@ struct Film {
     var price_str = ""
     var filmImage:UIImage?
     var pictureName=""
+    var youtubeUrl = ""
     var isLiked = false
     
     init(){
         
     }
     
-    init(filmId: String, title: String, actors: String, type: TypeOfFilm, description: String, price: Double, filmImage: UIImage!, isLiked: Bool){
+    init(filmId: String, title: String, actors: String, filmDirector: String ,type: TypeOfFilm, description: String, price: Double, filmImage: UIImage!,youtubeUrl: String, isLiked: Bool){
         self.filmId=filmId
         self.title=title
         self.actors=actors
+        self.filmDirector=filmDirector
         self.type=type
         self.description=description
         self.price=price
         self.price_str = String(format: "%6.2f",  price)
         self.filmImage=filmImage
+        self.youtubeUrl=youtubeUrl
         self.isLiked=isLiked
     }
     init(pictureName: String, titleName: String, price: Double){
@@ -51,16 +55,18 @@ struct Film {
         self.filmId = pictureName.substring(from: index)
         }
     
-    public mutating func fill(pictureName: String, titleName: String, price: Double, type: TypeOfFilm, filmDescription: String, actor: String, isLiked: Bool ){
+    public mutating func fill(pictureName: String, titleName: String, price: Double, type: TypeOfFilm, filmDescription: String, actor: String,filmDirector: String,youtubeUrl: String, isLiked: Bool ){
         
         self.title = titleName
         self.actors = actor
+        self.filmDirector=filmDirector
         self.type = .obyczajowy
         self.description = filmDescription
         self.price = price
         self.price_str = String(format: "%6.2f",  price)
         self.filmImage =  UIImage(named: pictureName)
         self.pictureName=pictureName
+        self.youtubeUrl=youtubeUrl
         self.isLiked = isLiked
         
         let index=(pictureName.index(pictureName.endIndex, offsetBy: -8))
@@ -68,8 +74,9 @@ struct Film {
     }
     
     
-    func giveCurrentData() -> (filmId: String, title: String, actors: String, type: String, description: String, price: String, filmImage: UIImage, isLiked: Bool){
-        var type_str: String
+    mutating func giveCurrentData() -> (filmId: String, title: String, actors: String, filmDirector: String,  type: String, description: String, price: String, filmImage: UIImage, youtubeUrl: String, isLiked: Bool){
+        
+        //var type_str: String
         
         switch type {
         case .komedia:    type_str = "Komedia"
@@ -91,7 +98,7 @@ struct Film {
         print(isLiked ? "isLiked=true": "isLiked=false")
         print("-")
         
-     return (filmId: self.filmId, title: self.title, actors: self.actors, type: type_str, description: self.description, price: price_str, filmImage: self.filmImage!, isLiked: self.isLiked)
+        return (filmId: self.filmId, title: self.title, actors: self.actors, filmDirector: self.filmDirector , type: self.type_str, description: self.description, price: price_str, filmImage: self.filmImage!, youtubeUrl: youtubeUrl, isLiked: self.isLiked)
     }    
     
 }

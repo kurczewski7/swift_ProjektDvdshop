@@ -193,7 +193,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="bqH-rq-n1f">
                             <connections>
-                                <segue destination="hjO-wM-wPk" kind="show" id="OmD-aN-3C2"/>
+                                <segue destination="hjO-wM-wPk" kind="show" identifier="showYoutube" id="OmD-aN-3C2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

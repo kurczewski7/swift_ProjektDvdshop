@@ -6,6 +6,11 @@
 //  Copyright © 2017 Slawomir Kurczewski. All rights reserved.
 //
 import UIKit
+
+
+
+// MARK: Wczytywanie danych zewnętrznych do obiektu
+
 var filmList:FilmList = FilmList(filmsName: obrazki, titles: tytuly, actorsList: aktorzy, typeList: typyFilmow, descriptions: opisyFilmow, priceList: cenyFilmow, youtubeUrlList: youtubeUrls, likedList: polubienia)
 
 class MasterTableViewController: UITableViewController {
@@ -182,10 +187,13 @@ class MasterTableViewController: UITableViewController {
             if segue.identifier=="showDvd" {
                 if let indexPath=tableView.indexPathForSelectedRow {
                      let destinatonController = segue.destination as! DetailViewController
-                    destinatonController.dvdImageTmp = obrazki[indexPath.row]
-                    destinatonController.titleLabelTmp = tytuly[indexPath.row]
-                    destinatonController.typeLabelTmp = "Komedia"
-                    destinatonController.priceLabelTmp = "22.50"
+                    
+                    destinatonController.titleLabelTmp =  filmList.give(row: indexPath.row).title
+                    destinatonController.typeLabelTmp  =  filmList.give(row: indexPath.row).type
+                    destinatonController.priceLabelTmp =  filmList.give(row: indexPath.row).price
+                    destinatonController.youtubeUrlTmp =  filmList.give(row: indexPath.row).youtubeUrl
+                    destinatonController.dvdImageTmp   =  filmList.film.pictureName
+
                 }
             }
     }
