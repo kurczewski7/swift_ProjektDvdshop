@@ -80,6 +80,7 @@ class DetailViewController: UIViewController {
                 destinatonController.priceLabelTmp = priceLabelTmp
                 destinatonController.youtubeUrlTmp = youtubeUrlTmp
                 destinatonController.dvdImageTmp   = dvdImageTmp
+                destinatonController.descriptionLabelTmp=descriptionLabelTmp
         }
     }
 }

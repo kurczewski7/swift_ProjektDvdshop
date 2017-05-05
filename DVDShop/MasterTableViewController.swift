@@ -108,22 +108,18 @@ class MasterTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return obrazki.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MasterTableViewCell
 
         // Configure the cell...
-     
-        
+             
         let dane = filmList.give(row: indexPath.row)
-        
         cell.DVDImage.image = dane.filmImage
         cell.titleLabel.text = dane.title
         cell.actorsLabel.text = dane.actors
         cell.typLabel.text = dane.type
         cell.priceLabel.text = dane.price    
-        
         
         if dane.isLiked==true {
             cell.backgroundColor=UIColor.green
@@ -188,12 +184,12 @@ class MasterTableViewController: UITableViewController {
                 if let indexPath=tableView.indexPathForSelectedRow {
                      let destinatonController = segue.destination as! DetailViewController
                     
+                    destinatonController.dvdImageTmp   =  filmList.giveCurrentPictureName(row: indexPath.row)
                     destinatonController.titleLabelTmp =  filmList.give(row: indexPath.row).title
                     destinatonController.typeLabelTmp  =  filmList.give(row: indexPath.row).type
                     destinatonController.priceLabelTmp =  filmList.give(row: indexPath.row).price
                     destinatonController.youtubeUrlTmp =  filmList.give(row: indexPath.row).youtubeUrl
-                    destinatonController.dvdImageTmp   =  filmList.film.pictureName
-
+                    destinatonController.descriptionLabelTmp = filmList.give(row: indexPath.row).description
                 }
             }
     }

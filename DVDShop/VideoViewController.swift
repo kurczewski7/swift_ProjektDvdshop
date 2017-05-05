@@ -17,6 +17,11 @@ class VideoViewController: UIViewController {
     var priceLabelTmp = ""
     var youtubeUrlTmp = ""
 
+    @IBOutlet var descriptionsTextView: UITextView! {
+        didSet {
+            descriptionsTextView.text=descriptionLabelTmp
+        }
+    }
     @IBOutlet var videoView: UIWebView! {
         didSet {
         

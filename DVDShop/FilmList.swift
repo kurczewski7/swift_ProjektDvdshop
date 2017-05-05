@@ -62,7 +62,9 @@ struct FilmList {
             let randomValue=Int(arc4random_uniform(UInt32(defaultYoutubeUrls.count)))
             return defaultYoutubeUrls[randomValue]
         }
-        
+    }
+    func giveCurrentPictureName(row: Int) -> String {        
+        return filmsName[row]
     }
 
     

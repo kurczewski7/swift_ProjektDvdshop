@@ -260,6 +260,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="VideoView" destination="dnV-y7-5FJ" id="q00-B8-Gff"/>
+                        <outlet property="descriptionsTextView" destination="rKi-UL-BwG" id="87y-g2-2n6"/>
                         <outlet property="videoView" destination="dnV-y7-5FJ" id="zRm-Du-4So"/>
                     </connections>
                 </viewController>
