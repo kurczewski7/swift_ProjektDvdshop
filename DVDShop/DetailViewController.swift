@@ -9,13 +9,6 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
-    @IBOutlet var dvdImage: UIImageView!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var actorsLabel: UILabel!
-    @IBOutlet var typeLabel: UITextField!
-    @IBOutlet var descriptionLabel: UITextField!
-    @IBOutlet var priceLabel: UILabel!
     
     var dvdImageTmp = ""
     var titleLabelTmp = ""
@@ -23,6 +16,26 @@ class DetailViewController: UIViewController {
     var typeLabelTmp = ""
     var descriptionLabelTmp = "to jest film dobry"
     var priceLabelTmp = ""
+
+    @IBOutlet var dvdImage: UIImageView!
+    @IBOutlet var titleLabel: UILabel! {
+        didSet {
+            titleLabel.text=titleLabelTmp
+        }
+    }
+    @IBOutlet var actorsLabel: UILabel! {
+        didSet {
+            actorsLabel.text="brak"
+        }    }
+    @IBOutlet var typeLabel: UILabel! {
+        didSet {
+            typeLabel.text=typeLabelTmp
+        }    }
+    @IBOutlet var priceLabel: UILabel! {
+        didSet {
+            priceLabel.text=priceLabelTmp
+        }    }
+    
     
     
     
@@ -32,11 +45,11 @@ class DetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         dvdImage.image=UIImage(named: dvdImageTmp)
-        titleLabel.text=titleLabelTmp
-        actorsLabel.text=actorsLabelTmp
-        typeLabel.text=typeLabelTmp
-        descriptionLabel.text=descriptionLabelTmp
-        priceLabel.text=priceLabelTmp
+        
+        //actorsLabel.text=actorsLabelTmp
+       // typeLabel.text=typeLabelTmp
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +57,9 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction  func unwindBeck(segue: UIStoryboardSegue) {
+        
+    }
     /*
     // MARK: - Navigation
 

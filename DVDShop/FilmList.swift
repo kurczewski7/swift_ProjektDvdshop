@@ -47,6 +47,9 @@ struct FilmList {
     mutating func setIsLike(row: Int, isLike: Bool){
       likedList[row] = isLike
     }
+    mutating func setDescriptionList(descriptions: [String]){
+        self.descriptions=descriptions
+    }
 
 
     
