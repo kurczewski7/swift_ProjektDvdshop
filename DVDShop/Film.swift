@@ -59,7 +59,7 @@ struct Film {
         
         self.title = titleName
         self.actors = actor
-        self.filmDirector=filmDirector
+        self.filmDirector = filmDirector 
         self.type = type
         self.description = filmDescription
         self.price = price
