@@ -12,7 +12,7 @@ struct Film {
     var title = ""
     var actors = ""
     var filmDirector = ""
-    var type : TypeOfFilm = .obyczajowy
+    var type : TypeOfFilm = .sensacja
     var type_str=""
     var description = ""
     var price: Double = 0.0
@@ -60,7 +60,7 @@ struct Film {
         self.title = titleName
         self.actors = actor
         self.filmDirector=filmDirector
-        self.type = .obyczajowy
+        self.type = type
         self.description = filmDescription
         self.price = price
         self.price_str = String(format: "%6.2f",  price)
@@ -79,24 +79,33 @@ struct Film {
         //var type_str: String
         
         switch type {
-        case .komedia:    type_str = "Komedia"
-        case .horror:     type_str = "Horror"
-        case .sensacja:   type_str = "Sensacja"
-        case .kostiumowy: type_str = "Kostiumowy"
-        case .wojenny:    type_str = "Wojenny"
-        case .obyczajowy: type_str = "obyczajowy"
-        case .dlaDzieci:  type_str = "Dla dzieci"
-        case .muzyczny:   type_str = "Muzyczny"
+        case .komedia:          type_str = "Komedia"
+        case .horror:           type_str = "Horror"
+        case .sensacja:         type_str = "Sensacja"
+        case .kostiumowy:       type_str = "Kostiumowy"
+        case .wojenny:          type_str = "Wojenny"
+        case .obyczajowy:       type_str = "obyczajowy"
+        case .dlaDzieci:        type_str = "Dla dzieci"
+        case .muzyczny:         type_str = "Muzyczny"
+        case .familijny:        type_str = "Familijny"
+        case .mlodziezowy:      type_str = "Młodzieżowy"
+        case .kryminal:         type_str = "Kryminał"
+        case .autobiograficzny: type_str = "Autobiograficzny"
+        case .sciencefiction:   type_str = "Fantastyka naukowa"
+        case .fantasy:          type_str = "Fantazy"
+        case .thiler:            type_str = "Thiller"
+
+            
         }
-        print("----------------")
-        print("filmId=\(filmId)")
-        print("title=\(title)")
-        print("actors=\(actors)")
-        print("type=\(type)")
-        print("description=\(description)")
-        print("price=\(price)")
-        print(isLiked ? "isLiked=true": "isLiked=false")
-        print("-")
+//        print("----------------")
+//        print("filmId=\(filmId)")
+//        print("title=\(title)")
+//        print("actors=\(actors)")
+//        print("type=\(type)")
+//        print("description=\(description)")
+//        print("price=\(price)")
+//        print(isLiked ? "isLiked=true": "isLiked=false")
+//        print("-")
         
         return (filmId: self.filmId, title: self.title, actors: self.actors, filmDirector: self.filmDirector , type: self.type_str, description: self.description, price: price_str, filmImage: self.filmImage!, youtubeUrl: youtubeUrl, isLiked: self.isLiked)
     }    

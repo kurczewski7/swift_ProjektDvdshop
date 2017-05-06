@@ -18,11 +18,19 @@ enum TypeOfFilm {
     case obyczajowy
     case dlaDzieci
     case muzyczny
+    case familijny
+    case mlodziezowy
+    case kryminal
+    case autobiograficzny
+    case sciencefiction
+    case fantasy
+    case thiler
 }
 var polubienia: [Bool] = []
 var typyFilmow: [TypeOfFilm] = []
 var cenyFilmow: [Double] = []
-var youtubeUrls: [String]=["Teig07gHEY8","MZk4AbdcSvE","rzlHEPmz0E4","ttm0wH1mVnQ","yqHgLFKIo50","sb6Z47Qfzt8","Tw9ILjZFjec","71_E3Hh2Jqg","jxfoDDmNQtM","jGRg8DQleZI",
+var youtubeUrls: [String] =
+["Teig07gHEY8","MZk4AbdcSvE","rzlHEPmz0E4","ttm0wH1mVnQ","yqHgLFKIo50","sb6Z47Qfzt8","Tw9ILjZFjec","71_E3Hh2Jqg","jxfoDDmNQtM","jGRg8DQleZI",
                            "ldSUFmGJ6_8","m1RDsbxJWyQ"]
 
 
@@ -39,14 +47,6 @@ var opisyFilmow: [String] = ["Przełom sierpnia i września 2012 roku. Młode ma
     "Zainspirowana prawdziwymi wydarzeniami, przerażająca historia zrealizowana z udziałem laureatki Oscara Faye Dunaway („Chinatown”) oraz gwiazdy serii „Matrix” Carrie-Anne Moss.Trójka studentów wprowadza się do domku na przedmieściach. Już po kilku dniach mieszkania w nowym miejscu zaczynają doskwierać im choroby, a codzienną egzystencję zakłócają niewytłumaczalne zjawiska. Nie zdają sobie sprawy, że oto padli ofiarą klątwy związanej z popełnionym przed laty morderstwem. Ich prześladowca nazywa się Bye Bye Man. Każdy, kto choć w myślach wymówi jego imię, jest zgubiony. Czy grupce przyjaciół uda nie popaść w szaleństwo i oszukać przeznaczenie?"]
 var x12=""
 var x13=""
-var x14=""
-var x15=""
-var x16=""
-var x17=""
-var x18=""
-var x19=""
-var x20=""
-var x21=""
 
 var aktorzy: [String] = ["Grąziowska Magdalena",
                          "Kowalczyk Marcin",
@@ -58,30 +58,7 @@ var aktorzy: [String] = ["Grąziowska Magdalena",
                          "Kot Tomasz",
                          "Streep Meryl",
                          "Zellweger Renee",
-                         "Smith Douglas",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         "",
-                         ""]
+                         "Smith Douglas"]
 
 
 var rezyser:[String]=["Machulski Juliusz",
@@ -94,31 +71,7 @@ var rezyser:[String]=["Machulski Juliusz",
                       "Palkowski Łukasz",
                       "Frears Stephen",
                       "Maguire Sharon",
-                      "Title Stacy",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      "",
-                      ""]
+                      "Title Stacy"]
 
 var listaUlubionych: [Int] = []
 

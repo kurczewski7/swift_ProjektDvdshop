@@ -31,9 +31,9 @@ class MasterTableViewController: UITableViewController {
     func readSampleData() {
         for i in 1...obrazki.count{
             typyFilmow.append((i % 2 == 0) ? TypeOfFilm.sensacja : TypeOfFilm.obyczajowy)
-            cenyFilmow.append((i % 2 == 0) ? 122.50 : 35.20)
+            cenyFilmow.append((i % 2 == 0) ? 72.50 : 35.20)
             opisyFilmow.append("Super Film")
-            aktorzy.append("Gal anonim")
+            aktorzy.append("Aktorzy nieznani")
             polubienia.append(false)
         }
         polubienia[1]=true
@@ -48,8 +48,39 @@ class MasterTableViewController: UITableViewController {
         polubienia[97]=true
         polubienia[109]=true
         
-        
-
+        typyFilmow[0] = .komedia
+        typyFilmow[1] = .kryminal
+        typyFilmow[2] = .dlaDzieci
+        typyFilmow[3] = .familijny
+        typyFilmow[4] = .dlaDzieci
+        typyFilmow[5] = .kryminal
+        typyFilmow[6] = .kostiumowy
+        typyFilmow[7] = .autobiograficzny
+        typyFilmow[8] = .obyczajowy
+        typyFilmow[9] = .komedia
+        typyFilmow[10] = .horror
+        typyFilmow[11] = .obyczajowy
+        typyFilmow[12] = .horror
+        typyFilmow[13] = .kryminal
+        typyFilmow[14] = .sensacja
+        typyFilmow[15] = .sensacja
+        typyFilmow[16] = .kryminal
+        typyFilmow[17] = .kryminal
+        typyFilmow[18] = .sciencefiction
+        typyFilmow[19] = .fantasy
+        typyFilmow[20] = .komedia
+        typyFilmow[21] = .kryminal
+        typyFilmow[24] = .sciencefiction
+        typyFilmow[25] = .sciencefiction
+        typyFilmow[26] = .sciencefiction
+        typyFilmow[27] = .fantasy
+        typyFilmow[38] = .dlaDzieci
+        typyFilmow[77] = .dlaDzieci
+        typyFilmow[81] = .dlaDzieci
+        typyFilmow[95] = .dlaDzieci
+        typyFilmow[109] = .thiler
+            
+//        typyFilmow[0] = .
         
         print("=======polubienia========")
         for i in 0..<polubienia.count {
@@ -64,21 +95,14 @@ class MasterTableViewController: UITableViewController {
 //            print("zestawIcon name\(i)  \(zestawIcon[i].name)")
 //            print("zestawIcon price\(i)  \(zestawIcon[i].price)")
 //        }
-
-
-        
-        print("========")
-        print("typyFilmow\(typyFilmow[0])")
-        print("cenyFilmow\(cenyFilmow[0])")
-        print("opisyFilmow\(opisyFilmow[0])")
-        print("aktorzy\(aktorzy[0])")
+//        print("========")
+//        print("typyFilmow\(typyFilmow[0])")
+//        print("cenyFilmow\(cenyFilmow[0])")
+//        print("opisyFilmow\(opisyFilmow[0])")
+//        print("aktorzy\(aktorzy[0])")
         //print("typyFilmow\(typyFilmow)")
         //print("polubienia=\(polubienia)")
-    
-    
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
