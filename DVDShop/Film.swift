@@ -74,7 +74,7 @@ struct Film {
     }
     
     
-    mutating func giveCurrentData() -> (filmId: String, title: String, actors: String, filmDirector: String,  type: String, description: String, price: String, filmImage: UIImage, youtubeUrl: String, isLiked: Bool){
+    mutating func giveCurrentData() -> UserRekord {
         
         //var type_str: String
         

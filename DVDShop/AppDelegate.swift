@@ -9,22 +9,33 @@
 import UIKit
 import CoreData
 
-enum TypeOfFilm {
-    case komedia
-    case horror
-    case sensacja
-    case kostiumowy
-    case wojenny
-    case obyczajowy
-    case dlaDzieci
-    case muzyczny
-    case familijny
-    case mlodziezowy
-    case kryminal
-    case autobiograficzny
-    case sciencefiction
-    case fantasy
-    case thiler
+typealias UserRekord = (filmId: String, title: String, actors: String, filmDirector: String,  type: String, description: String, price: String, filmImage: UIImage, youtubeUrl: String, isLiked: Bool)
+
+enum DatabaseTables: String {
+    case fllms = "Filmsbase"
+    case icons = "Iconsbase"
+}
+var x:DatabaseTables = .icons
+var y:String = x.rawValue
+
+
+
+enum TypeOfFilm : String{
+    case komedia            = "Komedia"
+    case horror             = "Horror"
+    case sensacja           = "Sensacyjny"
+    case kostiumowy         = "Kostiumowy"
+    case wojenny            = "Wojenny"
+    case obyczajowy         = "Obyczajowy"
+    case dlaDzieci          = "Dla dzieci"
+    case muzyczny           = "Muzyczny"
+    case familijny          = "Familijny"
+    case mlodziezowy        = "Młodzieżowy"
+    case kryminal           = "Kryminał"
+    case autobiograficzny   = "Autobiograficzny"
+    case sciencefiction     = "Fantastyka naukowa"
+    case fantasy            = "Fantasy"
+    case thiler             = "Thiler"
 }
 var polubienia: [Bool] = []
 var typyFilmow: [TypeOfFilm] = []

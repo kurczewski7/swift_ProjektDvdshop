@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C12AFDA1EBE47E20045D889 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12AFD91EBE47E20045D889 /* Database.swift */; };
 		2C147E831EB91AE900E0E92A /* PaymentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C147E821EB91AE900E0E92A /* PaymentCollectionViewCell.swift */; };
 		2C147E851EB91B8D00E0E92A /* PaymentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C147E841EB91B8D00E0E92A /* PaymentCollectionViewController.swift */; };
 		2C147E871EB930D200E0E92A /* ObliczViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C147E861EB930D200E0E92A /* ObliczViewController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C12AFD91EBE47E20045D889 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		2C147E821EB91AE900E0E92A /* PaymentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C147E841EB91B8D00E0E92A /* PaymentCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentCollectionViewController.swift; sourceTree = "<group>"; };
 		2C147E861EB930D200E0E92A /* ObliczViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObliczViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				2C710A541EB89150007C81AF /* FilmList.swift */,
 				2C147E881EB93AE800E0E92A /* Icon.swift */,
 				2C603CA61EBB34E700F4BC17 /* Kantor.swift */,
+				2C12AFD91EBE47E20045D889 /* Database.swift */,
 				2C15739C1EAFFC8C00B48306 /* DVDShop.xcdatamodeld */,
 			);
 			name = MODELS;
@@ -341,6 +344,7 @@
 				2C17DB101EBC9B2800575581 /* VideoViewController.swift in Sources */,
 				2C147E891EB93AE800E0E92A /* Icon.swift in Sources */,
 				2C147E831EB91AE900E0E92A /* PaymentCollectionViewCell.swift in Sources */,
+				2C12AFDA1EBE47E20045D889 /* Database.swift in Sources */,
 				2C603CA91EBB52EB00F4BC17 /* PrzelewViewController.swift in Sources */,
 				2C1573961EAFFC8C00B48306 /* AppDelegate.swift in Sources */,
 				2C49798F1EB3F8ED000A2E33 /* Film.swift in Sources */,
