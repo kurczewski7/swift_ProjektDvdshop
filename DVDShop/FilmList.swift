@@ -8,8 +8,10 @@
 
 import UIKit
 
-struct FilmList {
+class FilmList {
+    var database: Database
     var film: Film
+    
     var filmsName: [String]
     var titles: [String]
     var actorsList: [String]
@@ -20,10 +22,12 @@ struct FilmList {
     var likedList: [Bool]
     var defaultYoutubeUrls: [String] = ["7ynBUJPNEdM",  "WyHv2WqkPCQ","WlYC8gDvutc","WyHv2WqkPCQ"]
     
-    init(filmsName: [String], titles: [String], actorsList: [String], typeList: [TypeOfFilm], descriptions: [String], priceList: [Double],  youtubeUrlList : [String], likedList: [Bool]) {
-        
+    init(filmsName: [String], titles: [String], actorsList: [String], typeList: [TypeOfFilm], descriptions: [String], priceList: [Double],  youtubeUrlList : [String], likedList: [Bool])
+    {
         film=Film()
-                self.filmsName=filmsName
+        database=Database()
+        
+        self.filmsName=filmsName
         self.titles=titles
         self.actorsList=actorsList
         self.typeList=typeList
@@ -32,7 +36,7 @@ struct FilmList {
         self.likedList=likedList
         self.youtubeUrlList=youtubeUrlList
     }
-    public mutating func give(row: Int) ->  (filmId: String, title: String, actors: String, filmDirector: String,  type: String, description: String, price: String, filmImage: UIImage, youtubeUrl: String, isLiked: Bool) {
+    public func give(row: Int) ->  UserRekord {
         
         print("row=\(row)")
                 film.fill(pictureName: filmsName[row], titleName: titles[row], price: priceList[row], type: typeList[row], filmDescription: descriptions[row], actor: actorsList[row], filmDirector: "brak", youtubeUrl: giveYoutubeUrl(row: row), isLiked: likedList[row])
@@ -43,7 +47,7 @@ struct FilmList {
             return (name: filmsName[row], price: priceList[row], isFeatured: true)
     }
     
-    mutating func setIsLike(row: Int, isLike: Bool){
+    func setIsLike(row: Int, isLike: Bool){
       likedList[row] = isLike
     }
     

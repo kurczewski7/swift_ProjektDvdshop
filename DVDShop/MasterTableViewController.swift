@@ -13,6 +13,7 @@ import UIKit
 
 var filmList:FilmList = FilmList(filmsName: obrazki, titles: tytuly, actorsList: aktorzy, typeList: typyFilmow, descriptions: opisyFilmow, priceList: cenyFilmow, youtubeUrlList: youtubeUrls, likedList: polubienia)
 
+//var database: Database
 class MasterTableViewController: UITableViewController {
     
 //        let titles = ["Ostatni wojownik","Ogniem i mieczem","Jak zostać królem"]
@@ -79,8 +80,6 @@ class MasterTableViewController: UITableViewController {
         typyFilmow[81] = .dlaDzieci
         typyFilmow[95] = .dlaDzieci
         typyFilmow[109] = .thiler
-            
-//        typyFilmow[0] = .
         
         print("=======polubienia========")
         for i in 0..<polubienia.count {
@@ -88,26 +87,15 @@ class MasterTableViewController: UITableViewController {
                 listaUlubionych.append(i)
                 print("element\(i)")
             }
-        }
-        
-//        for i in 0..<polubienia.count {
-//           zestawIcon.append(Icon(name: filmList.giveIcon(row: i).name, price: filmList.giveIcon(row: i).price, isFeatured: true))
-//            print("zestawIcon name\(i)  \(zestawIcon[i].name)")
-//            print("zestawIcon price\(i)  \(zestawIcon[i].price)")
-//        }
-//        print("========")
-//        print("typyFilmow\(typyFilmow[0])")
-//        print("cenyFilmow\(cenyFilmow[0])")
-//        print("opisyFilmow\(opisyFilmow[0])")
-//        print("aktorzy\(aktorzy[0])")
-        //print("typyFilmow\(typyFilmow)")
-        //print("polubienia=\(polubienia)")
+        }        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(y)
         readSampleData()
+        print("-----------")
+
+        
     }
 
     override func didReceiveMemoryWarning() {
