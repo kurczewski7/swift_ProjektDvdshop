@@ -32,6 +32,7 @@
 		2C710A551EB89150007C81AF /* FilmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C710A541EB89150007C81AF /* FilmList.swift */; };
 		2CBF06A91EC1160600A4FA95 /* FindTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF06A81EC1160600A4FA95 /* FindTableViewController.swift */; };
 		2CBF06AB1EC116CE00A4FA95 /* FindTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF06AA1EC116CE00A4FA95 /* FindTableViewCell.swift */; };
+		2CBF06AD1EC1257D00A4FA95 /* FoundDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF06AC1EC1257C00A4FA95 /* FoundDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		2C710A541EB89150007C81AF /* FilmList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmList.swift; sourceTree = "<group>"; };
 		2CBF06A81EC1160600A4FA95 /* FindTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindTableViewController.swift; sourceTree = "<group>"; };
 		2CBF06AA1EC116CE00A4FA95 /* FindTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindTableViewCell.swift; sourceTree = "<group>"; };
+		2CBF06AC1EC1257C00A4FA95 /* FoundDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				2C603CA81EBB52EB00F4BC17 /* PrzelewViewController.swift */,
 				2C1797291EC05803004B52E1 /* FiltrViewController.swift */,
 				2CBF06A81EC1160600A4FA95 /* FindTableViewController.swift */,
+				2CBF06AC1EC1257C00A4FA95 /* FoundDetailViewController.swift */,
 				2CBF06AA1EC116CE00A4FA95 /* FindTableViewCell.swift */,
 			);
 			name = CONTROLERS;
@@ -348,6 +351,7 @@
 				2C1573CC1EB0060100B48306 /* MasterTableViewController.swift in Sources */,
 				2CBF06A91EC1160600A4FA95 /* FindTableViewController.swift in Sources */,
 				2C1F5A761EB1528100A68B4B /* DetailViewController.swift in Sources */,
+				2CBF06AD1EC1257D00A4FA95 /* FoundDetailViewController.swift in Sources */,
 				2C1573CA1EAFFFEE00B48306 /* MasterTableViewCell.swift in Sources */,
 				2C710A551EB89150007C81AF /* FilmList.swift in Sources */,
 				2C147E871EB930D200E0E92A /* ObliczViewController.swift in Sources */,

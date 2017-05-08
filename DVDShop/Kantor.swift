@@ -91,6 +91,12 @@ class Kantor  {
         let value = arc4random_uniform(UInt32(max))
         return Int(value)
     }
+    func intToString(value: Int) -> String {
+        return String.init(format: "%6d", value).trimmingCharacters(in: .whitespaces)
+    }
+    func doubleToString(value: Double) -> String {
+        return String.init(format: "%6.2f", value).trimmingCharacters(in: .whitespaces)
+    }
     
     
     

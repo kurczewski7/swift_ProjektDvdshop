@@ -8,9 +8,9 @@
 
 import UIKit
 
+var database=Database()
 class FiltrViewController: UIViewController {
     //var filmsbase=[Filmsbase]()
-    var database=Database()
     //let menagedContext=filmList.database.managedContext
 
     @IBOutlet var obrazekImage: UIImageView!
@@ -60,6 +60,9 @@ class FiltrViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction  func unwindBeck(segue: UIStoryboardSegue) {
+        
+    }
 
     /*
     // MARK: - Navigation

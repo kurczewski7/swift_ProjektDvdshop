@@ -12,7 +12,8 @@ class FindTableViewController: UITableViewController {
     var database=Database()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.title="Filmy znalezione: \(database.flimsbase.count)"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -42,7 +43,6 @@ class FindTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FindTableViewCell
 
         // Configure the cell...
-        cell.actorsLabel.text = "AAAA"
         
         if database.flimsbase.count>indexPath.row {
             cell.titleLabel.text=database.flimsbase[indexPath.row].title
@@ -54,6 +54,29 @@ class FindTableViewController: UITableViewController {
         
 
         return cell
+    }
+    @IBAction  func unwindBeck(segue: UIStoryboardSegue) {
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier=="showFound" {
+            if let indexPath=tableView.indexPathForSelectedRow {
+                let destinatonController = segue.destination as! FoundDetailViewController
+                
+                //let rek=filmList.give(row: indexPath.row)
+                
+                let rek=database.flimsbase[indexPath.row]
+                destinatonController.dvdImageTmp   =  filmList.giveCurrentPictureName(row: indexPath.row)
+                destinatonController.titleLabelTmp =  rek.title!
+                destinatonController.actorsLabelTmp  =  rek.actors!
+                destinatonController.typeLabelTmp  =  rek.type!
+                destinatonController.priceLabelTmp =  kantor.doubleToString(value:  rek.price)
+                destinatonController.youtubeUrlTmp =  rek.youtubeUrl!
+                destinatonController.descriptionLabelTmp = filmList.give(row: indexPath.row).description
+                destinatonController.rowTmp=kantor.intToString(value: indexPath.row)            }
+        }
     }
    
 
