@@ -12,7 +12,7 @@ class DetailViewController: UIViewController {
     
     var dvdImageTmp = ""
     var titleLabelTmp = ""
-    var actorsLabelTmp = ""
+    var actorsLabelTmp = "brak"
     var typeLabelTmp = ""
     var descriptionLabelTmp = ""
     var priceLabelTmp = ""
@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
     }
     @IBOutlet var actorsLabel: UILabel! {
         didSet {
-            actorsLabel.text="brak"
+            actorsLabel.text=actorsLabelTmp
         }    }
     @IBOutlet var typeLabel: UILabel! {
         didSet {

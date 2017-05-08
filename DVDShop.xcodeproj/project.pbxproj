@@ -21,6 +21,7 @@
 		2C1573B91EAFFC8D00B48306 /* DVDShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1573B81EAFFC8D00B48306 /* DVDShopUITests.swift */; };
 		2C1573CA1EAFFFEE00B48306 /* MasterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1573C91EAFFFEE00B48306 /* MasterTableViewCell.swift */; };
 		2C1573CC1EB0060100B48306 /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1573CB1EB0060100B48306 /* MasterTableViewController.swift */; };
+		2C17972A1EC05803004B52E1 /* FiltrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1797291EC05803004B52E1 /* FiltrViewController.swift */; };
 		2C17DB101EBC9B2800575581 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17DB0F1EBC9B2800575581 /* VideoViewController.swift */; };
 		2C1F5A761EB1528100A68B4B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F5A751EB1528100A68B4B /* DetailViewController.swift */; };
 		2C49798D1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49798C1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift */; };
@@ -69,6 +70,7 @@
 		2C1573BA1EAFFC8D00B48306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C1573C91EAFFFEE00B48306 /* MasterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableViewCell.swift; sourceTree = "<group>"; };
 		2C1573CB1EB0060100B48306 /* MasterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
+		2C1797291EC05803004B52E1 /* FiltrViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrViewController.swift; sourceTree = "<group>"; };
 		2C17DB0F1EBC9B2800575581 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		2C1F5A751EB1528100A68B4B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2C49798C1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				2C147E821EB91AE900E0E92A /* PaymentCollectionViewCell.swift */,
 				2C147E861EB930D200E0E92A /* ObliczViewController.swift */,
 				2C603CA81EBB52EB00F4BC17 /* PrzelewViewController.swift */,
+				2C1797291EC05803004B52E1 /* FiltrViewController.swift */,
 			);
 			name = CONTROLERS;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				2C12AFDA1EBE47E20045D889 /* Database.swift in Sources */,
 				2C603CA91EBB52EB00F4BC17 /* PrzelewViewController.swift in Sources */,
 				2C1573961EAFFC8C00B48306 /* AppDelegate.swift in Sources */,
+				2C17972A1EC05803004B52E1 /* FiltrViewController.swift in Sources */,
 				2C49798F1EB3F8ED000A2E33 /* Film.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

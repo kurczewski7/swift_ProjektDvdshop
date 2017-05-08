@@ -19,20 +19,25 @@ class MasterTableViewController: UITableViewController {
 //        let titles = ["Ostatni wojownik","Ogniem i mieczem","Jak zostać królem"]
         let actors = ["Bruce Lee","Dustin Hoffman","Harisson Ford"]
         let types = ["Science ficton","Horror","Komedia romantyczna"]
-        let prices = ["22.50","17.99","34.40"]
+    let prices:[Double] = [22.50,17.99,34.40,49.99,75.50]
     
     var film: TypeOfFilm = .horror
     
     let  dvdFilm: (picture: String, title: String, actors: String, type: TypeOfFilm, price: String) = (picture: "obrazek",  title: "tytul",  actors: "Aktorzy", type: .horror, price: "Cena")
     var dvdFilms = [(picture: String, title: String, actors: String, type: TypeOfFilm, price: String)]()
-    
     var myDvd = ("aaa", "bbb", "cccc", TypeOfFilm.komedia)
-    //let(panstwo,stolica)=stolicePanstw[IndexPath.item]
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        readSampleData()
+        print("-----------")
+    }
     
     func readSampleData() {
         for i in 1...obrazki.count{
             typyFilmow.append((i % 2 == 0) ? TypeOfFilm.sensacja : TypeOfFilm.obyczajowy)
-            cenyFilmow.append((i % 2 == 0) ? 72.50 : 35.20)
+            cenyFilmow.append(prices[kantor.giveRandomInt(max: prices.count)])      //(i % 2 == 0) ? 72.50 : 35.20)
             opisyFilmow.append("Super Film")
             aktorzy.append("Aktorzy nieznani")
             polubienia.append(false)
@@ -90,13 +95,6 @@ class MasterTableViewController: UITableViewController {
         }        
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        readSampleData()
-        print("-----------")
-
-        
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -190,11 +188,13 @@ class MasterTableViewController: UITableViewController {
                 if let indexPath=tableView.indexPathForSelectedRow {
                      let destinatonController = segue.destination as! DetailViewController
                     
+                    let rek=filmList.give(row: indexPath.row)
                     destinatonController.dvdImageTmp   =  filmList.giveCurrentPictureName(row: indexPath.row)
-                    destinatonController.titleLabelTmp =  filmList.give(row: indexPath.row).title
-                    destinatonController.typeLabelTmp  =  filmList.give(row: indexPath.row).type
-                    destinatonController.priceLabelTmp =  filmList.give(row: indexPath.row).price
-                    destinatonController.youtubeUrlTmp =  filmList.give(row: indexPath.row).youtubeUrl
+                    destinatonController.titleLabelTmp =  rek.title
+                    destinatonController.actorsLabelTmp  =  rek.actors
+                    destinatonController.typeLabelTmp  =  rek.type
+                    destinatonController.priceLabelTmp =  rek.price
+                    destinatonController.youtubeUrlTmp =  rek.youtubeUrl
                     destinatonController.descriptionLabelTmp = filmList.give(row: indexPath.row).description
                 }
             }

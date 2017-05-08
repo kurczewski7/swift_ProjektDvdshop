@@ -52,10 +52,9 @@ class Database
         dbRow.filmImage=imgData! as NSData
         
         print("tytul=\(rek.title),\(rek.filmId)")
-
-     
         do { try self.managedContext.save()
-        } catch {   print("Nie mogę zapisać danych \(error.localizedDescription)")  }
+            print("-----Dane zapisano-----")
+        } catch {   print("!!!!!!    Nie mogę zapisać danych \(error.localizedDescription)")  }
     }
 
     func addDataToBase()

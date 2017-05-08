@@ -84,9 +84,7 @@ var rezyser:[String]=["Machulski Juliusz",
                       "Title Stacy"]
 
 var listaUlubionych: [Int] = []
-
 var zestawIcon: [Icon] = []
-
 var kantor = Kantor()
 //var daneTmp: (filmId: String, title: String, actors: String, type: TypeOfFilm, description: String, price: String, filmImage: UIImage, isLiked: Bool)
 // = ("", "")

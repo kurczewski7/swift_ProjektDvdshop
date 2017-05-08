@@ -87,6 +87,11 @@ class Kantor  {
     {
         return "Tranzakcja: \(nrTransakcji)"
     }
+    func giveRandomInt(max: Int) -> Int {
+        let value = arc4random_uniform(UInt32(max))
+        return Int(value)
+    }
+    
     
     
 
