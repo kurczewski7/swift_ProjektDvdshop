@@ -9,7 +9,7 @@
 import UIKit
 
 class FindTableViewController: UITableViewController {
-
+    var database=Database()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,14 +34,24 @@ class FindTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return database.flimsbase.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FindTableViewCell
 
         // Configure the cell...
+        cell.actorsLabel.text = "AAAA"
+        
+        if database.flimsbase.count>indexPath.row {
+            cell.titleLabel.text=database.flimsbase[indexPath.row].title
+            cell.actorsLabel.text=database.flimsbase[indexPath.row].actors
+            cell.typLabel.text=database.flimsbase[indexPath.row].type
+            cell.priceLabel.text=String.init(format: "%6.2f", database.flimsbase[indexPath.row].price)
+            cell.DVDImage.image=UIImage(data: database.flimsbase[indexPath.row].filmImage! as Data)
+        }
+        
 
         return cell
     }
