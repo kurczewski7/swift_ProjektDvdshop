@@ -9,19 +9,37 @@
 import UIKit
 
 class FiltrViewController: UIViewController {
-    //var bazaFlmow=[Filmsbase]()
+    //var filmsbase=[Filmsbase]()
+    var database=Database()
     //let menagedContext=filmList.database.managedContext
 
+    @IBOutlet var obrazekImage: UIImageView!
+        { didSet {
+        if database.flimsbase.count>0{
+            obrazekImage.image=UIImage(data: database.flimsbase[0].filmImage! as Data)
+            }
+        }
+        
+    }
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var priceName: UILabel!
+    @IBOutlet var nameLabel: UILabel! {
+        didSet {
+            let ilosc=database.flimsbase.count
+            nameLabel.text="x=\(Filmsbase.accessibilityElementCount()),\(ilosc)"
+        }
+    }
+    @IBOutlet var priceName: UILabel! {
+        didSet {    priceName.text=database.flimsbase[0].pictureName
+        }
+    }
     
     @IBAction func policzAction(_ sender: Any) {
-        // let wynik=filmList.database.policzRecords()
-        //  titleLabel.text="Rekordow:\(wynik.allRecords),dostepnych:\(wynik.accesableRecords)"
+         let wynik=database.policzRecords()
+          titleLabel.text="Rekordow:\(wynik.allRecords),dostepnych:\(wynik.accesableRecords)"
     }
     
     @IBAction func addAction(_ sender: Any) {
+        database.addDataToBase()
     }
     
     @IBAction func deleteAction(_ sender: Any) {
@@ -32,7 +50,7 @@ class FiltrViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        //filmList.database.loadData()
+        database.loadData()
 
         // Do any additional setup after loading the view.
     }

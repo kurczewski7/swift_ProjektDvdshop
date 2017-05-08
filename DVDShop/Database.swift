@@ -22,12 +22,13 @@ class Database
         if(policzRecords().allRecords==0) && policzRecords().accesableRecords==0
         {
             print("Dodanie rekordów,  allRecords=\(policzRecords().allRecords),accesableRecords=\(policzRecords().accesableRecords)")
-            addDataToBase()
+            //addDataToBase()
             
         }
         loadData()
     }
     func loadData(){
+        print("loadData")
         let fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
         do {            flimsbase = try managedContext.fetch(fetchRequest)
         } catch {       print("Nie można załadować danych \(error.localizedDescription)")    }
@@ -68,8 +69,8 @@ class Database
             //print("i=\(i),tytul=\(currentFilm.title),\(currentFilm.filmId)")
             
             currentFilm.title = tytuly[i]
-            currentFilm.actors = ""
-            currentFilm.description = "Co tam"
+            currentFilm.actors = "Aktor nieznany"
+            currentFilm.description = "Coś tam"
             currentFilm.filmDirector = "Machulski"
             currentFilm.filmId = obrazki[i]
             currentFilm.filmImage = UIImage(named: obrazki[i])!
@@ -78,7 +79,7 @@ class Database
             currentFilm.type = TypeOfFilm.fantasy.rawValue
             currentFilm.youtubeUrl = "WyHv2WqkPCQ"
                 
-//            print("i=\(i),tytul=\(currentFilm.title),\(tytuly[i])")
+            print("i=\(i),tytul=\(currentFilm.title),\(tytuly[i])")
             createDatabaseRow(rek: currentFilm)
         }
     }

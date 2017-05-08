@@ -17,8 +17,8 @@ var filmList:FilmList = FilmList(filmsName: obrazki, titles: tytuly, actorsList:
 class MasterTableViewController: UITableViewController {
     
 //        let titles = ["Ostatni wojownik","Ogniem i mieczem","Jak zostać królem"]
-        let actors = ["Bruce Lee","Dustin Hoffman","Harisson Ford"]
-        let types = ["Science ficton","Horror","Komedia romantyczna"]
+//        let actors = ["Bruce Lee","Dustin Hoffman","Harisson Ford"]
+//        let types = ["Science ficton","Horror","Komedia romantyczna"]
     let prices:[Double] = [22.50,17.99,34.40,49.99,75.50]
     
     var film: TypeOfFilm = .horror
