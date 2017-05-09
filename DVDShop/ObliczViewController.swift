@@ -40,16 +40,12 @@ class ObliczViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         let wynik=policz(selectedDvd: zestawIcon)
         kantor.setTotalPrice(totalPrice: wynik)
         
-bankiPickerView.selectRow(2, inComponent: 0, animated: true)
+        bankiPickerView.selectRow(2, inComponent: 0, animated: true)
         naleznoscLabel.text = kantor.giveValuteText(country: 0)  //String.init(format: "%7.2f zł", wynik)
         wartoscWalucieLabel.text = kantor.giveValuteText(country: 0)  //String.init(format: "%7.2f zł", wynik)
         kursLabel.text=kantor.giveKursText(country: 0)
         
         //kantor.setTransactionId()
-
-
-       
-
         // Do any additional setup after loading the view.
     }
 

@@ -37,6 +37,7 @@ enum TypeOfFilm : String{
     case fantasy            = "Fantasy"
     case thiler             = "Thiler"
 }
+let typeOfFilm: [TypeOfFilm] = [.autobiograficzny, .dlaDzieci, .familijny, .fantasy, .sciencefiction, .horror, .sensacja, .komedia, .kryminal, .mlodziezowy, .muzyczny, .obyczajowy , .thiler, .wojenny]
 var polubienia: [Bool] = []
 var typyFilmow: [TypeOfFilm] = []
 var cenyFilmow: [Double] = []
