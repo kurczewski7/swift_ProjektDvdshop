@@ -537,9 +537,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FPl-T4-Ggh">
-                                <rect key="frame" x="101" y="72" width="173" height="197"/>
-                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dsr-y6-6bb">
+                                <rect key="frame" x="26" y="79" width="323" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WD6-53-cn7"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Tytuł"/>
+                                    <segment title="Gatunek"/>
+                                    <segment title="Aktorzy"/>
+                                    <segment title="Cena do"/>
+                                </segments>
+                                <connections>
+                                    <action selector="fieldSegmentAction:" destination="eck-tW-Jaf" eventType="valueChanged" id="jVF-fC-552"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="wpisz szukane słowo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="unq-C0-9wg">
+                                <rect key="frame" x="26" y="124" width="323" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Olk-hY-qeb"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFw-zP-NOH">
+                                <rect key="frame" x="10" y="174" width="355" height="114"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="114" id="PUU-yV-Xdq"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -551,28 +578,33 @@
                             <constraint firstItem="YoR-gC-YH8" firstAttribute="top" secondItem="vm7-Tz-ykk" secondAttribute="bottom" constant="15" id="2CU-iI-O4B"/>
                             <constraint firstItem="vm7-Tz-ykk" firstAttribute="leading" secondItem="bKp-C1-U8g" secondAttribute="leadingMargin" constant="10" id="2Kj-RL-XxJ"/>
                             <constraint firstItem="YoR-gC-YH8" firstAttribute="centerX" secondItem="vm7-Tz-ykk" secondAttribute="centerX" id="3qZ-Hy-p2N"/>
-                            <constraint firstItem="FPl-T4-Ggh" firstAttribute="trailing" secondItem="2uM-HG-lCc" secondAttribute="trailing" id="4IC-qr-nF9"/>
+                            <constraint firstItem="dsr-y6-6bb" firstAttribute="top" secondItem="bp3-S7-j8Q" secondAttribute="bottom" constant="15" id="42s-i6-G6l"/>
                             <constraint firstItem="uyw-dV-go5" firstAttribute="leading" secondItem="vNS-Ze-uxZ" secondAttribute="trailing" constant="29" id="6Hy-T8-FyX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vm7-Tz-ykk" secondAttribute="trailing" constant="10" id="797-TZ-NuT"/>
+                            <constraint firstItem="dsr-y6-6bb" firstAttribute="leading" secondItem="bKp-C1-U8g" secondAttribute="leadingMargin" constant="10" id="9Bp-fK-3jF"/>
                             <constraint firstItem="YoR-gC-YH8" firstAttribute="leading" secondItem="bKp-C1-U8g" secondAttribute="leadingMargin" constant="10" id="9bE-mX-ttB"/>
                             <constraint firstItem="oTx-w5-97G" firstAttribute="top" secondItem="YoR-gC-YH8" secondAttribute="bottom" constant="22" id="9cV-Ul-N30"/>
-                            <constraint firstItem="vm7-Tz-ykk" firstAttribute="top" secondItem="FPl-T4-Ggh" secondAttribute="bottom" constant="36" id="AuY-1U-bFf"/>
-                            <constraint firstItem="FPl-T4-Ggh" firstAttribute="top" secondItem="bp3-S7-j8Q" secondAttribute="bottom" constant="8" symbolic="YES" id="EYV-sS-QP9"/>
                             <constraint firstItem="vm7-Tz-ykk" firstAttribute="top" secondItem="bp3-S7-j8Q" secondAttribute="bottom" constant="241" id="HRd-3Z-uHz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YwY-Ud-P3L" secondAttribute="trailing" constant="13" id="KB8-gX-or7"/>
                             <constraint firstItem="YoR-gC-YH8" firstAttribute="centerX" secondItem="uyw-dV-go5" secondAttribute="centerX" id="L2S-PX-rd3"/>
                             <constraint firstItem="3UN-iG-enr" firstAttribute="leading" secondItem="bKp-C1-U8g" secondAttribute="leadingMargin" constant="10" id="LDY-6u-Kn1"/>
+                            <constraint firstItem="ZFw-zP-NOH" firstAttribute="leading" secondItem="bKp-C1-U8g" secondAttribute="leading" constant="10" id="MLg-gE-oNX"/>
                             <constraint firstItem="YoR-gC-YH8" firstAttribute="leading" secondItem="oTx-w5-97G" secondAttribute="leading" id="RGL-A0-fU0"/>
                             <constraint firstItem="hIx-pN-wWT" firstAttribute="leading" secondItem="bKp-C1-U8g" secondAttribute="leadingMargin" id="Stn-F3-aSe"/>
+                            <constraint firstItem="ZFw-zP-NOH" firstAttribute="top" secondItem="unq-C0-9wg" secondAttribute="bottom" constant="10" id="TXp-34-bIC"/>
                             <constraint firstItem="YwY-Ud-P3L" firstAttribute="leading" secondItem="2uM-HG-lCc" secondAttribute="trailing" constant="26" id="UXw-Ny-KKe"/>
+                            <constraint firstItem="unq-C0-9wg" firstAttribute="leading" secondItem="bKp-C1-U8g" secondAttribute="leadingMargin" constant="10" id="W2v-qf-3h1"/>
                             <constraint firstItem="hIx-pN-wWT" firstAttribute="top" secondItem="3UN-iG-enr" secondAttribute="bottom" constant="20" id="ZtL-CU-blb"/>
                             <constraint firstItem="YoR-gC-YH8" firstAttribute="leading" secondItem="3UN-iG-enr" secondAttribute="leading" id="bQt-JD-1CK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="unq-C0-9wg" secondAttribute="trailing" constant="10" id="dXE-ZG-YHY"/>
+                            <constraint firstItem="unq-C0-9wg" firstAttribute="top" secondItem="dsr-y6-6bb" secondAttribute="bottom" constant="15" id="hcJ-R4-nJQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YoR-gC-YH8" secondAttribute="trailing" constant="10" id="kwa-jf-vui"/>
                             <constraint firstItem="YoR-gC-YH8" firstAttribute="top" secondItem="vm7-Tz-ykk" secondAttribute="bottom" constant="15" id="ocR-Qw-jP6"/>
                             <constraint firstItem="uyw-dV-go5" firstAttribute="baseline" secondItem="2uM-HG-lCc" secondAttribute="baseline" id="oqc-0h-szP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dsr-y6-6bb" secondAttribute="trailing" constant="10" id="rMh-X0-xlI"/>
                             <constraint firstItem="YoR-gC-YH8" firstAttribute="centerX" secondItem="oTx-w5-97G" secondAttribute="centerX" id="rm8-U4-PwC"/>
+                            <constraint firstAttribute="trailing" secondItem="ZFw-zP-NOH" secondAttribute="trailing" constant="10" id="sHS-bB-Iae"/>
                             <constraint firstItem="uyw-dV-go5" firstAttribute="baseline" secondItem="vNS-Ze-uxZ" secondAttribute="baseline" id="uCd-bL-75n"/>
-                            <constraint firstItem="FPl-T4-Ggh" firstAttribute="centerX" secondItem="bKp-C1-U8g" secondAttribute="centerX" id="wZO-T0-6Dw"/>
                             <constraint firstItem="vNS-Ze-uxZ" firstAttribute="leading" secondItem="hIx-pN-wWT" secondAttribute="trailing" constant="27" id="ymL-g8-KIB"/>
                             <constraint firstItem="uyw-dV-go5" firstAttribute="baseline" secondItem="hIx-pN-wWT" secondAttribute="baseline" id="z2d-jI-0zo"/>
                         </constraints>
@@ -585,15 +617,16 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="findValueTextField" destination="unq-C0-9wg" id="It1-fl-1Jd"/>
                         <outlet property="nameLabel" destination="YoR-gC-YH8" id="ISx-eP-LVz"/>
-                        <outlet property="obrazekImage" destination="FPl-T4-Ggh" id="UvS-JF-qXt"/>
                         <outlet property="priceName" destination="oTx-w5-97G" id="DiO-Ga-pD2"/>
                         <outlet property="titleLabel" destination="vm7-Tz-ykk" id="wL7-cl-WGl"/>
+                        <outlet property="typePickerData" destination="ZFw-zP-NOH" id="GGe-ej-Tn8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kv-OU-uQm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2018" y="863"/>
+            <point key="canvasLocation" x="-2018.4000000000001" y="862.21889055472275"/>
         </scene>
         <!--Przelew-->
         <scene sceneID="7ZU-Lb-WcT">

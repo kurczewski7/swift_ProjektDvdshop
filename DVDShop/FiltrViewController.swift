@@ -9,18 +9,14 @@
 import UIKit
 
 var database=Database()
-class FiltrViewController: UIViewController {
+class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     //var filmsbase=[Filmsbase]()
     //let menagedContext=filmList.database.managedContext
 
-    @IBOutlet var obrazekImage: UIImageView!
-        { didSet {
-        if database.flimsbase.count>0{
-            obrazekImage.image=UIImage(data: database.flimsbase[0].filmImage! as Data)
-            }
-        }
-        
+    @IBAction func fieldSegmentAction(_ sender: UISegmentedControl) {
     }
+  
+    @IBOutlet var findValueTextField: UITextField!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var nameLabel: UILabel! {
         didSet {
@@ -37,6 +33,8 @@ class FiltrViewController: UIViewController {
          let wynik=database.policzRecords()
           titleLabel.text="Rekordow:\(wynik.allRecords),dostepnych:\(wynik.accesableRecords)"
     }
+    
+    @IBOutlet var typePickerData: UIPickerView!
     
     @IBAction func addAction(_ sender: Any) {
         database.setupDataFromAssets()
@@ -64,6 +62,21 @@ class FiltrViewController: UIViewController {
     @IBAction  func unwindBeck(segue: UIStoryboardSegue) {
         
     }
+    // MARK: Picker View
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 5
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return "co tam"
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //kantor.numerBanku=row
+    }
+
 
     /*
     // MARK: - Navigation
