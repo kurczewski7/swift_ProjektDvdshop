@@ -37,8 +37,9 @@ class Database
     func createDatabaseRow(rek:  UserRekord)
     {
         let dbRow = Filmsbase(context: managedContext)
+        //let priceInt=kantor.
         dbRow.title = rek.title
-        dbRow.price = Double(rek.price)!
+        dbRow.price = kantor.stringToDouble(value: rek.price)
         dbRow.actors = rek.actors
         dbRow.filmDirector = rek.filmDirector
         dbRow.filmDescription = rek.description
@@ -47,9 +48,13 @@ class Database
         dbRow.filmId = rek.filmId
         dbRow.pictureName = rek.filmId
         dbRow.isLiked = rek.isLiked
+        print("rek.filmId:\(rek.filmId)")
         
-        let image = UIImage(named: rek.filmId)
-        let imgData = UIImageJPEGRepresentation(image!, 1)
+        
+        
+        //let image = UIImage(named: rek.filmId)
+        let image = rek.filmImage
+        let imgData = UIImageJPEGRepresentation(image, 1)
         dbRow.filmImage=imgData! as NSData
         
         print("tytul=\(rek.title),\(rek.filmId)")
@@ -68,17 +73,39 @@ class Database
             //createDatabaseRow(rek: currentFilm)
             //print("i=\(i),tytul=\(currentFilm.title),\(currentFilm.filmId)")
             
-            currentFilm.title = tytuly[i]
-            currentFilm.actors = "Aktor nieznany"
-            currentFilm.description = "Coś tam"
-            currentFilm.filmDirector = "Machulski"
-            currentFilm.filmId = obrazki[i]
-            currentFilm.filmImage = UIImage(named: obrazki[i])!
-            currentFilm.isLiked = true
-            currentFilm.price = "33.33"
-            currentFilm.type = TypeOfFilm.fantasy.rawValue
-            currentFilm.youtubeUrl = "WyHv2WqkPCQ"
-                
+            let dane = filmList.give(row: i)
+            //currentFilm.price=dane.price
+            
+            currentFilm.title           = dane.title
+            currentFilm.actors          = dane.actors
+            currentFilm.description     = dane.description
+            currentFilm.filmDirector    = dane.filmDirector
+            currentFilm.filmId          = dane.filmId
+            currentFilm.filmImage       = dane.filmImage    //UIImage(named: dane.filmId)!
+            currentFilm.isLiked         = dane.isLiked
+            currentFilm.price           = dane.price
+            currentFilm.type            = dane.type
+            currentFilm.youtubeUrl      = dane.youtubeUrl    //"WyHv2WqkPCQ"
+  
+            //            currentFilm.title = tytuly[i]
+            //            currentFilm.actors = "Aktor nieznany"
+            //            currentFilm.description = "Coś tam"
+            //            currentFilm.filmDirector = "Machulski"
+            //            currentFilm.filmId = obrazki[i]
+            //            currentFilm.filmImage = UIImage(named: obrazki[i])!
+            //            currentFilm.isLiked = true
+            //            currentFilm.price = "33.33"
+            //            currentFilm.type = TypeOfFilm.fantasy.rawValue
+            //            currentFilm.youtubeUrl = "WyHv2WqkPCQ"
+            
+//            let dane = filmList.give(row: indexPath.row)
+//            cell.DVDImage.image = dane.filmImage
+//            cell.titleLabel.text = dane.title
+//            cell.actorsLabel.text = dane.actors
+//            cell.typLabel.text = dane.type
+//            cell.priceLabel.text = dane.price
+
+        
             print("i=\(i),tytul=\(currentFilm.title),\(tytuly[i])")
             createDatabaseRow(rek: currentFilm)
         }

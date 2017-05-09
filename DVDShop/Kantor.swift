@@ -97,6 +97,9 @@ class Kantor  {
     func doubleToString(value: Double) -> String {
         return String.init(format: "%6.2f", value).trimmingCharacters(in: .whitespaces)
     }
+    func stringToDouble(value: String) -> Double {
+        return Double(value.trimmingCharacters(in: .whitespaces))!    
+    }
     
     
     

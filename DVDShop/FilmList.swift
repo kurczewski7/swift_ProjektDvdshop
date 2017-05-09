@@ -55,9 +55,9 @@ class FilmList {
         
         
         
-        print("row=\(row)")
-        print("filmsName:\(filmsName[row])")
-        print("titles:\(titles[row])")
+//        print("row=\(row)")
+//        print("filmsName:\(filmsName[(filmsName.count < row) ? row : row %  filmsName.count])")
+//        print("titles:\(titles[(titles.count < row) ? row : row %  titles.count])")
 //        print("priceList:\(priceList[row])")
 //        print("typeList:\(typeList[row])")
 //        print("descriptions:\(descriptions[row])")
@@ -87,8 +87,9 @@ class FilmList {
             return defaultYoutubeUrls[randomValue]
         }
     }
-    func giveCurrentPictureName(row: Int) -> String {        
-        return filmsName[row]
+    func giveCurrentPictureName(row: Int) -> String {
+        let lenghtPict=filmsName.count
+        return filmsName[(row < lenghtPict) ? row : row % lenghtPict]
     }    
 }
 
