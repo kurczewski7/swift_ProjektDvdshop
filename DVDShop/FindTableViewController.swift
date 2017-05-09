@@ -75,7 +75,9 @@ class FindTableViewController: UITableViewController {
                 destinatonController.priceLabelTmp =  kantor.doubleToString(value:  rek.price)
                 destinatonController.youtubeUrlTmp =  rek.youtubeUrl!
                 destinatonController.descriptionLabelTmp = filmList.give(row: indexPath.row).description
-                destinatonController.rowTmp=kantor.intToString(value: indexPath.row)            }
+                destinatonController.rowTmp=kantor.intToString(value: indexPath.row)
+                print("segue showFound, row=\(indexPath.row)")
+            }
         }
     }
    

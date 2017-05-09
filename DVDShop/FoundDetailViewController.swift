@@ -36,8 +36,8 @@ class FoundDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()        
-        //let row=Int(rowTmp)
-        //dvdImage.image=UIImage(data: database.flimsbase[row!].filmImage! as Data)
+        let row=Int(rowTmp)
+        dvdImage.image=UIImage(data: database.flimsbase[row!].filmImage! as Data)
 
         // Do any additional setup after loading the view.
     }

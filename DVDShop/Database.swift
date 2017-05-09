@@ -15,6 +15,8 @@ class Database
    
     var flimsbase = [Filmsbase]()
     var managedContext: NSManagedObjectContext! = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
+//  let fetchRequest = NSFetchRequest<Filmsbase>(entityName: DatabaseTables.fllms.rawValue)
     
     init(){
         print("-----------")
@@ -29,7 +31,7 @@ class Database
     }
     func loadData(){
         print("loadData")
-        let fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
+//        let fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
         do {            flimsbase = try managedContext.fetch(fetchRequest)
         } catch {       print("Nie można załadować danych \(error.localizedDescription)")    }
     
@@ -53,6 +55,7 @@ class Database
         
         
         //let image = UIImage(named: rek.filmId)
+        
         let image = rek.filmImage
         let imgData = UIImageJPEGRepresentation(image, 1)
         dbRow.filmImage=imgData! as NSData
@@ -99,7 +102,7 @@ class Database
     
     func deleteTableBase()
     {
-        let fetchRequest = NSFetchRequest<Filmsbase>(entityName: DatabaseTables.fllms.rawValue)
+//        let fetchRequest = NSFetchRequest<Filmsbase>(entityName: DatabaseTables.fllms.rawValue)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
         
         do { try managedContext.execute(deleteRequest) }
@@ -113,6 +116,9 @@ class Database
     func setupDataFromInternet()
     {
         // funkcja rozwojowa
+    }
+    func filter(){
+    
     }
     
     
