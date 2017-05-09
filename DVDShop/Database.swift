@@ -68,42 +68,18 @@ class Database
         var currentFilm: UserRekord
         for i in 0..<obrazki.count
         {
-            
-            //currentFilm =  filmList.give(row: i)
-            //createDatabaseRow(rek: currentFilm)
-            //print("i=\(i),tytul=\(currentFilm.title),\(currentFilm.filmId)")
-            
             let dane = filmList.give(row: i)
-            //currentFilm.price=dane.price
             
             currentFilm.title           = dane.title
             currentFilm.actors          = dane.actors
             currentFilm.description     = dane.description
             currentFilm.filmDirector    = dane.filmDirector
             currentFilm.filmId          = dane.filmId
-            currentFilm.filmImage       = dane.filmImage    //UIImage(named: dane.filmId)!
+            currentFilm.filmImage       = dane.filmImage
             currentFilm.isLiked         = dane.isLiked
             currentFilm.price           = dane.price
             currentFilm.type            = dane.type
             currentFilm.youtubeUrl      = dane.youtubeUrl    //"WyHv2WqkPCQ"
-  
-            //            currentFilm.title = tytuly[i]
-            //            currentFilm.actors = "Aktor nieznany"
-            //            currentFilm.description = "Coś tam"
-            //            currentFilm.filmDirector = "Machulski"
-            //            currentFilm.filmId = obrazki[i]
-            //            currentFilm.filmImage = UIImage(named: obrazki[i])!
-            //            currentFilm.isLiked = true
-            //            currentFilm.price = "33.33"
-            //            currentFilm.type = TypeOfFilm.fantasy.rawValue
-            //            currentFilm.youtubeUrl = "WyHv2WqkPCQ"
-            
-//            let dane = filmList.give(row: indexPath.row)
-//            cell.DVDImage.image = dane.filmImage
-//            cell.titleLabel.text = dane.title
-//            cell.actorsLabel.text = dane.actors
-//            cell.typLabel.text = dane.type
-//            cell.priceLabel.text = dane.price
 
         
             print("i=\(i),tytul=\(currentFilm.title),\(tytuly[i])")
@@ -128,6 +104,15 @@ class Database
         
         do { try managedContext.execute(deleteRequest) }
         catch { print("Nie można zapisać danych \(error.localizedDescription)")}
+    }
+    func setupDataFromAssets()    {
+        let liczba=policzRecords()
+        if liczba.allRecords == 0 {
+            addDataToBase()        }
+    }
+    func setupDataFromInternet()
+    {
+        // funkcja rozwojowa
     }
     
     

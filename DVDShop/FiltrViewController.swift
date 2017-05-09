@@ -29,7 +29,7 @@ class FiltrViewController: UIViewController {
         }
     }
     @IBOutlet var priceName: UILabel! {
-        didSet {    priceName.text=database.flimsbase[0].pictureName
+        didSet {    priceName.text=(database.flimsbase.count > 0) ?  database.flimsbase[0].pictureName : "Brak filmów w bazie"
         }
     }
     
@@ -39,10 +39,11 @@ class FiltrViewController: UIViewController {
     }
     
     @IBAction func addAction(_ sender: Any) {
-        database.addDataToBase()
+        database.setupDataFromAssets()
     }
     
     @IBAction func deleteAction(_ sender: Any) {
+        database.deleteTableBase()
     }
     @IBAction func nextAction(_ sender: Any) {
     }
@@ -51,7 +52,7 @@ class FiltrViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         database.loadData()
-
+        database.setupDataFromAssets()
         // Do any additional setup after loading the view.
     }
 
