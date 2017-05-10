@@ -10,8 +10,12 @@ import UIKit
 
 class FindTableViewController: UITableViewController {
     var database=Database()
+    var fieldNameTmp  = ""
+    var seekValue = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         self.title="Filmy znalezione: \(database.filmCount)"
         // Uncomment the following line to preserve selection between presentations
@@ -76,6 +80,8 @@ class FindTableViewController: UITableViewController {
                 destinatonController.youtubeUrlTmp =  rek.youtubeUrl!
                 destinatonController.descriptionLabelTmp = filmList.give(row: indexPath.row).description
                 destinatonController.rowTmp=kantor.intToString(indexPath.row)
+                destinatonController.phisicalRowTmp = kantor.intToString(database.getPhisicalRow(row: indexPath.row)) 
+                
                 print("segue showFound, row=\(indexPath.row)")
             }
         }

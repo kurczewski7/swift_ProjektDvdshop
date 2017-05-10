@@ -593,7 +593,7 @@
                     <navigationItem key="navigationItem" title="Filtr" id="aHi-yt-4ja">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="xAH-vI-LhN">
                             <connections>
-                                <segue destination="eCq-du-pko" kind="show" id="C9M-7u-6qh"/>
+                                <segue destination="eCq-du-pko" kind="show" identifier="showSeek" id="C9M-7u-6qh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

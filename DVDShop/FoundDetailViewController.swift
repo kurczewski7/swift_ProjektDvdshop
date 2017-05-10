@@ -17,6 +17,7 @@ class FoundDetailViewController: UIViewController {
     var priceLabelTmp = ""
     var youtubeUrlTmp = ""
     var rowTmp="1"
+    var phisicalRowTmp = "0"
 
     
     @IBOutlet var dvdImage: UIImageView!
@@ -36,9 +37,13 @@ class FoundDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()        
-        let row=Int(rowTmp)
-        dvdImage.image=UIImage(data: database.getFilm(row: row!).filmImage! as Data) //database.flimsbase[row!].filmImage! as Data
-
+        //let row=Int(rowTmp)
+        let phisicalRow=Int(phisicalRowTmp)
+        print("FoundDetailViewController, row=\(rowTmp), phisicalRow=\(phisicalRowTmp)")
+        dvdImage.image=UIImage(data: database.getImageDataFromDb(phisicalRow: phisicalRow!))
+        
+        //dvdImage.image=UIImage(data: database.flimsbaseFull[row: phisicalRow.filmImage as Data,)
+        //database.flimsbase[row!].filmImage! as Data.getFilm(row: phisicalRow!)
         // Do any additional setup after loading the view.
     }
 

@@ -13,7 +13,7 @@ class Database {
     // bufor wyjściowy tabeli danych Filmsbase
     var isFilterOn: Bool = true
     var flimsbaseFull = [Filmsbase]()
-    var filmsbaseFilter: [Int]=[0,1,2,3,4]
+    var filmsbaseFilter: [Int]=[3,3,0,0,1,1,2,2,]
     var liczbaRekordow: (accesableRecords: Int, allRecords:Int)=(0,0)
     var managedContext: NSManagedObjectContext! = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
@@ -122,20 +122,46 @@ class Database {
     {
         // funkcja rozwojowa
     }
-    func getFilm(row: Int) -> Filmsbase
-    {
+    func getFilm(row: Int) -> Filmsbase{
         return  flimsbaseFull[(isFilterOn == false) ?row: filmsbaseFilter[row] ]
-    
     }
     func fetchFilmbase(){
         
     }
+    //------------------------
+    func fillFilterData(field: TypeFilterFields, seekValue: String){
+ //       let currentFilm : Filmsbase? = nil
+        
+        isFilterOn=true
+        filmsbaseFilter.removeAll()
+        let start=0
+        let end=flimsbaseFull.count
+    
+        for i in start..<end {
+            if checkFilm(currentFilm: flimsbaseFull[i], field: field, seekValue: seekValue) {
+                filmsbaseFilter.append(i)
+                print("---Dodano \(i), obecnie filmsbaseFilter.count=\(filmsbaseFilter.count)")
+            }
+        }
+    }
+    func getPhisicalRow(row: Int) -> Int{
+        return isFilterOn ? filmsbaseFilter[row] : row
+    }
+    func getImageDataFromDb(phisicalRow: Int) -> Data {
+        return flimsbaseFull[phisicalRow].filmImage! as Data
+    }
+        
+//database.flimsbase[row!].filmImage! as Data.getFilm(row: phisicalRow!
+
+    func checkFilm(currentFilm: Filmsbase, field: TypeFilterFields, seekValue: String) -> Bool{
+        let val = kantor.giveRandomInt(max: 50)
+        return  val > 20 ? true : false
+    }
     
     func setFilter(field: TypeFilterFields, seekValue: String){
-//        let filter=field.rawValue
-        fetchRequest.sortDescriptors=[sortDescriptor]
-        fetchRequest.predicate = NSPredicate(format: "title == %@", seekValue)
-        loadData()
+//        fetchRequest.sortDescriptors=[sortDescriptor]
+//        fetchRequest.predicate = NSPredicate(format: "title == %@", seekValue)
+//        loadData()
         
         
     }

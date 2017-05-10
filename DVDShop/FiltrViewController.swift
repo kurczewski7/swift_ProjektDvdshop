@@ -34,13 +34,13 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         super.viewDidLoad()
         database.loadData()
         database.setupDataFromAssets()
+        
+        // database.isFilterOn=false
         typePickerData.isUserInteractionEnabled=false
         findValueTextField.isUserInteractionEnabled=true
-        // Do any additional setup after loading the view.
-        //typePickerData.
         
-//        print("SSSSSSS:\(TypeOfFilm.sciencefiction.hashValue)")
-//        print("EEEEEEE:\(TypeOfFilm.sciencefiction.rawValue)")
+        
+        // Do any additional setup after loading the view.
     }
     // MARK: Action functions
     @IBAction func fieldSegmentAction(_ sender: UISegmentedControl) {
@@ -106,6 +106,20 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             findValueTextField.text=typeOfFilm[row].rawValue
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier=="showSeek" {
+            let destinatonController = segue.destination as! FindTableViewController
+            database.fillFilterData(field: .tytul, seekValue: "Bogowie")
+            destinatonController.fieldNameTmp=""
+            destinatonController.seekValue=""
+            database.fillFilterData(field: .tytul, seekValue: "Bogowie")
+                
+            print("segue showSeek)")
+        }
+    }
+
 
 
     /*
