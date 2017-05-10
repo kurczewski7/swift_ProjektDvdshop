@@ -13,7 +13,7 @@ class FindTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title="Filmy znalezione: \(database.flimsbase.count)"
+        self.title="Filmy znalezione: \(database.filmCount)"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,21 +35,21 @@ class FindTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return database.flimsbase.count
-    }
+        return database.filmCount    }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FindTableViewCell
 
         // Configure the cell...
+        let film=database.getFilm(row: indexPath.row)
         
-        if database.flimsbase.count>indexPath.row {
-            cell.titleLabel.text=database.flimsbase[indexPath.row].title
-            cell.actorsLabel.text=database.flimsbase[indexPath.row].actors
-            cell.typLabel.text=database.flimsbase[indexPath.row].type
-            cell.priceLabel.text=String.init(format: "%6.2f", database.flimsbase[indexPath.row].price)
-            cell.DVDImage.image=UIImage(data: database.flimsbase[indexPath.row].filmImage! as Data)
+        if database.filmCount>indexPath.row {
+            cell.titleLabel.text=film.title
+            cell.actorsLabel.text=film.actors
+            cell.typLabel.text=film.type
+            cell.priceLabel.text=String.init(format: "%6.2f", film.price)
+            cell.DVDImage.image=UIImage(data: film.filmImage! as Data)
         }
         
 
@@ -67,15 +67,15 @@ class FindTableViewController: UITableViewController {
                 
                 //let rek=filmList.give(row: indexPath.row)
                 
-                let rek=database.flimsbase[indexPath.row]
+                let rek=database.getFilm(row: indexPath.row)    //flimsbase[indexPath.row]
                 destinatonController.dvdImageTmp   =  filmList.giveCurrentPictureName(row: indexPath.row)
                 destinatonController.titleLabelTmp =  rek.title!
                 destinatonController.actorsLabelTmp  =  rek.actors!
                 destinatonController.typeLabelTmp  =  rek.type!
-                destinatonController.priceLabelTmp =  kantor.doubleToString(value:  rek.price)
+                destinatonController.priceLabelTmp =  kantor.doubleToString(rek.price)
                 destinatonController.youtubeUrlTmp =  rek.youtubeUrl!
                 destinatonController.descriptionLabelTmp = filmList.give(row: indexPath.row).description
-                destinatonController.rowTmp=kantor.intToString(value: indexPath.row)
+                destinatonController.rowTmp=kantor.intToString(indexPath.row)
                 print("segue showFound, row=\(indexPath.row)")
             }
         }

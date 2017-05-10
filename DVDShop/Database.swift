@@ -8,31 +8,38 @@
 
 import UIKit
 import CoreData
-
-class Database
-{
+var exercises = [Filmsbase]()
+class Database {
     // bufor wyjściowy tabeli danych Filmsbase
-   
-    var flimsbase = [Filmsbase]()
+    var isFilterOn: Bool = true
+    var flimsbaseFull = [Filmsbase]()
+    var filmsbaseFilter: [Int]=[0,1,2,3,4]
+    var liczbaRekordow: (accesableRecords: Int, allRecords:Int)=(0,0)
     var managedContext: NSManagedObjectContext! = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
-//  let fetchRequest = NSFetchRequest<Filmsbase>(entityName: DatabaseTables.fllms.rawValue)
+    var fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
+    let sortDescriptor = NSSortDescriptor(key: "title", ascending: false)
+    var filmCount: Int
+    {
+        get { return isFilterOn ? filmsbaseFilter.count: flimsbaseFull.count }
+        
+    }
+   //var fullFllmbase=[Filmsbase]()
+    //  let fetchRequest = NSFetchRequest<Filmsbase>(entityName: "Filmsbase")
+    //    var fieldSort = "title"
     
     init(){
-        print("-----------")
-        print("Ilość rekordów,  allRecords=\(self.policzRecords().allRecords),accesableRecords=\(self.policzRecords().accesableRecords)")
+        print("Ilość rekordów,  allRecords=\(policzRecords().allRecords),accesableRecords=\(policzRecords().accesableRecords)")
         if(policzRecords().allRecords==0) && policzRecords().accesableRecords==0
         {
             print("Dodanie rekordów,  allRecords=\(policzRecords().allRecords),accesableRecords=\(policzRecords().accesableRecords)")
             //addDataToBase()
-            
         }
         loadData()
     }
     func loadData(){
         print("loadData")
 //        let fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
-        do {            flimsbase = try managedContext.fetch(fetchRequest)
+        do {            flimsbaseFull = try managedContext.fetch(fetchRequest)
         } catch {       print("Nie można załadować danych \(error.localizedDescription)")    }
     
     }
@@ -51,8 +58,6 @@ class Database
         dbRow.pictureName = rek.filmId
         dbRow.isLiked = rek.isLiked
         print("rek.filmId:\(rek.filmId)")
-        
-        
         
         //let image = UIImage(named: rek.filmId)
         
@@ -83,20 +88,20 @@ class Database
             currentFilm.price           = dane.price
             currentFilm.type            = dane.type
             currentFilm.youtubeUrl      = dane.youtubeUrl    //"WyHv2WqkPCQ"
-
         
             print("i=\(i),tytul=\(currentFilm.title),\(tytuly[i])")
             createDatabaseRow(rek: currentFilm)
         }
     }
     
-
     func policzRecords() -> (accesableRecords: Int, allRecords: Int)
     {
         let accesableRecords = Filmsbase.accessibilityElementCount()
         print("Liczba dostępnych rekordów w bazie \(accesableRecords)")
-        let allRecords = flimsbase.count
+        let allRecords = ( isFilterOn ? filmsbaseFilter.count: flimsbaseFull.count)
         print("Liczba wszystkich rekordów w bazie \(allRecords)")
+        liczbaRekordow.allRecords=allRecords
+        liczbaRekordow.accesableRecords=accesableRecords
         return (accesableRecords: accesableRecords, allRecords:allRecords)
     }
     
@@ -117,9 +122,49 @@ class Database
     {
         // funkcja rozwojowa
     }
-    func filter(){
+    func getFilm(row: Int) -> Filmsbase
+    {
+        return  flimsbaseFull[(isFilterOn == false) ?row: filmsbaseFilter[row] ]
     
     }
+    func fetchFilmbase(){
+        
+    }
     
-    
+    func setFilter(field: TypeFilterFields, seekValue: String){
+//        let filter=field.rawValue
+        fetchRequest.sortDescriptors=[sortDescriptor]
+        fetchRequest.predicate = NSPredicate(format: "title == %@", seekValue)
+        loadData()
+        
+        
+    }
+    func feachExercises(){
+        let fetchRequest=NSFetchRequest<NSFetchRequestResult>(entityName: "Filmsbase")
+        let sortDescriptor=NSSortDescriptor(key: "title", ascending: false)
+        fetchRequest.sortDescriptors=[sortDescriptor]
+    }
 }
+        //let x= NSFRCfiltr
+        
+//        do { try let  bmanagedContext;.execute(fetchRequest)
+//        
+//        }
+//        catch { print("Nie można zapisać danych \(error.localizedDescription)")}
+
+//        let fetchResult: [Filmsbase] = managedContext.execute(fetchRequest) as [Filmsbase]
+//         flimsbase = fetchResult
+        
+//            do { try managedContext.execute(deleteRequest) }
+//            catch { print("Nie można zapisać danych \(error.localizedDescription)")}
+
+        
+        
+//        switch field {
+//            case .tytul:
+//            case .aktorzy:
+//            case .gatunek:
+//            case .cenaDo:
+//            default:
+//        }
+    

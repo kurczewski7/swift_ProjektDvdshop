@@ -497,7 +497,7 @@
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uM-HG-lCc">
                                 <rect key="frame" x="212" y="432" width="62" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="next"/>
+                                <state key="normal" title="Go"/>
                                 <connections>
                                     <action selector="nextAction:" destination="eck-tW-Jaf" eventType="touchUpInside" id="jNu-pX-Fh9"/>
                                 </connections>

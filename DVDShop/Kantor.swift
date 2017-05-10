@@ -91,14 +91,17 @@ class Kantor  {
         let value = arc4random_uniform(UInt32(max))
         return Int(value)
     }
-    func intToString(value: Int) -> String {
+    func intToString(_ value: Int) -> String {
         return String.init(format: "%6d", value).trimmingCharacters(in: .whitespaces)
     }
-    func doubleToString(value: Double) -> String {
+    func doubleToString(_ value: Double) -> String {
         return String.init(format: "%6.2f", value).trimmingCharacters(in: .whitespaces)
     }
     func stringToDouble(value: String) -> Double {
         return Double(value.trimmingCharacters(in: .whitespaces))!    
+    }
+    func isInString(_ value: String, searchValue: String) -> Bool {
+        return (value.range(of: searchValue) != nil ) ? true : false
     }
     
     

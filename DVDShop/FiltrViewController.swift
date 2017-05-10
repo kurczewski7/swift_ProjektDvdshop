@@ -20,12 +20,13 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var nameLabel: UILabel! {
         didSet {
-            let ilosc=database.flimsbase.count
+            let ilosc=database.filmCount
             nameLabel.text="x=\(Filmsbase.accessibilityElementCount()),\(ilosc)"
         }
     }
     @IBOutlet var priceName: UILabel! {
-        didSet {    priceName.text=(database.flimsbase.count > 0) ?  database.flimsbase[0].pictureName : "Brak filmów w bazie"
+        didSet {    priceName.text=(database.filmCount > 0) ?  database.getFilm(row: 0).pictureName : "Brak filmów w bazie"
+            //database.flimsbase[0].pictureName
         }
     }
     
@@ -76,6 +77,7 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         database.deleteTableBase()
     }
     @IBAction func nextAction(_ sender: Any) {
+        database.setFilter(field: .tytul, seekValue: "Bogowie")
     }
     @IBAction func saveAction(_ sender: Any) {
     }
