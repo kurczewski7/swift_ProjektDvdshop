@@ -100,8 +100,8 @@ class Kantor  {
     func stringToDouble(value: String) -> Double {
         return Double(value.trimmingCharacters(in: .whitespaces))!    
     }
-    func isInString(_ value: String, searchValue: String) -> Bool {
-        return (value.range(of: searchValue) != nil ) ? true : false
+    func isInString(_ value: String, seekValue: String) -> Bool {
+        return (value.lowercased().range(of: seekValue.lowercased()) != nil ) ? true : false
     }
     
     

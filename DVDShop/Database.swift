@@ -12,8 +12,9 @@ var exercises = [Filmsbase]()
 class Database {
     // bufor wyjściowy tabeli danych Filmsbase
     var isFilterOn: Bool = true
+    var isAscending: Bool = true
     var flimsbaseFull = [Filmsbase]()
-    var filmsbaseFilter: [Int]=[3,3,0,0,1,1,2,2,]
+    var filmsbaseFilter: [Int]=[0,1,2,3,4,5,6,109]
     var liczbaRekordow: (accesableRecords: Int, allRecords:Int)=(0,0)
     var managedContext: NSManagedObjectContext! = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
@@ -128,43 +129,56 @@ class Database {
     func fetchFilmbase(){
         
     }
-    //------------------------
     func fillFilterData(field: TypeFilterFields, seekValue: String){
  //       let currentFilm : Filmsbase? = nil
         
+
         isFilterOn=true
         filmsbaseFilter.removeAll()
+        
         let start=0
         let end=flimsbaseFull.count
-    
+        var pos=0
+        
         for i in start..<end {
-            if checkFilm(currentFilm: flimsbaseFull[i], field: field, seekValue: seekValue) {
-                filmsbaseFilter.append(i)
-                print("---Dodano \(i), obecnie filmsbaseFilter.count=\(filmsbaseFilter.count)")
+            pos = isAscending ? i : end-i-1
+            if checkFilm(currentFilm: flimsbaseFull[pos], field: field, seekValue: seekValue) {
+                 filmsbaseFilter.append(pos)
+                 print("---Dodano \(pos), obecnie filmsbaseFilter.count=\(filmsbaseFilter.count)")
             }
         }
+        
+        for i in 1..<filmsbaseFilter.count {
+            print("\(i)  \(filmsbaseFilter[i])  \(flimsbaseFull[filmsbaseFilter[i]].title ?? "brak")  \(flimsbaseFull[filmsbaseFilter[i]].type ?? "brak")  \(flimsbaseFull[filmsbaseFilter[i]].actors ?? "brak")")
+        }
     }
+
     func getPhisicalRow(row: Int) -> Int{
         return isFilterOn ? filmsbaseFilter[row] : row
     }
     func getImageDataFromDb(phisicalRow: Int) -> Data {
         return flimsbaseFull[phisicalRow].filmImage! as Data
     }
-        
-//database.flimsbase[row!].filmImage! as Data.getFilm(row: phisicalRow!
-
     func checkFilm(currentFilm: Filmsbase, field: TypeFilterFields, seekValue: String) -> Bool{
-        let val = kantor.giveRandomInt(max: 50)
-        return  val > 20 ? true : false
+        var warunek:Bool = false
+        switch field {
+            case .tytul  : warunek = kantor.isInString(currentFilm.title!,  seekValue: seekValue)
+            case .aktorzy: warunek = kantor.isInString(currentFilm.actors!, seekValue: seekValue)
+            case .gatunek: warunek = kantor.isInString(currentFilm.type!,   seekValue: seekValue)
+            case .cenaDo : warunek = currentFilm.price <= kantor.stringToDouble(value: seekValue)
+        }
+        return  warunek
     }
     
     func setFilter(field: TypeFilterFields, seekValue: String){
+    }
 //        fetchRequest.sortDescriptors=[sortDescriptor]
 //        fetchRequest.predicate = NSPredicate(format: "title == %@", seekValue)
 //        loadData()
+//------------------------
         
-        
-    }
+    
+
     func feachExercises(){
         let fetchRequest=NSFetchRequest<NSFetchRequestResult>(entityName: "Filmsbase")
         let sortDescriptor=NSSortDescriptor(key: "title", ascending: false)

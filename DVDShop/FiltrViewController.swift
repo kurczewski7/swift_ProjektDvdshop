@@ -111,7 +111,14 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         // Pass the selected object to the new view controller.
         if segue.identifier=="showSeek" {
             let destinatonController = segue.destination as! FindTableViewController
-            database.fillFilterData(field: .tytul, seekValue: "Bogowie")
+            
+            switch fleldSegmentControll.selectedSegmentIndex {
+                case 0: database.fillFilterData(field:  .tytul,   seekValue: findValueTextField.text!)
+                case 1:database.fillFilterData(field:   .gatunek, seekValue: findValueTextField.text!)
+                case 2:database.fillFilterData(field:   .aktorzy, seekValue: findValueTextField.text!)
+                case 3:database.fillFilterData(field:   .cenaDo,  seekValue: findValueTextField.text!)
+                default: database.fillFilterData(field: .tytul,   seekValue: findValueTextField.text!)
+            }
             destinatonController.fieldNameTmp=""
             destinatonController.seekValue=""
             database.fillFilterData(field: .tytul, seekValue: "Bogowie")
