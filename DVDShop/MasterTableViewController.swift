@@ -31,7 +31,7 @@ class MasterTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         readSampleData()
-        print("-----------")
+        print("----- MasterTableViewController ------")
     }
     
     func readSampleData() {
@@ -182,6 +182,8 @@ class MasterTableViewController: UITableViewController {
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("----- prepare  MasterTableViewController ------")
+
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
             if segue.identifier=="showDvd" {

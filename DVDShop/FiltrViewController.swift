@@ -20,18 +20,23 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var nameLabel: UILabel! {
         didSet {
-            let ilosc=database.filmCount
-            nameLabel.text="x=\(Filmsbase.accessibilityElementCount()),\(ilosc)"
+            print("nameLabel didSet")
+            //let ilosc=database.filmCount
+            //nameLabel.text="x=\(Filmsbase.accessibilityElementCount()),\(ilosc)"
         }
     }
     @IBOutlet var priceName: UILabel! {
-        didSet {    priceName.text=(database.filmCount > 0) ?  database.getFilm(row: 0).pictureName : "Brak filmów w bazie"
-            //database.flimsbase[0].pictureName
+        didSet {
+            print("priceName didSet")
+            //priceName.text=(database.filmCount > 0) ?  database.getFilm(row: 0).pictureName : "Brak filmów w bazie"
+            
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("----- FiltrViewController ------")
+        database.checkDatabaseStatus()
         database.loadData()
         database.setupDataFromAssets()
         

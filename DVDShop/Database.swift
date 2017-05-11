@@ -38,11 +38,12 @@ class Database {
         loadData()
     }
     func loadData(){
-        print("loadData")
-//        let fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
+        print("loadData  Start flimsbaseFull.count=\(flimsbaseFull.count)")
         do {            flimsbaseFull = try managedContext.fetch(fetchRequest)
         } catch {       print("Nie można załadować danych \(error.localizedDescription)")    }
-    
+        print("loadData End  flimsbaseFull.count=\(flimsbaseFull.count)")
+        //        let fetchRequest: NSFetchRequest)")
+        //        let fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
     }
     func createDatabaseRow(rek:  UserRekord)
     {
@@ -100,7 +101,7 @@ class Database {
         let accesableRecords = Filmsbase.accessibilityElementCount()
         print("Liczba dostępnych rekordów w bazie \(accesableRecords)")
         let allRecords = ( isFilterOn ? filmsbaseFilter.count: flimsbaseFull.count)
-        print("Liczba wszystkich rekordów w bazie \(allRecords)")
+        print("Liczba wszystkich rekordów w bazie \(allRecords) flimsbaseFull.count=\(flimsbaseFull.count)")
         liczbaRekordow.allRecords=allRecords
         liczbaRekordow.accesableRecords=accesableRecords
         return (accesableRecords: accesableRecords, allRecords:allRecords)
@@ -124,31 +125,30 @@ class Database {
         // funkcja rozwojowa
     }
     func getFilm(row: Int) -> Filmsbase{
+        
         return  flimsbaseFull[(isFilterOn == false) ?row: filmsbaseFilter[row] ]
     }
     func fetchFilmbase(){
         
     }
     func fillFilterData(field: TypeFilterFields, seekValue: String){
- //       let currentFilm : Filmsbase? = nil
-        
+    print("fillFilterData  flimsbaseFull.count=\(flimsbaseFull.count)")
 
         isFilterOn=true
-        filmsbaseFilter.removeAll()
-        
         let start=0
         let end=flimsbaseFull.count
         var pos=0
+        filmsbaseFilter.removeAll()
         
         for i in start..<end {
             pos = isAscending ? i : end-i-1
             if checkFilm(currentFilm: flimsbaseFull[pos], field: field, seekValue: seekValue) {
                  filmsbaseFilter.append(pos)
-                 print("---Dodano \(pos), obecnie filmsbaseFilter.count=\(filmsbaseFilter.count)")
+                 print("---Dodano \(pos), \(flimsbaseFull[filmsbaseFilter[filmsbaseFilter.count-1]])  obecnie filmsbaseFilter.count=\(filmsbaseFilter.count)")
             }
         }
         
-        for i in 1..<filmsbaseFilter.count {
+        for i in 0..<filmsbaseFilter.count {
             print("\(i)  \(filmsbaseFilter[i])  \(flimsbaseFull[filmsbaseFilter[i]].title ?? "brak")  \(flimsbaseFull[filmsbaseFilter[i]].type ?? "brak")  \(flimsbaseFull[filmsbaseFilter[i]].actors ?? "brak")")
         }
     }
@@ -169,15 +169,29 @@ class Database {
         }
         return  warunek
     }
-    
+    func checkDatabaseStatus(){
+        loadData()
+        print("------------------")
+        print("|                 |")
+        print("| Rekordów:\(flimsbaseFull.count)")
+        print("|                 |")
+        print("-------------------")
+        if flimsbaseFull.count==0{
+           addDataToBase()
+           loadData()
+        }
+        if flimsbaseFull.count > obrazki.count {
+            deleteTableBase()
+            addDataToBase()
+            loadData()
+        }
+    }
+//------------------------
     func setFilter(field: TypeFilterFields, seekValue: String){
     }
 //        fetchRequest.sortDescriptors=[sortDescriptor]
 //        fetchRequest.predicate = NSPredicate(format: "title == %@", seekValue)
 //        loadData()
-//------------------------
-        
-    
 
     func feachExercises(){
         let fetchRequest=NSFetchRequest<NSFetchRequestResult>(entityName: "Filmsbase")
