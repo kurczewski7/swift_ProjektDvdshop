@@ -39,11 +39,12 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         database.checkDatabaseStatus()
         database.loadData()
         database.setupDataFromAssets()
-        
+        typePickerData.selectRow(4, inComponent: 0, animated: true)
+        findValueTextField.text = TypeOfFilm.sciencefiction.rawValue
         //fieldSegmentAction()
         // database.isFilterOn=false
         //typePickerData.isHidden=false
-        typePickerData.isUserInteractionEnabled=false
+        typePickerData.isUserInteractionEnabled=true
         findValueTextField.isUserInteractionEnabled=true
         
         
@@ -57,19 +58,27 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         findValueTextField.isUserInteractionEnabled=true
         findValueTextField.returnKeyType = .done
         print("Selected segment \(fleldSegmentControll.selectedSegmentIndex)")
+        findValueTextField.endEditing(false)
         switch fleldSegmentControll.selectedSegmentIndex
         {
-        case 0: findValueTextField.text = typePickerData.accessibilityElementCount() > 0 ?  typeOfFilm[typePickerData.selectedRow(inComponent: 0)].rawValue : ""
-                findValueTextField.placeholder = ""
-                //findValueTextField.endEditing(true)
-                typePickerData.isUserInteractionEnabled=true
-                typePickerData.isHidden=false
-                findValueTextField.isUserInteractionEnabled=true
-        case 1: findValueTextField.placeholder="Wpisz szukany tytuł"
-        case 2: findValueTextField.placeholder="Wpisz szukanego aktora"
-        case 3: findValueTextField.placeholder="Wpisz maksymalną cenę"
-                findValueTextField.keyboardType = .decimalPad
-        default: findValueTextField.placeholder=""
+            case 0: findValueTextField.text = typeOfFilm[typePickerData.selectedRow(inComponent: 0)].rawValue
+                //typePickerData.accessibilityElementCount() > 0 ?  typeOfFilm[typePickerData.selectedRow(inComponent: 0)].rawValue : ""
+                    findValueTextField.isUserInteractionEnabled=false
+                    findValueTextField.placeholder = ""
+                    //findValueTextField.endEditing(false)
+                    typePickerData.isUserInteractionEnabled=true
+                    typePickerData.isHidden=false
+                    findValueTextField.isUserInteractionEnabled=true
+            case 1: findValueTextField.placeholder="Wpisz szukany tytuł"
+                    typePickerData.isHidden=true
+            case 2: findValueTextField.placeholder="Wpisz szukanego aktora"
+                    typePickerData.isHidden=true
+            
+            case 3: findValueTextField.placeholder="Wpisz maksymalną cenę"
+                    findValueTextField.keyboardType = .decimalPad
+                    typePickerData.isHidden=true
+            
+            default: findValueTextField.placeholder=""
         }
     }
     @IBAction func policzAction(_ sender: Any) {
@@ -105,12 +114,10 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        return typeOfFilm[row].rawValue
+        return  typeOfFilm[row].rawValue
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if fleldSegmentControll.selectedSegmentIndex == 1 {
             findValueTextField.text=typeOfFilm[row].rawValue
-        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -120,8 +127,8 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             let destinatonController = segue.destination as! FindTableViewController
             
             switch fleldSegmentControll.selectedSegmentIndex {
-                case 0: fieldType =  .tytul
-                case 1: fieldType =  .gatunek
+                case 0: fieldType =  .gatunek
+                case 1: fieldType =  .tytul
                 case 2: fieldType =  .aktorzy
                 case 3: fieldType =   .cenaDo
                 default: fieldType = .tytul

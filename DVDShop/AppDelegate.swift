@@ -37,8 +37,7 @@ enum TypeOfFilm : String{
     case fantasy            = "Fantasy"
     case thiler             = "Thiler"
 }
-let typeOfFilm: [TypeOfFilm] = []
-//[.autobiograficzny, .dlaDzieci, .familijny, .fantasy, .sciencefiction, .horror, .sensacja, .komedia, .kryminal, .mlodziezowy, .muzyczny, .obyczajowy , .thiler, .wojenny]
+let typeOfFilm: [TypeOfFilm] = [.autobiograficzny, .dlaDzieci, .familijny, .fantasy, .sciencefiction, .horror, .sensacja, .komedia, .kryminal, .mlodziezowy, .muzyczny, .obyczajowy , .thiler, .wojenny]
 
 enum TypeFilterFields : String {
     case tytul       = "title"
