@@ -14,7 +14,7 @@ class FindTableViewController: UITableViewController {
     var seekValue = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        database.filmsbaseFilter=database.fillFilterData(field: .tytul, seekValue: "bogowie")
         
         
         self.title="Filmy znalezione: \(database.filmCount)"
@@ -39,21 +39,33 @@ class FindTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return database.filmCount    }
+        return  database.filmCount
+    }
+        //database.isFilterOn ?  database.filmsbaseFilter.count :  database.flimsbaseFull.count
+
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FindTableViewCell
-
-        // Configure the cell...
-        let film=database.getFilm(row: indexPath.row)
         
-        if database.filmCount>indexPath.row {
+        print("row TV =\(indexPath.row), filmCount=\(database.filmCount), flimsbaseFull.count=\(database.flimsbaseFull.count), filmsbaseFilter.count=\(database.filmsbaseFilter.count)")
+        print("filtr:\(database.isFilterOn)")
+        // Configure the cell...
+        //let film=database.getFilm(row: indexPath.row)
+        
+        
+        let row = database.getPhisicalRow(row: indexPath.row)
+         //   database.filmsbaseFilter[0]
+        //indexPath.row
+        
+        let film=database.getFilm(row: row)
+        if database.filmCount > indexPath.row {
             cell.titleLabel.text=film.title
             cell.actorsLabel.text=film.actors
             cell.typLabel.text=film.type
             cell.priceLabel.text=String.init(format: "%6.2f", film.price)
             cell.DVDImage.image=UIImage(data: film.filmImage! as Data)
+            print("tytul=\(cell.titleLabel)")
         }
         
 
@@ -71,7 +83,7 @@ class FindTableViewController: UITableViewController {
                 
                 //let rek=filmList.give(row: indexPath.row)
                 
-                let rek=database.getFilm(row: indexPath.row)    //flimsbase[indexPath.row]
+                let rek=database.getFilm(row: indexPath.row)
                 destinatonController.dvdImageTmp   =  filmList.giveCurrentPictureName(row: indexPath.row)
                 destinatonController.titleLabelTmp =  rek.title!
                 destinatonController.actorsLabelTmp  =  rek.actors!
@@ -83,6 +95,7 @@ class FindTableViewController: UITableViewController {
                 destinatonController.phisicalRowTmp = kantor.intToString(database.getPhisicalRow(row: indexPath.row)) 
                 
                 print("segue showFound, row=\(indexPath.row)")
+                //flimsbase[indexPath.row]
             }
         }
     }

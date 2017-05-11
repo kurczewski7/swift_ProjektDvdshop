@@ -14,7 +14,7 @@ class Database {
     var isFilterOn: Bool = true
     var isAscending: Bool = true
     var flimsbaseFull = [Filmsbase]()
-    var filmsbaseFilter: [Int]=[0,1,2,3,4,5,6,109]
+    var filmsbaseFilter: [Int]=[50,50,50,50,1,1,1,1,0,0]
     var liczbaRekordow: (accesableRecords: Int, allRecords:Int)=(0,0)
     var managedContext: NSManagedObjectContext! = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
@@ -125,32 +125,49 @@ class Database {
         // funkcja rozwojowa
     }
     func getFilm(row: Int) -> Filmsbase{
-        
-        return  flimsbaseFull[(isFilterOn == false) ?row: filmsbaseFilter[row] ]
+         return  flimsbaseFull[row]
     }
     func fetchFilmbase(){
         
     }
-    func fillFilterData(field: TypeFilterFields, seekValue: String){
+    func fillFilterData(field: TypeFilterFields, seekValue: String) -> [Int] {
+        var newFiltrList: [Int]=[]
     print("fillFilterData  flimsbaseFull.count=\(flimsbaseFull.count)")
-
-        isFilterOn=true
+        
+       
         let start=0
         let end=flimsbaseFull.count
         var pos=0
         filmsbaseFilter.removeAll()
         
-        for i in start..<end {
-            pos = isAscending ? i : end-i-1
-            if checkFilm(currentFilm: flimsbaseFull[pos], field: field, seekValue: seekValue) {
-                 filmsbaseFilter.append(pos)
-                 print("---Dodano \(pos), \(flimsbaseFull[filmsbaseFilter[filmsbaseFilter.count-1]])  obecnie filmsbaseFilter.count=\(filmsbaseFilter.count)")
-            }
-        }
+//        for i in start..<end {
+//            pos = isAscending ? i : end-i-1
+//            if checkFilm(currentFilm: flimsbaseFull[pos], field: field, seekValue: seekValue) {
+//                 filmsbaseFilter.append(pos)
+//                 print("---Dodano \(pos), \(flimsbaseFull[filmsbaseFilter[filmsbaseFilter.count-1]])  obecnie filmsbaseFilter.count=\(filmsbaseFilter.count)")
+//            }
+//        }
+        newFiltrList.append(2)
+        newFiltrList.append(2)
+        newFiltrList.append(2)
+        newFiltrList.append(2)
+        
+        newFiltrList.append(3)
+        newFiltrList.append(3)
+        newFiltrList.append(3)
+        newFiltrList.append(3)
+        
+        newFiltrList.append(4)
+        newFiltrList.append(4)
+        newFiltrList.append(4)
+        newFiltrList.append(4)
+        newFiltrList.append(0)
+        
         
         for i in 0..<filmsbaseFilter.count {
             print("\(i)  \(filmsbaseFilter[i])  \(flimsbaseFull[filmsbaseFilter[i]].title ?? "brak")  \(flimsbaseFull[filmsbaseFilter[i]].type ?? "brak")  \(flimsbaseFull[filmsbaseFilter[i]].actors ?? "brak")")
         }
+        return newFiltrList
     }
 
     func getPhisicalRow(row: Int) -> Int{
