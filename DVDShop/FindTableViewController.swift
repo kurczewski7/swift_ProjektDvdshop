@@ -11,10 +11,11 @@ import UIKit
 class FindTableViewController: UITableViewController {
     var database=Database()
     var fieldNameTmp  = ""
-    var seekValue = ""
+    var seekValueTmp = ""
+    var fieldTypeTmp: TypeFilterFields = .tytul
     override func viewDidLoad() {
         super.viewDidLoad()
-        database.filmsbaseFilter=database.fillFilterData(field: .tytul, seekValue: "bogowie")
+        database.filmsbaseFilter=database.fillFilterData(field: fieldTypeTmp, seekValue: seekValueTmp)
         
         
         self.title="Filmy znalezione: \(database.filmCount)"

@@ -40,7 +40,9 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         database.loadData()
         database.setupDataFromAssets()
         
+        //fieldSegmentAction()
         // database.isFilterOn=false
+        //typePickerData.isHidden=false
         typePickerData.isUserInteractionEnabled=false
         findValueTextField.isUserInteractionEnabled=true
         
@@ -54,22 +56,21 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         typePickerData.isUserInteractionEnabled=false
         findValueTextField.isUserInteractionEnabled=true
         findValueTextField.returnKeyType = .done
-        
+        print("Selected segment \(fleldSegmentControll.selectedSegmentIndex)")
         switch fleldSegmentControll.selectedSegmentIndex
         {
-        case 0: findValueTextField.placeholder="Wpisz szukany tytuł"
-        case 1: findValueTextField.placeholder=""
-                findValueTextField.text=typeOfFilm[typePickerData.selectedRow(inComponent: 0)].rawValue
-                findValueTextField.endEditing(true)
+        case 0: findValueTextField.text = typePickerData.accessibilityElementCount() > 0 ?  typeOfFilm[typePickerData.selectedRow(inComponent: 0)].rawValue : ""
+                findValueTextField.placeholder = ""
+                //findValueTextField.endEditing(true)
                 typePickerData.isUserInteractionEnabled=true
-                findValueTextField.isUserInteractionEnabled=false
-            
+                typePickerData.isHidden=false
+                findValueTextField.isUserInteractionEnabled=true
+        case 1: findValueTextField.placeholder="Wpisz szukany tytuł"
         case 2: findValueTextField.placeholder="Wpisz szukanego aktora"
         case 3: findValueTextField.placeholder="Wpisz maksymalną cenę"
                 findValueTextField.keyboardType = .decimalPad
         default: findValueTextField.placeholder=""
         }
-
     }
     @IBAction func policzAction(_ sender: Any) {
          let wynik=database.policzRecords()
@@ -114,20 +115,22 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        var  fieldType: TypeFilterFields
         if segue.identifier=="showSeek" {
             let destinatonController = segue.destination as! FindTableViewController
             
             switch fleldSegmentControll.selectedSegmentIndex {
-                case 0: database.fillFilterData(field:  .tytul,   seekValue: findValueTextField.text!)
-                case 1:database.fillFilterData(field:   .gatunek, seekValue: findValueTextField.text!)
-                case 2:database.fillFilterData(field:   .aktorzy, seekValue: findValueTextField.text!)
-                case 3:database.fillFilterData(field:   .cenaDo,  seekValue: findValueTextField.text!)
-                default: database.fillFilterData(field: .tytul,   seekValue: findValueTextField.text!)
+                case 0: fieldType =  .tytul
+                case 1: fieldType =  .gatunek
+                case 2: fieldType =  .aktorzy
+                case 3: fieldType =   .cenaDo
+                default: fieldType = .tytul
             }
+            destinatonController.fieldTypeTmp = fieldType
             destinatonController.fieldNameTmp=""
-            destinatonController.seekValue=""
-            database.fillFilterData(field: .tytul, seekValue: "Bogowie")
-                
+            destinatonController.seekValueTmp = findValueTextField.text!
+            //database.fillFilterData(field: .tytul, seekValue: seekValueTmp)
+            
             print("segue showSeek)")
         }
     }

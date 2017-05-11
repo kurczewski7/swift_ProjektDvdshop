@@ -525,8 +525,8 @@
                                     <constraint firstAttribute="height" constant="30" id="WD6-53-cn7"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="Tytuł"/>
                                     <segment title="Gatunek"/>
+                                    <segment title="Tytul"/>
                                     <segment title="Aktorzy"/>
                                     <segment title="Cena do"/>
                                 </segments>

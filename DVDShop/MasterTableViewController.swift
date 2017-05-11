@@ -81,6 +81,7 @@ class MasterTableViewController: UITableViewController {
         typyFilmow[26] = .sciencefiction
         typyFilmow[27] = .fantasy
         typyFilmow[38] = .dlaDzieci
+        typyFilmow[42] = .muzyczny
         typyFilmow[77] = .dlaDzieci
         typyFilmow[81] = .dlaDzieci
         typyFilmow[95] = .dlaDzieci

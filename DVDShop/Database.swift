@@ -140,28 +140,28 @@ class Database {
         var pos=0
         filmsbaseFilter.removeAll()
         
-//        for i in start..<end {
-//            pos = isAscending ? i : end-i-1
-//            if checkFilm(currentFilm: flimsbaseFull[pos], field: field, seekValue: seekValue) {
-//                 filmsbaseFilter.append(pos)
+        for i in start..<end {
+            pos = isAscending ? i : end-i-1
+            if checkFilm(currentFilm: flimsbaseFull[pos], field: field, seekValue: seekValue) {
+                 newFiltrList.append(pos)
 //                 print("---Dodano \(pos), \(flimsbaseFull[filmsbaseFilter[filmsbaseFilter.count-1]])  obecnie filmsbaseFilter.count=\(filmsbaseFilter.count)")
-//            }
-//        }
-        newFiltrList.append(2)
-        newFiltrList.append(2)
-        newFiltrList.append(2)
-        newFiltrList.append(2)
-        
-        newFiltrList.append(3)
-        newFiltrList.append(3)
-        newFiltrList.append(3)
-        newFiltrList.append(3)
-        
-        newFiltrList.append(4)
-        newFiltrList.append(4)
-        newFiltrList.append(4)
-        newFiltrList.append(4)
-        newFiltrList.append(0)
+            }
+        }
+//        newFiltrList.append(2)
+//        newFiltrList.append(2)
+//        newFiltrList.append(2)
+//        newFiltrList.append(2)
+//        
+//        newFiltrList.append(3)
+//        newFiltrList.append(3)
+//        newFiltrList.append(3)
+//        newFiltrList.append(3)
+//        
+//        newFiltrList.append(4)
+//        newFiltrList.append(4)
+//        newFiltrList.append(4)
+//        newFiltrList.append(4)
+//        newFiltrList.append(0)
         
         
         for i in 0..<filmsbaseFilter.count {
