@@ -67,12 +67,15 @@ class Database {
         let imgData = UIImageJPEGRepresentation(image, 1)
         dbRow.filmImage=imgData! as NSData
         
-        print("tytul=\(rek.title),\(rek.filmId)")
+        saveDatabase()
+    }
+    
+    func saveDatabase(){
         do { try self.managedContext.save()
             print("-----Dane zapisano-----")
         } catch {   print("!!!!!!    Nie mogę zapisać danych \(error.localizedDescription)")  }
     }
-
+    
     func addDataToBase()
     {
         var currentFilm: UserRekord
@@ -144,24 +147,8 @@ class Database {
             pos = isAscending ? i : end-i-1
             if checkFilm(currentFilm: flimsbaseFull[pos], field: field, seekValue: seekValue) {
                  newFiltrList.append(pos)
-//                 print("---Dodano \(pos), \(flimsbaseFull[filmsbaseFilter[filmsbaseFilter.count-1]])  obecnie filmsbaseFilter.count=\(filmsbaseFilter.count)")
             }
         }
-//        newFiltrList.append(2)
-//        newFiltrList.append(2)
-//        newFiltrList.append(2)
-//        newFiltrList.append(2)
-//        
-//        newFiltrList.append(3)
-//        newFiltrList.append(3)
-//        newFiltrList.append(3)
-//        newFiltrList.append(3)
-//        
-//        newFiltrList.append(4)
-//        newFiltrList.append(4)
-//        newFiltrList.append(4)
-//        newFiltrList.append(4)
-//        newFiltrList.append(0)
         
         
         for i in 0..<filmsbaseFilter.count {
@@ -203,6 +190,12 @@ class Database {
             addDataToBase()
             loadData()
         }
+    }
+    func setCheckRecord(phisicalRow row: Int, value v: Bool){
+        if row < flimsbaseFull.count{
+            flimsbaseFull[row].isLiked = v
+        }
+    
     }
 //------------------------
     func setFilter(field: TypeFilterFields, seekValue: String){

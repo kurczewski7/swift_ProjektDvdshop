@@ -34,6 +34,12 @@ class MasterTableViewController: UITableViewController {
         print("----- MasterTableViewController ------")
     }
     
+    
+
+//    override func viewWillAppear(_ animated: true) {
+//        tableView.reloadData()
+//    }
+    
     func readSampleData() {
         for i in 1...obrazki.count{
             typyFilmow.append((i % 2 == 0) ? TypeOfFilm.sensacja : TypeOfFilm.obyczajowy)
@@ -202,6 +208,52 @@ class MasterTableViewController: UITableViewController {
                 }
             }
     }
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let  currCell = tableView.cellForRow(at: indexPath)
+        let isChecked = currCell?.accessoryType == .checkmark
+        let phisicalRow = database.getPhisicalRow(row: indexPath.row)
+        
+         //Social Sharing Button
+         let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share", handler: { (action, indexPath) -> Void in
+                    let defaultText = "Polecany  \(tytuly[indexPath.row])"
+                    if let imageToShare = UIImage(named: obrazki[indexPath.row]) {
+                        let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
+                        self.present(activityController, animated: true, completion: nil)
+                    }
+                })
+        
+        // Delete button
+        // Delete the row from the data source
+//        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        })
+        
+        // Zaznacz button
+        let checkAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Zaznacz",handler: { (action, indexPath) -> Void in
+            currCell?.accessoryType = .checkmark
+            currCell?.backgroundColor = UIColor.green
+            database.setCheckRecord(phisicalRow: phisicalRow, value: true)
+            database.saveDatabase()
+            filmList.setIsLike(row: phisicalRow, isLike: true)
+        })
+        
+        // Odznacz button
+        let unCheckAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Odznacz",handler: { (action, indexPath) -> Void in
+            currCell?.accessoryType = .none
+            currCell?.backgroundColor = UIColor.clear
+            database.setCheckRecord(phisicalRow: phisicalRow, value: false)
+            database.saveDatabase()
+            filmList.setIsLike(row: phisicalRow, isLike: false)
+        })
+        
+        //shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
+        checkAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
+        unCheckAction.backgroundColor = UIColor.lightGray
+        shareAction.backgroundColor = UIColor.blue
+        
+        return isChecked ? [shareAction, unCheckAction] : [shareAction, checkAction]
+    }
+
 
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "Usuń"

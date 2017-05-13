@@ -73,6 +73,8 @@ class FindTableViewController: UITableViewController {
             cell.typLabel.text=film.type
             cell.priceLabel.text=String.init(format: "%6.2f", film.price)
             cell.DVDImage.image=UIImage(data: film.filmImage! as Data)
+            cell.accessoryType = film.isLiked ? .checkmark : .none
+            cell.backgroundColor = film.isLiked ? UIColor.green : UIColor.clear
             print("tytul=\(cell.titleLabel)")
         }
         
@@ -120,43 +122,46 @@ class FindTableViewController: UITableViewController {
 //            }
 //        })
         
-        // Delete button
-        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
-            
-            // Delete the row from the data source
-                        self.database.filmsbaseFilter.remove(at: indexPath.row)
-                        self.title="Filmy znalezione: \(self.database.filmsbaseFilter.count)"
-                        tableView.deleteRows(at: [indexPath], with: .fade)
-        })
-        let userAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Dodaj",handler: { (action, indexPath) -> Void in
-            
-            // Delete the row from the data source
-//            self.database.filmsbaseFilter.remove(at: indexPath.row)
-//            self.title="Filmy znalezione: \(self.database.filmsbaseFilter.count)"
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-            print("KKkKKKKKKKKKKKK")
-        })
 
+        let  currCell = tableView.cellForRow(at: indexPath)
+        let isChecked = currCell?.accessoryType == .checkmark
+        let phisicalRow = database.getPhisicalRow(row: indexPath.row)
+        
+        // Delete button
+        // Delete the row from the data source
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
+                        self.database.filmsbaseFilter.remove(at: indexPath.row)
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                        self.title="Filmy znalezione: \(self.database.filmsbaseFilter.count)"
+        })
+        
+        // Zaznacz button
+        let checkAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Zaznacz",handler: { (action, indexPath) -> Void in
+            currCell?.accessoryType = .checkmark
+            currCell?.backgroundColor = UIColor.green
+            self.database.setCheckRecord(phisicalRow: phisicalRow, value: true)
+            self.database.saveDatabase()
+            filmList.setIsLike(row: phisicalRow, isLike: true)
+        })
+        
+        // Odznacz button
+        let unCheckAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Odznacz",handler: { (action, indexPath) -> Void in
+            currCell?.accessoryType = .none
+            currCell?.backgroundColor = UIColor.clear
+            self.database.setCheckRecord(phisicalRow: phisicalRow, value: false)
+            self.database.saveDatabase()
+            filmList.setIsLike(row: phisicalRow, isLike: false)
+        })
         
         //shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
-        userAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
+        checkAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
+        unCheckAction.backgroundColor = UIColor.lightGray
         deleteAction.backgroundColor = UIColor.red
         
-        return [deleteAction, userAction]
+        return isChecked ? [deleteAction, unCheckAction] : [deleteAction, checkAction]
     }
 
     
-//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        //social Sharing Button
-//        let shareAction=UITableViewRowAction(style: .default, title: "Share", handler: {(action, indexPath) -> Void in
-//            let defaultText="Just checking at \(indexPath.row)"
-//            if let imageToShare=UIImage(named: <#T##String#>)
-//            let activityController = UIActivityViewController(activityItems: [defaultText] , applicationActivities: nil)
-//        })
-//        
-//        return [shareAction]
-//    }
-   
 
     /*
     // Override to support conditional editing of the table view.
