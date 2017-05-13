@@ -188,6 +188,7 @@ class Database {
     }
     func checkDatabaseStatus(){
         loadData()
+    
         print("------------------")
         print("|                 |")
         print("| Rekordów:\(flimsbaseFull.count)")

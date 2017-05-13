@@ -561,6 +561,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="uyw-dV-go5" firstAttribute="baseline" secondItem="YwY-Ud-P3L" secondAttribute="baseline" id="0Nw-RB-9cw"/>
                             <constraint firstItem="2uM-HG-lCc" firstAttribute="leading" secondItem="uyw-dV-go5" secondAttribute="trailing" constant="18" id="26R-xg-oud"/>
@@ -589,6 +590,9 @@
                             <constraint firstItem="vNS-Ze-uxZ" firstAttribute="leading" secondItem="hIx-pN-wWT" secondAttribute="trailing" constant="27" id="ymL-g8-KIB"/>
                             <constraint firstItem="uyw-dV-go5" firstAttribute="baseline" secondItem="hIx-pN-wWT" secondAttribute="baseline" id="z2d-jI-0zo"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="QZH-ME-1JQ" appends="YES" id="iPh-R8-Z8F"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Filtr" id="aHi-yt-4ja">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="xAH-vI-LhN">
@@ -606,6 +610,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kv-OU-uQm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="QZH-ME-1JQ">
+                    <connections>
+                        <action selector="prestLogGesture:" destination="eck-tW-Jaf" id="dEC-Cu-ao4"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2018.5" y="861.5"/>
         </scene>
@@ -1018,6 +1027,16 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LzO-6I-O8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="zFz-NB-hwA">
+                    <connections>
+                        <action selector="makeScreenEdgePanGesture:" destination="eCq-du-pko" id="T46-Uy-K9L"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="8Lj-zU-Rp6">
+                    <connections>
+                        <action selector="presetCellLongPresureRecognizer:" destination="eCq-du-pko" id="0tc-gt-KJ4"/>
+                    </connections>
+                </pongPressGestureRecognizer>
                 <exit id="Vgm-xP-uGx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1178" y="863"/>

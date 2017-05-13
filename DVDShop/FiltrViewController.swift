@@ -14,6 +14,10 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     //let menagedContext=filmList.database.managedContext
     // MARK: Outlets
     
+    @IBAction func prestLogGesture(_ sender: Any) {
+        print("AAAAAAAAAAAAAA","bbbb")
+    }
+    @IBOutlet var presetLongPressGesture: UILongPressGestureRecognizer!
     @IBOutlet var fleldSegmentControll: UISegmentedControl!
     @IBOutlet var typePickerData: UIPickerView!
     @IBOutlet var findValueTextField: UITextField!

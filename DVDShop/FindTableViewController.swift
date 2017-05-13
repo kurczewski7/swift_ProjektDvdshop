@@ -13,6 +13,13 @@ class FindTableViewController: UITableViewController {
     var fieldNameTmp  = ""
     var seekValueTmp = ""
     var fieldTypeTmp: TypeFilterFields = .tytul
+    @IBAction func presetCellLongPresureRecognizer(_ sender: UILongPressGestureRecognizer) {
+        print("******","Naciśnięto długo")
+    }
+    @IBAction func makeScreenEdgePanGesture(_ sender: UIScreenEdgePanGestureRecognizer) {
+
+            print("******","Przeciągnięto")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         database.filmsbaseFilter=database.fillFilterData(field: fieldTypeTmp, seekValue: seekValueTmp)
@@ -100,6 +107,49 @@ class FindTableViewController: UITableViewController {
             }
         }
     }
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        // Social Sharing Button
+        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share", handler: { (action, indexPath) -> Void in
+            
+            let defaultText = "Just checking in at \(indexPath.row)"
+            
+            if let imageToShare = UIImage(named: obrazki[indexPath.row]) {
+                let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
+                self.present(activityController, animated: true, completion: nil)
+            }
+        })
+        
+        // Delete button
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
+            
+            // Delete the row from the data source
+                        self.database.filmsbaseFilter.remove(at: indexPath.row)
+                        self.title="Filmy znalezione: \(self.database.filmsbaseFilter.count)"
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+
+                
+//            self.restaurantNames.remove(at: indexPath.row)
+//            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        })
+        
+        shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
+        deleteAction.backgroundColor = UIColor(red: 202.0/255.0, green: 202.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+        
+        return [deleteAction, shareAction]
+    }
+
+    
+//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        //social Sharing Button
+//        let shareAction=UITableViewRowAction(style: .default, title: "Share", handler: {(action, indexPath) -> Void in
+//            let defaultText="Just checking at \(indexPath.row)"
+//            if let imageToShare=UIImage(named: <#T##String#>)
+//            let activityController = UIActivityViewController(activityItems: [defaultText] , applicationActivities: nil)
+//        })
+//        
+//        return [shareAction]
+//    }
    
 
     /*
@@ -112,16 +162,16 @@ class FindTableViewController: UITableViewController {
 
  
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            database.filmsbaseFilter.remove(at: indexPath.row)
-            self.title="Filmy znalezione: \(database.filmsbaseFilter.count)"
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // Delete the row from the data source
+//            database.filmsbaseFilter.remove(at: indexPath.row)
+//            self.title="Filmy znalezione: \(database.filmsbaseFilter.count)"
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        } else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }    
+//    }
 
 
     /*
