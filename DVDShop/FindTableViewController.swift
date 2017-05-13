@@ -110,15 +110,15 @@ class FindTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         // Social Sharing Button
-        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share", handler: { (action, indexPath) -> Void in
-            
-            let defaultText = "Just checking in at \(indexPath.row)"
-            
-            if let imageToShare = UIImage(named: obrazki[indexPath.row]) {
-                let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
-                self.present(activityController, animated: true, completion: nil)
-            }
-        })
+//        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share", handler: { (action, indexPath) -> Void in
+//            
+//            let defaultText = "Just checking in at \(indexPath.row)"
+//            
+//            if let imageToShare = UIImage(named: obrazki[indexPath.row]) {
+//                let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
+//                self.present(activityController, animated: true, completion: nil)
+//            }
+//        })
         
         // Delete button
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
@@ -127,16 +127,22 @@ class FindTableViewController: UITableViewController {
                         self.database.filmsbaseFilter.remove(at: indexPath.row)
                         self.title="Filmy znalezione: \(self.database.filmsbaseFilter.count)"
                         tableView.deleteRows(at: [indexPath], with: .fade)
-
-                
-//            self.restaurantNames.remove(at: indexPath.row)
-//            self.tableView.deleteRows(at: [indexPath], with: .fade)
         })
+        let userAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Dodaj",handler: { (action, indexPath) -> Void in
+            
+            // Delete the row from the data source
+//            self.database.filmsbaseFilter.remove(at: indexPath.row)
+//            self.title="Filmy znalezione: \(self.database.filmsbaseFilter.count)"
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+            print("KKkKKKKKKKKKKKK")
+        })
+
         
-        shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
-        deleteAction.backgroundColor = UIColor(red: 202.0/255.0, green: 202.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+        //shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
+        userAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
+        deleteAction.backgroundColor = UIColor.red
         
-        return [deleteAction, shareAction]
+        return [deleteAction, userAction]
     }
 
     
