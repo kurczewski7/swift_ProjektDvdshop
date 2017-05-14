@@ -31,6 +31,7 @@ class MasterTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         readSampleData()
+        tableView.reloadData()
         print("----- MasterTableViewController ------")
     }
     
@@ -49,16 +50,16 @@ class MasterTableViewController: UITableViewController {
             polubienia.append(false)
         }
         polubienia[1]=true
-        polubienia[2]=true
+//        polubienia[2]=true
         polubienia[5]=true
-        polubienia[8]=true
-        polubienia[14]=true
-        polubienia[21]=true
-        polubienia[35]=true
-        polubienia[45]=true
-        polubienia[82]=true
-        polubienia[97]=true
-        polubienia[109]=true
+//        polubienia[8]=true
+//        polubienia[14]=true
+//        polubienia[21]=true
+//        polubienia[35]=true
+//        polubienia[45]=true
+//        polubienia[82]=true
+//        polubienia[97]=true
+//        polubienia[109]=true
         
         typyFilmow[0] = .komedia
         typyFilmow[1] = .kryminal

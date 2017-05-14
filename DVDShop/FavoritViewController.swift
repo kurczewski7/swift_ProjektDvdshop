@@ -57,16 +57,20 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
       
         cell.imageView.image = dane.filmImage
         cell.isLiked=dane.isLiked
+        cell.layer.cornerRadius=5.0
+        cell.delegate = self
+        
         return cell
     }
     
     // MARK: wypełnienie mojego zdefiniowanego protokółu
     func didLikeButtonPressed(cell: FavoriteCollectionViewCell) {
-//        if let indexPath=collectionView.indexPath(for: cell) {
-//            let newValue = filmList.give(row: indexPath.row).isLiked ? false : true
-//            cell.isLiked = newValue //filmList.give(row: indexPath.row).isLiked
-//            filmList.setIsLike(row: indexPath.row, isLike: newValue)
-//         }
+        if let indexPath=collectionView.indexPath(for: cell) {
+            let newValue = filmList.give(row: indexPath.row).isLiked ? false : true
+            print("newValue=\(newValue)") 
+            cell.isLiked = newValue //filmList.give(row: indexPath.row).isLiked
+            filmList.setIsLike(row: indexPath.row, isLike: newValue)
+         }
     }
     
 
