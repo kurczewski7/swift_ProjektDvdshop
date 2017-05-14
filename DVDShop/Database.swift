@@ -157,8 +157,8 @@ class Database {
         return newFiltrList
     }
 
-    func getPhisicalRow(row: Int) -> Int{
-        return isFilterOn ? filmsbaseFilter[row] : row
+    func getPhisicalRow(row: Int, onFilter: Bool = false) -> Int{
+        return onFilter ? filmsbaseFilter[row] : row
     }
     func getImageDataFromDb(phisicalRow: Int) -> Data {
         return flimsbaseFull[phisicalRow].filmImage! as Data

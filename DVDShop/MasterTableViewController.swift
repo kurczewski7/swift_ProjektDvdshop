@@ -32,6 +32,7 @@ class MasterTableViewController: UITableViewController {
         super.viewDidLoad()
         readSampleData()
         tableView.reloadData()
+        self.title="Filmy : \(database.flimsbaseFull.count)"
         print("----- MasterTableViewController ------")
     }
     

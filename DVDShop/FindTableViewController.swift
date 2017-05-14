@@ -62,7 +62,7 @@ class FindTableViewController: UITableViewController {
         //let film=database.getFilm(row: indexPath.row)
         
         
-        let row = database.getPhisicalRow(row: indexPath.row)
+        let row = database.getPhisicalRow(row: indexPath.row, onFilter: database.isFilterOn )
          //   database.filmsbaseFilter[0]
         //indexPath.row
         
@@ -92,17 +92,17 @@ class FindTableViewController: UITableViewController {
                 let destinatonController = segue.destination as! FoundDetailViewController
                 
                 //let rek=filmList.give(row: indexPath.row)
-                
-                let rek=database.getFilm(row: indexPath.row)
+                let cuurRow = database.isFilterOn ? database.filmsbaseFilter[indexPath.row] : indexPath.row
+                let rek=database.getFilm(row: cuurRow)
                 destinatonController.dvdImageTmp   =  filmList.giveCurrentPictureName(row: indexPath.row)
                 destinatonController.titleLabelTmp =  rek.title!
                 destinatonController.actorsLabelTmp  =  rek.actors!
                 destinatonController.typeLabelTmp  =  rek.type!
                 destinatonController.priceLabelTmp =  kantor.doubleToString(rek.price)
                 destinatonController.youtubeUrlTmp =  rek.youtubeUrl!
-                destinatonController.descriptionLabelTmp = filmList.give(row: indexPath.row).description
+                destinatonController.descriptionLabelTmp =  rek.filmDescription!   //filmList.give(row: indexPath.row).description
                 destinatonController.rowTmp=kantor.intToString(indexPath.row)
-                destinatonController.phisicalRowTmp = kantor.intToString(database.getPhisicalRow(row: indexPath.row)) 
+                destinatonController.phisicalRowTmp = kantor.intToString(database.getPhisicalRow(row: indexPath.row, onFilter: database.isFilterOn))
                 
                 print("segue showFound, row=\(indexPath.row)")
                 //flimsbase[indexPath.row]
@@ -125,7 +125,7 @@ class FindTableViewController: UITableViewController {
 
         let  currCell = tableView.cellForRow(at: indexPath)
         let isChecked = currCell?.accessoryType == .checkmark
-        let phisicalRow = database.getPhisicalRow(row: indexPath.row)
+        let phisicalRow = database.getPhisicalRow(row: indexPath.row, onFilter: database.isFilterOn)
         
         // Delete button
         // Delete the row from the data source
