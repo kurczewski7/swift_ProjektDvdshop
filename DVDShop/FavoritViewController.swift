@@ -67,10 +67,17 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
     func didLikeButtonPressed(cell: FavoriteCollectionViewCell) {
         if let indexPath=collectionView.indexPath(for: cell) {
             let newValue = filmList.give(row: indexPath.row).isLiked ? false : true
-            print("newValue=\(newValue)") 
+            print("newValue=\(newValue)")
             cell.isLiked = newValue //filmList.give(row: indexPath.row).isLiked
             filmList.setIsLike(row: indexPath.row, isLike: newValue)
-         }
+            let phisicalRow = listaUlubionych[indexPath.row]
+            database.setCheckRecord(phisicalRow: phisicalRow, value: newValue)
+            
+//            let dane = )
+            // likedList
+            // listaUlubionych[indexPath.row]
+            // filmList.give(row: listaUlubionych[indexPath.row])
+            }
     }
     
 
