@@ -186,12 +186,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Szczegóły" id="BIZ-Cc-hah">
-                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="5lK-k0-6bx">
+                        <barButtonItem key="leftBarButtonItem" image="Cofnij" id="5lK-k0-6bx">
                             <connections>
                                 <segue destination="vux-He-srW" kind="unwind" unwindAction="unwindBeckWithSegue:" id="pI3-qE-vtt"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="bqH-rq-n1f">
+                        <barButtonItem key="rightBarButtonItem" image="filmowa" id="bqH-rq-n1f">
                             <connections>
                                 <segue destination="hjO-wM-wPk" kind="show" identifier="showYoutube" id="OmD-aN-3C2"/>
                             </connections>
@@ -252,7 +252,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Video" id="CEO-db-NtR">
-                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="6wl-vM-lik">
+                        <barButtonItem key="leftBarButtonItem" image="Cofnij" id="6wl-vM-lik">
                             <connections>
                                 <segue destination="D0p-zm-607" kind="unwind" unwindAction="unwindBeckWithSegue:" id="yBE-X6-bNt"/>
                             </connections>
@@ -647,7 +647,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Przelew" id="rnu-8f-IEf">
-                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="3Vd-Q6-wsr">
+                        <barButtonItem key="leftBarButtonItem" image="Cofnij" id="3Vd-Q6-wsr">
                             <connections>
                                 <segue destination="8Eh-OW-WH3" kind="unwind" unwindAction="unwindBeckWithSegue:" id="fRq-dd-JJw"/>
                             </connections>
@@ -761,7 +761,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Płatność za" id="Rbl-4W-m4b">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="organize" id="5bx-VW-tM1">
+                            <barButtonItem image="Worek" style="done" id="5bx-VW-tM1">
                                 <connections>
                                     <segue destination="Jw3-qJ-yUg" kind="show" id="rVe-Tv-WEV"/>
                                 </connections>
@@ -880,12 +880,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Rachunek" id="97M-cU-SVm">
-                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="rewind" id="XsH-uN-TC9">
+                        <barButtonItem key="leftBarButtonItem" image="Cofnij" style="done" id="XsH-uN-TC9">
                             <connections>
                                 <segue destination="94E-gx-2YC" kind="unwind" unwindAction="unwindBeckWithSegue:" id="B7K-VR-Pie"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="D8N-vP-7QW">
+                        <barButtonItem key="rightBarButtonItem" image="Visa" id="D8N-vP-7QW">
                             <connections>
                                 <segue destination="iNH-gl-zO7" kind="show" id="RI8-8e-2aP"/>
                             </connections>
@@ -1019,7 +1019,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Filmy znalezione" id="NUr-CG-kP4">
-                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="rewind" id="Ixy-I9-m7O">
+                        <barButtonItem key="leftBarButtonItem" image="Cofnij" style="done" id="Ixy-I9-m7O">
                             <connections>
                                 <segue destination="Vgm-xP-uGx" kind="unwind" unwindAction="unwindBeckWithSegue:" id="dgI-6S-Kez"/>
                             </connections>
@@ -1116,12 +1116,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Szczegóły" id="Xzm-Fx-jLU">
-                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="fjG-yi-meS">
+                        <barButtonItem key="leftBarButtonItem" image="Cofnij" id="fjG-yi-meS">
                             <connections>
                                 <segue destination="ENs-Ug-oTw" kind="unwind" unwindAction="unwindBeckWithSegue:" id="Q0a-7C-Osn"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="64z-bx-3CY">
+                        <barButtonItem key="rightBarButtonItem" image="filmowa" id="64z-bx-3CY">
                             <connections>
                                 <segue destination="gmf-ka-l80" kind="show" identifier="showYoutube2" id="BQB-7W-k37"/>
                             </connections>
@@ -1182,7 +1182,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Video" id="Zyg-KM-wL6">
-                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="1Vl-Sz-TZw">
+                        <barButtonItem key="leftBarButtonItem" image="Cofnij" id="1Vl-Sz-TZw">
                             <connections>
                                 <segue destination="jMI-mh-d9Z" kind="unwind" unwindAction="unwindBeckWithSegue:" id="Ttn-zO-ZYQ"/>
                             </connections>
@@ -1201,11 +1201,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Cofnij" width="25" height="25"/>
         <image name="DVD" width="25" height="25"/>
         <image name="Filter" width="25" height="25"/>
         <image name="Like" width="25" height="25"/>
         <image name="Shopping" width="25" height="25"/>
+        <image name="Visa" width="25" height="25"/>
+        <image name="Worek" width="25" height="25"/>
         <image name="cell-bg-gradient" width="375" height="31"/>
+        <image name="filmowa" width="25" height="25"/>
         <image name="heart" width="128" height="128"/>
     </resources>
 </document>

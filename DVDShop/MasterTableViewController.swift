@@ -119,29 +119,54 @@ class MasterTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return obrazki.count
+        return database.flimsbaseFull.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MasterTableViewCell
 
         // Configure the cell...
-             
-        let dane = filmList.give(row: indexPath.row)
-        cell.DVDImage.image = dane.filmImage
-        cell.titleLabel.text = dane.title
-        cell.actorsLabel.text = dane.actors
-        cell.typLabel.text = dane.type
-        cell.priceLabel.text = dane.price    
+                let film=database.getFilm(row: indexPath.row)
+                if database.flimsbaseFull.count > indexPath.row {
+                    cell.titleLabel.text=film.title
+                    cell.actorsLabel.text=film.actors
+                    cell.typLabel.text=film.type
+                    cell.priceLabel.text=String.init(format: "%6.2f", film.price)
+                    cell.DVDImage.image=UIImage(data: film.filmImage! as Data)
+                    cell.accessoryType = film.isLiked ? .checkmark : .none
+                    cell.backgroundColor = film.isLiked ? UIColor.green : UIColor.clear
+                    print("tytul=\(cell.titleLabel)")
+                }
         
-        if dane.isLiked==true {
-            cell.backgroundColor=UIColor.green
-        }
-        else
-        {
-            cell.backgroundColor=UIColor.clear
-            //cell.seec
-        }
+        
+             
+//        let dane = filmList.give(row: indexPath.row)
+//        cell.DVDImage.image = dane.filmImage
+//        cell.titleLabel.text = dane.title
+//        cell.actorsLabel.text = dane.actors
+//        cell.typLabel.text = dane.type
+//        cell.priceLabel.text = dane.price    
+//        
+//        if dane.isLiked==true {
+//            cell.backgroundColor=UIColor.green
+//        }
+//        else
+//        {
+//            cell.backgroundColor=UIColor.clear
+//            //cell.seec
+//        }
+        
+//        let film=database.getFilm(row: row)
+//        if database.filmCount > indexPath.row {
+//            cell.titleLabel.text=film.title
+//            cell.actorsLabel.text=film.actors
+//            cell.typLabel.text=film.type
+//            cell.priceLabel.text=String.init(format: "%6.2f", film.price)
+//            cell.DVDImage.image=UIImage(data: film.filmImage! as Data)
+//            cell.accessoryType = film.isLiked ? .checkmark : .none
+//            cell.backgroundColor = film.isLiked ? UIColor.green : UIColor.clear
+//            print("tytul=\(cell.titleLabel)")
+//        }
 
         return cell
     }
@@ -199,14 +224,18 @@ class MasterTableViewController: UITableViewController {
                 if let indexPath=tableView.indexPathForSelectedRow {
                      let destinatonController = segue.destination as! DetailViewController
                     
-                    let rek=filmList.give(row: indexPath.row)
-                    destinatonController.dvdImageTmp   =  filmList.giveCurrentPictureName(row: indexPath.row)
-                    destinatonController.titleLabelTmp =  rek.title
-                    destinatonController.actorsLabelTmp  =  rek.actors
-                    destinatonController.typeLabelTmp  =  rek.type
-                    destinatonController.priceLabelTmp =  rek.price
-                    destinatonController.youtubeUrlTmp =  rek.youtubeUrl
+                    //let rek=filmList.give(row: indexPath.row)
+                    let rek=database.getFilm(row: indexPath.row)
+                    destinatonController.dvdImageTmp   = rek.pictureName!  //filmList.giveCurrentPictureName(row: indexPath.row)
+                    destinatonController.titleLabelTmp =  rek.title!
+                    destinatonController.actorsLabelTmp  =  rek.actors!
+                    destinatonController.typeLabelTmp  =  rek.type!
+                    destinatonController.priceLabelTmp = kantor.doubleToString(rek.price)  //rek.price
+                    destinatonController.youtubeUrlTmp =  rek.youtubeUrl!
                     destinatonController.descriptionLabelTmp = filmList.give(row: indexPath.row).description
+                    destinatonController.currentRowTmp = indexPath.row
+                    
+                    //destinatonController.pictyreTMp=UIImage(data: film.filmImage! as Data)  ///rek.filmImage
                 }
             }
     }

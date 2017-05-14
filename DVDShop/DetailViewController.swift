@@ -17,6 +17,9 @@ class DetailViewController: UIViewController {
     var descriptionLabelTmp = ""
     var priceLabelTmp = ""
     var youtubeUrlTmp = ""
+    var currentRowTmp = 0
+    
+    var pictyreTMp: UIImage? = nil
     
 
     @IBOutlet var dvdImage: UIImageView!
@@ -43,7 +46,12 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        dvdImage.image=UIImage(named: dvdImageTmp)
+        dvdImage.image = UIImage(data: database.getImageDataFromDb(phisicalRow: currentRowTmp) as Data)
+        // database.getImageDataFromDb(phisicalRow: currentRowTmp)
+        
+        // UIImage(named: dvdImageTmp)
+        
+        // cell.DVDImage.image=UIImage(data: film.filmImage! as Data)
         
         //actorsLabel.text=actorsLabelTmp
        // typeLabel.text=typeLabelTmp
