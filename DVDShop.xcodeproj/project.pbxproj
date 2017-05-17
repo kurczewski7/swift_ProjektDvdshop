@@ -27,6 +27,9 @@
 		2C49798D1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49798C1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift */; };
 		2C49798F1EB3F8ED000A2E33 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49798E1EB3F8ED000A2E33 /* Film.swift */; };
 		2C4979911EB3FF37000A2E33 /* FavoritViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4979901EB3FF37000A2E33 /* FavoritViewController.swift */; };
+		2C58851A1ECBA7DD00EBB819 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5885191ECBA7DD00EBB819 /* Server.swift */; };
+		2C58851C1ECBB57400EBB819 /* Dvd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58851B1ECBB57400EBB819 /* Dvd.swift */; };
+		2C5E82541ECC87F900C95504 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E82531ECC87F900C95504 /* AdminViewController.swift */; };
 		2C603CA71EBB34E700F4BC17 /* Kantor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C603CA61EBB34E700F4BC17 /* Kantor.swift */; };
 		2C603CA91EBB52EB00F4BC17 /* PrzelewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C603CA81EBB52EB00F4BC17 /* PrzelewViewController.swift */; };
 		2C710A551EB89150007C81AF /* FilmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C710A541EB89150007C81AF /* FilmList.swift */; };
@@ -79,6 +82,9 @@
 		2C49798C1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C49798E1EB3F8ED000A2E33 /* Film.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		2C4979901EB3FF37000A2E33 /* FavoritViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritViewController.swift; sourceTree = "<group>"; };
+		2C5885191ECBA7DD00EBB819 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		2C58851B1ECBB57400EBB819 /* Dvd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dvd.swift; sourceTree = "<group>"; };
+		2C5E82531ECC87F900C95504 /* AdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		2C603CA61EBB34E700F4BC17 /* Kantor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kantor.swift; sourceTree = "<group>"; };
 		2C603CA81EBB52EB00F4BC17 /* PrzelewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrzelewViewController.swift; sourceTree = "<group>"; };
 		2C710A541EB89150007C81AF /* FilmList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmList.swift; sourceTree = "<group>"; };
@@ -171,7 +177,9 @@
 				2C147E881EB93AE800E0E92A /* Icon.swift */,
 				2C603CA61EBB34E700F4BC17 /* Kantor.swift */,
 				2C12AFD91EBE47E20045D889 /* Database.swift */,
+				2C5885191ECBA7DD00EBB819 /* Server.swift */,
 				2C15739C1EAFFC8C00B48306 /* DVDShop.xcdatamodeld */,
+				2C58851B1ECBB57400EBB819 /* Dvd.swift */,
 			);
 			name = MODELS;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 				2CBF06A81EC1160600A4FA95 /* FindTableViewController.swift */,
 				2CBF06AC1EC1257C00A4FA95 /* FoundDetailViewController.swift */,
 				2CBF06AA1EC116CE00A4FA95 /* FindTableViewCell.swift */,
+				2C5E82531ECC87F900C95504 /* AdminViewController.swift */,
 			);
 			name = CONTROLERS;
 			sourceTree = "<group>";
@@ -349,10 +358,13 @@
 				2C147E851EB91B8D00E0E92A /* PaymentCollectionViewController.swift in Sources */,
 				2C15739E1EAFFC8C00B48306 /* DVDShop.xcdatamodeld in Sources */,
 				2C1573CC1EB0060100B48306 /* MasterTableViewController.swift in Sources */,
+				2C58851A1ECBA7DD00EBB819 /* Server.swift in Sources */,
 				2CBF06A91EC1160600A4FA95 /* FindTableViewController.swift in Sources */,
+				2C58851C1ECBB57400EBB819 /* Dvd.swift in Sources */,
 				2C1F5A761EB1528100A68B4B /* DetailViewController.swift in Sources */,
 				2CBF06AD1EC1257D00A4FA95 /* FoundDetailViewController.swift in Sources */,
 				2C1573CA1EAFFFEE00B48306 /* MasterTableViewCell.swift in Sources */,
+				2C5E82541ECC87F900C95504 /* AdminViewController.swift in Sources */,
 				2C710A551EB89150007C81AF /* FilmList.swift in Sources */,
 				2C147E871EB930D200E0E92A /* ObliczViewController.swift in Sources */,
 				2C49798D1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift in Sources */,

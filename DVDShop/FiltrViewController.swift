@@ -99,6 +99,9 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         database.setFilter(field: .tytul, seekValue: "Bogowie")
     }
     @IBAction func saveAction(_ sender: Any) {
+        let server = Server()
+        print("wyniki Serwera: \(server.dvds.count)")
+        
     }
     @IBAction  func unwindBeck(segue: UIStoryboardSegue) {
         
