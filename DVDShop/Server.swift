@@ -92,4 +92,38 @@ class Server {
         tekst += "]}"
         return tekst
     }
+    
+    func makeSqlTxt(database db : Database) -> String  {
+        
+//        INSERT INTO `dvds` (`filmId`, `title`, `filmDirector`, `actors`, `type`, `filmDescription`, `filmImageName`, `youtubeUrl`, `price`, `isLiked`) VALUES
+//        ('film1', 'Ambassada', 'Nieznany', 'aaaaaaaaaaaa', 'komedia', 'dddddddd', 'film1', 'youtube', 43.5, 1),
+//        ('film1', 'Film2', 'nnnnnnnnnn', 'tttttttttt', 'horror', 'fghjjjjjj', 'film2', 'noweyoutube2', 55, 0);
+        
+        
+        var tekst: String = ""
+        var tx: [String] = ["","","","","","","",""]
+        let brak = "brak"
+        
+        tekst =  "INSERT INTO `dvds` (`filmId`, `title`, `filmDirector`, `actors`, `type`, `filmDescription`, `filmImageName`, `youtubeUrl`, `price`, `isLiked`) VALUES \n"
+        tekst += "("
+        for i in 0..<db.flimsbaseFull.count  {
+            tx[0] = db.flimsbaseFull[i].filmId ??  brak
+            tx[1] = db.flimsbaseFull[i].title ?? ""
+            tx[2] = db.flimsbaseFull[i].filmDirector ?? ""
+            tx[3] = db.flimsbaseFull[i].actors ?? ""
+            tx[4] = db.flimsbaseFull[i].type ?? ""
+            tx[5] = db.flimsbaseFull[i].filmDescription ?? ""
+            tx[6] = db.flimsbaseFull[i].pictureName ?? ""
+            tx[7] = db.flimsbaseFull[i].youtubeUrl ?? ""
+            
+           
+            for t in 0..<tx.count {
+                tekst += "'\(tx[t])', "
+            }
+            tekst += kantor.doubleToString(db.flimsbaseFull[i].price)+", "
+            tekst += db.flimsbaseFull[i].isLiked ? "1" : "0"
+            tekst += (i < db.flimsbaseFull.count-1) ? "),  \n " : "); \n"
+         }
+        return tekst
+    }
 }

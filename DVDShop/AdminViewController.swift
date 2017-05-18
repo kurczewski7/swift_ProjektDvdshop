@@ -15,13 +15,16 @@ class AdminViewController: UIViewController {
     
     
     @IBOutlet var textView: UITextView!
+    @IBAction func getSqlButton(_ sender: UIButton) {
+        textView.text = server.makeSqlTxt(database: database)
+    }
     @IBAction func downloadButton(_ sender: UIButton) {
        
         server.getLatestDvds()
         print("Załadowano \(server.dvds.count) rekordów z sieci")
     }
     @IBAction func sentButton(_ sender: Any) {
-        textView.text = server.makeJsonTxt(database: database)        
+        textView.text = server.makeJsonTxt(database: database)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

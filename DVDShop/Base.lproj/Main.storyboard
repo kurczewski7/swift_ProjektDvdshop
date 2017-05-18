@@ -953,8 +953,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUq-kT-TUB">
-                                <rect key="frame" x="153" y="523" width="69" height="30"/>
-                                <state key="normal" title="Download"/>
+                                <rect key="frame" x="154.5" y="523" width="66" height="30"/>
+                                <state key="normal" title="get JSON"/>
                                 <connections>
                                     <action selector="downloadButton:" destination="Ow9-Ra-maf" eventType="touchUpInside" id="F3Y-rj-OeB"/>
                                 </connections>
@@ -967,8 +967,11 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiE-zw-RLb">
-                                <rect key="frame" x="291" y="523" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="279" y="523" width="58" height="30"/>
+                                <state key="normal" title="Get SQL"/>
+                                <connections>
+                                    <action selector="getSqlButton:" destination="Ow9-Ra-maf" eventType="touchUpInside" id="sCm-rd-OIo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
