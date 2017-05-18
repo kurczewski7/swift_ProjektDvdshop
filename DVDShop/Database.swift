@@ -45,7 +45,7 @@ class Database {
         //        let fetchRequest: NSFetchRequest)")
         //        let fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
     }
-    func createDatabaseRow(rek:  UserRekord)
+    func createDatabaseRow(rek:  UserRekord, currentPictureName pictName: String )
     {
         let dbRow = Filmsbase(context: managedContext)
         //let priceInt=kantor.
@@ -57,9 +57,10 @@ class Database {
         dbRow.type = rek.type
         dbRow.youtubeUrl = rek.youtubeUrl
         dbRow.filmId = rek.filmId
-        dbRow.pictureName = rek.filmId
+        dbRow.pictureName = pictName
         dbRow.isLiked = rek.isLiked
         print("rek.filmId:\(rek.filmId)")
+        
         
         //let image = UIImage(named: rek.filmId)
         
@@ -79,10 +80,11 @@ class Database {
     func addDataToBase()
     {
         var currentFilm: UserRekord
+        var currentPictureName: String = ""
+        
         for i in 0..<obrazki.count
         {
-            let dane = filmList.give(row: i)
-            
+            let dane = filmList.give(row: i)            
             currentFilm.title           = dane.title
             currentFilm.actors          = dane.actors
             currentFilm.description     = dane.description
@@ -93,9 +95,10 @@ class Database {
             currentFilm.price           = dane.price
             currentFilm.type            = dane.type
             currentFilm.youtubeUrl      = dane.youtubeUrl    //"WyHv2WqkPCQ"
+            currentPictureName = filmList.giveCurrentPictureName(row: i)
         
             print("i=\(i),tytul=\(currentFilm.title),\(tytuly[i])")
-            createDatabaseRow(rek: currentFilm)
+            createDatabaseRow(rek: currentFilm, currentPictureName: currentPictureName)
         }
     }
     

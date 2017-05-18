@@ -16,10 +16,10 @@ class Server {
     var dvds = [Dvd]()
     //
     // http://skurczewski1.myqnapcloud.com/dvdshop/api.php/dvds
-    // http://skurczewski1.myqnapcloud.com/dvdshop/dvds.json"
-    // https://api.kivaws.org/v1/loans/newest.json"
+    // http://skurczewski1.myqnapcloud.com/dvdshop/dvds.json
+    // https://api.kivaws.org/v1/loans/newest.json
     // http://www.learnswiftonline.com/Samples/subway.json
-    init(urlString: String = "") {
+    init() {
         self.urlString = "http://skurczewski1.myqnapcloud.com/dvdshop/dvds.json"
         getLatestDvds()
     }
@@ -50,7 +50,7 @@ class Server {
            do {
                  let jsonResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
                     
-                    // Parse JSON data
+            // Parse JSON data
             let xx=jsonResult?.count
             let yy = jsonResult?.description
             print("jsonResult=\(String(describing: jsonResult))")
@@ -66,5 +66,30 @@ class Server {
                 } catch {    print(error)     }
         return dvds
      }
-
+    
+    func makeJsonTxt(database db : Database) -> String {
+        var tekst: String = ""
+        var tx: [String] = ["","","","","","","","","","",""]
+        let brak = "brak"
+        
+        tekst =  "{ \"dvds\" : ["
+        for i in 0..<db.flimsbaseFull.count  {
+            tx[0] = "  {\"filmId\":\"\(db.flimsbaseFull[i].filmId ??  brak)\""
+            tx[1] = ", \"title\":\"\(db.flimsbaseFull[i].title ?? "")\""
+            tx[2] = ", \"filmDirector\":\"\(db.flimsbaseFull[i].filmDirector ?? "")\""
+            tx[3] = ", \"actors\":\"\(db.flimsbaseFull[i].actors ?? "")\""
+            tx[4] = ", \"type\":\"\(db.flimsbaseFull[i].type ?? "")\""
+            tx[5] = ", \"filmDescription\":\"\(db.flimsbaseFull[i].filmDescription ?? "")\""
+            tx[6] = ", \"filmImageName\":\"\(db.flimsbaseFull[i].pictureName ?? "")\""
+            tx[7] = ", \"youtubeUrl\":\"\(db.flimsbaseFull[i].youtubeUrl ?? "")\""
+            tx[8] = ", \"price\":\"\(db.flimsbaseFull[i].price )\""
+            tx[9] = ", \"isLiked\":\"\(db.flimsbaseFull[i].isLiked ? "1" : "0")\"}"
+            tx[10] = (i < db.flimsbaseFull.count-1) ? ",  \n " : " \n"
+            for t in 0..<tx.count {
+                tekst += tx[t]
+            }
+        }
+        tekst += "]}"
+        return tekst
+    }
 }

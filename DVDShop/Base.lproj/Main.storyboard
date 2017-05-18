@@ -945,34 +945,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7WH-tb-IOe">
-                                <rect key="frame" x="28" y="564" width="78" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7WH-tb-IOe">
+                                <rect key="frame" x="16" y="523" width="78" height="30"/>
                                 <state key="normal" title="Sent to Net"/>
                                 <connections>
                                     <action selector="sentButton:" destination="Ow9-Ra-maf" eventType="touchUpInside" id="xAz-5m-MTt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUq-kT-TUB">
-                                <rect key="frame" x="158" y="564" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUq-kT-TUB">
+                                <rect key="frame" x="153" y="523" width="69" height="30"/>
+                                <state key="normal" title="Download"/>
+                                <connections>
+                                    <action selector="downloadButton:" destination="Ow9-Ra-maf" eventType="touchUpInside" id="F3Y-rj-OeB"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiE-zw-RLb">
-                                <rect key="frame" x="290" y="564" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="siP-EI-sFk">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="siP-EI-sFk">
                                 <rect key="frame" x="0.0" y="64" width="375" height="444"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiE-zw-RLb">
+                                <rect key="frame" x="291" y="523" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="7WH-tb-IOe" secondAttribute="leading" id="57i-Cr-0nH"/>
+                            <constraint firstItem="siP-EI-sFk" firstAttribute="leading" secondItem="ZEV-lk-4tQ" secondAttribute="leading" id="E0s-aY-0Eh"/>
+                            <constraint firstItem="pJz-nu-rQo" firstAttribute="top" secondItem="PUq-kT-TUB" secondAttribute="bottom" constant="65" id="Ibf-Ue-NOX"/>
+                            <constraint firstItem="PUq-kT-TUB" firstAttribute="top" secondItem="siP-EI-sFk" secondAttribute="bottom" constant="15" id="Y6K-5W-zv0"/>
+                            <constraint firstItem="PUq-kT-TUB" firstAttribute="baseline" secondItem="7WH-tb-IOe" secondAttribute="baseline" id="c2f-rT-2q8"/>
+                            <constraint firstItem="PUq-kT-TUB" firstAttribute="centerX" secondItem="siP-EI-sFk" secondAttribute="centerX" id="caQ-Sd-4oS"/>
+                            <constraint firstItem="PUq-kT-TUB" firstAttribute="centerX" secondItem="ZEV-lk-4tQ" secondAttribute="centerX" id="nvm-Aj-y2P"/>
+                            <constraint firstItem="siP-EI-sFk" firstAttribute="top" secondItem="4cL-Ss-86S" secondAttribute="bottom" id="s8K-qJ-cqa"/>
+                            <constraint firstItem="PUq-kT-TUB" firstAttribute="baseline" secondItem="GiE-zw-RLb" secondAttribute="baseline" id="yn7-s4-ewl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GiE-zw-RLb" secondAttribute="trailing" constant="22" id="zmG-b0-3QQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Moduł Administracyjny" id="yC4-hB-MKZ"/>
                     <connections>
