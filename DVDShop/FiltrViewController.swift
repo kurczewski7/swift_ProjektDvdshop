@@ -15,27 +15,17 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     // MARK: Outlets
     
     @IBAction func prestLogGesture(_ sender: Any) {
-        print("AAAAAAAAAAAAAA","bbbb")
+        print("UWAGA","Włączono tryb Administratora")
+        startAdminModeButton.isUserInteractionEnabled = true
+        startAdminModeButton.isHidden =  false
     }
+    
     @IBOutlet var presetLongPressGesture: UILongPressGestureRecognizer!
     @IBOutlet var fleldSegmentControll: UISegmentedControl!
     @IBOutlet var typePickerData: UIPickerView!
     @IBOutlet var findValueTextField: UITextField!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var nameLabel: UILabel! {
-        didSet {
-            print("nameLabel didSet")
-            //let ilosc=database.filmCount
-            //nameLabel.text="x=\(Filmsbase.accessibilityElementCount()),\(ilosc)"
-        }
-    }
-    @IBOutlet var priceName: UILabel! {
-        didSet {
-            print("priceName didSet")
-            //priceName.text=(database.filmCount > 0) ?  database.getFilm(row: 0).pictureName : "Brak filmów w bazie"
-            
-        }
-    }
+    
+    @IBOutlet var startAdminModeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +40,10 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         //typePickerData.isHidden=false
         typePickerData.isUserInteractionEnabled=true
         findValueTextField.isUserInteractionEnabled=true
+        
+        startAdminModeButton.isUserInteractionEnabled = false
+        startAdminModeButton.isHidden = true
+
         
         
         // Do any additional setup after loading the view.
@@ -85,26 +79,8 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             default: findValueTextField.placeholder=""
         }
     }
-    @IBAction func policzAction(_ sender: Any) {
-         let wynik=database.policzRecords()
-          titleLabel.text="Rekordow:\(wynik.allRecords),dostepnych:\(wynik.accesableRecords)"
-    }
-    @IBAction func addAction(_ sender: Any) {
-        database.setupDataFromAssets()
-    }
-    @IBAction func deleteAction(_ sender: Any) {
-        database.deleteTableBase()
-    }
-    @IBAction func nextAction(_ sender: Any) {
-        database.setFilter(field: .tytul, seekValue: "Bogowie")
-    }
-    @IBAction func saveAction(_ sender: Any) {
-        let server = Server()
-        print("wyniki Serwera: \(server.dvds.count)")
-        
-    }
+    
     @IBAction  func unwindBeck(segue: UIStoryboardSegue) {
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -126,9 +102,8 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
             findValueTextField.text=typeOfFilm[row].rawValue
     }
+    // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         var  fieldType: TypeFilterFields
         if segue.identifier=="showSeek" {
             let destinatonController = segue.destination as! FindTableViewController
@@ -148,17 +123,4 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             print("segue showSeek)")
         }
     }
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

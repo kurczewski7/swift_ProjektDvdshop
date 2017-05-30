@@ -178,8 +178,8 @@
 				2C603CA61EBB34E700F4BC17 /* Kantor.swift */,
 				2C12AFD91EBE47E20045D889 /* Database.swift */,
 				2C5885191ECBA7DD00EBB819 /* Server.swift */,
-				2C15739C1EAFFC8C00B48306 /* DVDShop.xcdatamodeld */,
 				2C58851B1ECBB57400EBB819 /* Dvd.swift */,
+				2C15739C1EAFFC8C00B48306 /* DVDShop.xcdatamodeld */,
 			);
 			name = MODELS;
 			sourceTree = "<group>";
