@@ -33,6 +33,7 @@
 		2C603CA71EBB34E700F4BC17 /* Kantor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C603CA61EBB34E700F4BC17 /* Kantor.swift */; };
 		2C603CA91EBB52EB00F4BC17 /* PrzelewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C603CA81EBB52EB00F4BC17 /* PrzelewViewController.swift */; };
 		2C710A551EB89150007C81AF /* FilmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C710A541EB89150007C81AF /* FilmList.swift */; };
+		2C970E531EDE173400705715 /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C970E521EDE173400705715 /* BillViewController.swift */; };
 		2CBF06A91EC1160600A4FA95 /* FindTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF06A81EC1160600A4FA95 /* FindTableViewController.swift */; };
 		2CBF06AB1EC116CE00A4FA95 /* FindTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF06AA1EC116CE00A4FA95 /* FindTableViewCell.swift */; };
 		2CBF06AD1EC1257D00A4FA95 /* FoundDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF06AC1EC1257C00A4FA95 /* FoundDetailViewController.swift */; };
@@ -88,6 +89,7 @@
 		2C603CA61EBB34E700F4BC17 /* Kantor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kantor.swift; sourceTree = "<group>"; };
 		2C603CA81EBB52EB00F4BC17 /* PrzelewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrzelewViewController.swift; sourceTree = "<group>"; };
 		2C710A541EB89150007C81AF /* FilmList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmList.swift; sourceTree = "<group>"; };
+		2C970E521EDE173400705715 /* BillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
 		2CBF06A81EC1160600A4FA95 /* FindTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindTableViewController.swift; sourceTree = "<group>"; };
 		2CBF06AA1EC116CE00A4FA95 /* FindTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindTableViewCell.swift; sourceTree = "<group>"; };
 		2CBF06AC1EC1257C00A4FA95 /* FoundDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundDetailViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				2C1573991EAFFC8C00B48306 /* Main.storyboard */,
+				2C970E521EDE173400705715 /* BillViewController.swift */,
 			);
 			name = VIEWS;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				2C147E871EB930D200E0E92A /* ObliczViewController.swift in Sources */,
 				2C49798D1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift in Sources */,
 				2C17DB101EBC9B2800575581 /* VideoViewController.swift in Sources */,
+				2C970E531EDE173400705715 /* BillViewController.swift in Sources */,
 				2C147E891EB93AE800E0E92A /* Icon.swift in Sources */,
 				2C147E831EB91AE900E0E92A /* PaymentCollectionViewCell.swift in Sources */,
 				2C12AFDA1EBE47E20045D889 /* Database.swift in Sources */,

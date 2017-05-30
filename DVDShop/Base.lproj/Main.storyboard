@@ -288,6 +288,50 @@
             </objects>
             <point key="canvasLocation" x="1712.8" y="123.68815592203899"/>
         </scene>
+        <!--Bill View Controller-->
+        <scene sceneID="XZF-p5-uB2">
+            <objects>
+                <viewController id="TZ7-8w-HuS" userLabel="Bill View Controller" customClass="BillViewController" customModule="DVDShop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sDn-rf-uEq"/>
+                        <viewControllerLayoutGuide type="bottom" id="j5Q-F0-hUR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3IS-IU-wc6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQf-Ay-knb">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TZ7-8w-HuS" id="a5R-aT-cdf"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fQf-Ay-knb" secondAttribute="trailing" id="1q1-pW-vN2"/>
+                            <constraint firstItem="fQf-Ay-knb" firstAttribute="top" secondItem="sDn-rf-uEq" secondAttribute="bottom" id="Rwg-fR-hPv"/>
+                            <constraint firstItem="fQf-Ay-knb" firstAttribute="leading" secondItem="3IS-IU-wc6" secondAttribute="leading" id="T0q-xS-t8d"/>
+                            <constraint firstItem="j5Q-F0-hUR" firstAttribute="top" secondItem="fQf-Ay-knb" secondAttribute="bottom" constant="-49" id="tZa-tw-dHU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Rachunek szczegółowy" id="te2-1E-ThN">
+                        <barButtonItem key="leftBarButtonItem" image="Cofnij" id="Cp5-L7-CpM">
+                            <connections>
+                                <segue destination="6Xe-6o-55u" kind="unwind" unwindAction="unwindBeckWithSegue:" id="PhA-cl-ZEq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="rachunekSzczegolowyVebView" destination="fQf-Ay-knb" id="fYO-1V-dlT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4xu-Tf-PKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6Xe-6o-55u" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4408.8000000000002" y="882.90854572713647"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UpC-zb-DQP">
             <objects>
@@ -807,11 +851,18 @@
                                 <segue destination="94E-gx-2YC" kind="unwind" unwindAction="unwindBeckWithSegue:" id="B7K-VR-Pie"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="Visa" id="D8N-vP-7QW">
-                            <connections>
-                                <segue destination="iNH-gl-zO7" kind="show" id="RI8-8e-2aP"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="Visa" id="D8N-vP-7QW">
+                                <connections>
+                                    <segue destination="iNH-gl-zO7" kind="show" id="RI8-8e-2aP"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="compose" id="9kt-Sw-sfQ">
+                                <connections>
+                                    <segue destination="TZ7-8w-HuS" kind="show" id="PbP-Fz-8PZ"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="bankiPickerView" destination="q40-cj-Nb4" id="jnT-O0-eeC"/>
@@ -902,7 +953,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="GiE-zw-RLb" secondAttribute="trailing" constant="22" id="zmG-b0-3QQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Moduł Administracyjny" id="yC4-hB-MKZ"/>
+                    <navigationItem key="navigationItem" title="Moduł Administracyjny" id="yC4-hB-MKZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="QRr-jm-qyM"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="textView" destination="siP-EI-sFk" id="ve5-Vy-HIT"/>
                     </connections>
