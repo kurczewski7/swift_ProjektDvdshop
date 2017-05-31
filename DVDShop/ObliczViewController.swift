@@ -73,6 +73,24 @@ class ObliczViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // Pass the selected object to the new view controller.
     }
     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("----- prepare  ObliczViewController ------")
+        
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier=="showBill" {
+                let destinatonController = segue.destination as! BillViewController
+                destinatonController.tranzactionNoTmp = numerTransakcjiLabel.text!
+                destinatonController.totalPriceTmp = naleznoscLabel.text!
+                destinatonController.totalValuteTmp = wartoscWalucieLabel.text!
+                destinatonController.isValute=walutySegment.selectedSegmentIndex != 0
+            
+                destinatonController.userTmp.fullName="Jan Matejko"
+                destinatonController.userTmp.codeAndCity="00-950 Warszawa"
+                destinatonController.userTmp.streetNo="Wrocławska 12 m 53"
+        }
+    }
+    
     @IBAction  func unwindBeck(segue: UIStoryboardSegue) {
         
     }

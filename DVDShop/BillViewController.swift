@@ -9,25 +9,36 @@
 import UIKit
 
 class BillViewController: UIViewController {
+    var tranzactionNoTmp = ""
+    var totalPriceTmp = ""
+    var totalValuteTmp = ""
+    var isValute = false
+    var userTmp: (fullName: String, codeAndCity: String, streetNo: String) = (fullName: "", codeAndCity: "", streetNo: "")
+    
 
     @IBOutlet var rachunekSzczegolowyVebView: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tranzactionNo="19630821"
-        let filmy = [(title:"Ambassada",price:"55.20"), (title:"Bogowie wojny:",price:"25.50"), (title:"Joe", price:"99.20")]
-        let user: (fullName: String, codeAndCity: String, streetNo: String)
-        let totalPrice="125.87"
         
-        user.fullName = "Sławomir Kurczewski"
-        user.codeAndCity = "50-314 Wrocłw"
-        user.streetNo = "Kopernika 12 m 23"
+        var  filmy : [(title: String, price:String)] = [(title:"Ambassada",price:"55.20"), (title:"Bogowie wojny:",price:"25.50"), (title:"Joe", price:"99.20")]
+        var jedenFilm: (title: String,price:String)
+        let secondValute = isValute ? "(\(totalPriceTmp))" : ""
         
-        let htmlString: String! = prepareHtml(tranzactionNo: tranzactionNo , userAdress: user, filmy: filmy,totalPrice: totalPrice )
-        rachunekSzczegolowyVebView.loadHTMLString(htmlString, baseURL: nil)
-        
-        rachunekSzczegolowyVebView.viewPrintFormatter()
 
+        
+        //        let icon=zestawIcon[indexPath.row]
+        //        let price_str = String(format: "%6.2f", icon.price)
+        //        cell.filmImageView.image = UIImage(named: icon.name)
+        //        cell.priceLabel.text = "\(price_str) zł"
+        for i in 0..<zestawIcon.count {
+            jedenFilm.title=zestawIcon[i].name
+            jedenFilm.price=kantor.doubleToString(zestawIcon[i].price)
+            filmy.append(jedenFilm)
+        }
+        
+        let htmlString: String! = prepareHtml(tranzactionNo: tranzactionNoTmp , userAdress: userTmp, filmy: filmy,totalPrice: totalValuteTmp, secondValute: secondValute)
+        rachunekSzczegolowyVebView.loadHTMLString(htmlString, baseURL: nil)
         // Do any additional setup after loading the view.
     }
 
@@ -35,7 +46,7 @@ class BillViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func prepareHtml(tranzactionNo: String, userAdress: (fullName: String, codeAndCity: String, streetNo: String), filmy : [(title: String, price: String)] , totalPrice: String) -> String
+    func prepareHtml(tranzactionNo: String, userAdress: (fullName: String, codeAndCity: String, streetNo: String), filmy : [(title: String, price: String)] , totalPrice: String, secondValute: String) -> String
     {
         var haadHtml: String = ""
         var bodyHtml: String = ""
@@ -64,14 +75,14 @@ class BillViewController: UIViewController {
         haadHtml+="<thead>"
         haadHtml+="<tr>"
         haadHtml+="<th style=\"width:5%\">Lp</th>"
-        haadHtml+="<th style=\"width:85%\">Tytuł filmu</th>"
+        haadHtml+="<th style=\"width:75%\">Tytuł filmu</th>"
         haadHtml+="<th>Cena</th>"
         haadHtml+="</tr>"
         haadHtml+="</thead>"
         haadHtml+="<tfoot>"
         haadHtml+="<tr>"
         haadHtml+="<th style=\"width:5%\">-</th>"
-        haadHtml+="<th style=\"width:85%\">Suma za filmy</th>"
+        haadHtml+="<th style=\"width:75%\">Suma za filmy \(secondValute)</th>"
         haadHtml+="<th>\(totalPrice)</th>"
         haadHtml+="</tr>"
         haadHtml+="</tfoot>"
@@ -85,6 +96,11 @@ class BillViewController: UIViewController {
             bodyHtml+="<td>\(filmy[i].price)</td>"
             bodyHtml+="</tr>"
         }
+//        let icon=zestawIcon[indexPath.row]
+//        let price_str = String(format: "%6.2f", icon.price)
+//        cell.filmImageView.image = UIImage(named: icon.name)
+//        cell.priceLabel.text = "\(price_str) zł"
+        
         
         footerHtml+="</table>"
         
