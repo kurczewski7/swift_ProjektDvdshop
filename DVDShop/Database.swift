@@ -200,6 +200,26 @@ class Database {
         }
     
     }
+    func fillLikeList() -> [Int]{
+       var likedList: [Int] = []
+       for i in 0..<flimsbaseFull.count {
+            if(flimsbaseFull[i].isLiked){
+               likedList.append(i)
+            }
+         }
+         return likedList
+        }
+    
+    func fillIkonList() -> [Icon]{
+        var ikonList: [Icon] = []
+        for i in 0..<flimsbaseFull.count {
+            if(flimsbaseFull[i].isLiked){
+                ikonList.append(Icon(name: flimsbaseFull[i].pictureName!, title: flimsbaseFull[i].title!, price: flimsbaseFull[i].price, isFeatured: true))
+            }
+        }
+        return ikonList
+    }
+
 //------------------------
     func setFilter(field: TypeFilterFields, seekValue: String){
     }

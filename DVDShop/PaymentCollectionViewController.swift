@@ -56,31 +56,13 @@ class PaymentCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("===============")
-        print("polubienia.count \(polubienia.count)")
         zestawIcon.removeAll(keepingCapacity: false)
-                for i in 0..<polubienia.count {
-                    if polubienia[i] == true {                        
-                        zestawIcon.append(Icon(name: filmList.giveIcon(row: i).name, title: filmList.giveIcon(row: i).title, price: filmList.giveIcon(row: i).price,  isFeatured: true))
-            }
-        print("zestawIcon.count \(zestawIcon.count)")
-        for i in 0..<zestawIcon.count{
-             print("zestawIcon name\(i)  \(zestawIcon[i].name)")
-             print("zestawIcon price\(i)  \(zestawIcon[i].price)")
-             print("zestawIcon isFeatured\(i)  \(zestawIcon[i].isFeatured)")
-            }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        
-        // wykasowane
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        zestawIcon=database.fillIkonList()
         }
-    }
+    
+        // Uncomment the following line to preserve selection between presentations
+        // Register cell classes
+        // Do any additional setup after loading the view.
     
      override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("did Select ItemA=\(indexPath.row)")
@@ -164,7 +146,7 @@ class PaymentCollectionViewController: UICollectionViewController {
     
     func printIcon()
     {
-    print("Icon=\(zestawIcon[0].isFeatured),\(zestawIcon[1].isFeatured),\(zestawIcon[2].isFeatured),\(zestawIcon[3].isFeatured),\(zestawIcon[4].isFeatured),\(zestawIcon[5].isFeatured),\(zestawIcon[6].isFeatured),\(zestawIcon[7].isFeatured),\(zestawIcon[8].isFeatured)")
+   // print("Icon=\(zestawIcon[0].isFeatured),\(zestawIcon[1].isFeatured),\(zestawIcon[2].isFeatured),\(zestawIcon[3].isFeatured),\(zestawIcon[4].isFeatured),\(zestawIcon[5].isFeatured),\(zestawIcon[6].isFeatured),\(zestawIcon[7].isFeatured),\(zestawIcon[8].isFeatured)")
     }
 
     // MARK: UICollectionViewDelegate

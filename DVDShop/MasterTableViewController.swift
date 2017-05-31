@@ -95,13 +95,7 @@ class MasterTableViewController: UITableViewController {
         typyFilmow[95] = .dlaDzieci
         typyFilmow[109] = .thiler
         
-        print("=======polubienia========")
-        for i in 0..<polubienia.count {
-            if(polubienia[i]){
-                listaUlubionych.append(i)
-                print("element\(i)")
-            }
-        }        
+        listaUlubionych = database.fillLikeList()
     }
     
 
@@ -137,37 +131,6 @@ class MasterTableViewController: UITableViewController {
                     cell.backgroundColor = film.isLiked ? UIColor.green : UIColor.clear
                     print("tytul=\(cell.titleLabel)")
                 }
-        
-        
-             
-//        let dane = filmList.give(row: indexPath.row)
-//        cell.DVDImage.image = dane.filmImage
-//        cell.titleLabel.text = dane.title
-//        cell.actorsLabel.text = dane.actors
-//        cell.typLabel.text = dane.type
-//        cell.priceLabel.text = dane.price    
-//        
-//        if dane.isLiked==true {
-//            cell.backgroundColor=UIColor.green
-//        }
-//        else
-//        {
-//            cell.backgroundColor=UIColor.clear
-//            //cell.seec
-//        }
-        
-//        let film=database.getFilm(row: row)
-//        if database.filmCount > indexPath.row {
-//            cell.titleLabel.text=film.title
-//            cell.actorsLabel.text=film.actors
-//            cell.typLabel.text=film.type
-//            cell.priceLabel.text=String.init(format: "%6.2f", film.price)
-//            cell.DVDImage.image=UIImage(data: film.filmImage! as Data)
-//            cell.accessoryType = film.isLiked ? .checkmark : .none
-//            cell.backgroundColor = film.isLiked ? UIColor.green : UIColor.clear
-//            print("tytul=\(cell.titleLabel)")
-//        }
-
         return cell
     }
     
@@ -222,9 +185,8 @@ class MasterTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
             if segue.identifier=="showDvd" {
                 if let indexPath=tableView.indexPathForSelectedRow {
-                     let destinatonController = segue.destination as! DetailViewController
+                    let destinatonController = segue.destination as! DetailViewController
                     
-                    //let rek=filmList.give(row: indexPath.row)
                     let rek=database.getFilm(row: indexPath.row)
                     destinatonController.dvdImageTmp   = rek.pictureName!  //filmList.giveCurrentPictureName(row: indexPath.row)
                     destinatonController.titleLabelTmp =  rek.title!
@@ -234,8 +196,6 @@ class MasterTableViewController: UITableViewController {
                     destinatonController.youtubeUrlTmp =  rek.youtubeUrl!
                     destinatonController.descriptionLabelTmp = filmList.give(row: indexPath.row).description
                     destinatonController.currentRowTmp = indexPath.row
-                    
-                    //destinatonController.pictyreTMp=UIImage(data: film.filmImage! as Data)  ///rek.filmImage
                 }
             }
     }
@@ -252,12 +212,6 @@ class MasterTableViewController: UITableViewController {
                         self.present(activityController, animated: true, completion: nil)
                     }
                 })
-        
-        // Delete button
-        // Delete the row from the data source
-//        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        })
         
         // Zaznacz button
         let checkAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Zaznacz",handler: { (action, indexPath) -> Void in

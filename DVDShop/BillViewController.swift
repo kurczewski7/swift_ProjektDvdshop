@@ -25,17 +25,6 @@ class BillViewController: UIViewController {
         var jedenFilm: (title: String, price:String)
         let secondValute = isValute ? "(\(totalPriceTmp))" : ""
         
-
-        
-        //        let icon=zestawIcon[indexPath.row]
-        //        let price_str = String(format: "%6.2f", icon.price)
-        //        cell.filmImageView.image = UIImage(named: icon.name)
-        //        cell.priceLabel.text = "\(price_str) zł"
-        
-        //let dane = filmList.give(row: listaUlubionych[indexPath.row])        
-        //cell.titleLabel.text = dane.title
-
-        
         for i in 0..<zestawIcon.count {
              if zestawIcon[i].isFeatured {
                jedenFilm.title=zestawIcon[i].title
