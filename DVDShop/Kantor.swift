@@ -83,9 +83,9 @@ class Kantor  {
         let randomValue=arc4random_uniform(999)
         nrTransakcji=String.init(format: "%4d%02d%02d%02d%02d%02d%04d", year,month,day, hour,minute,secunde, randomValue)
     }
-    func giveTransactionNumberTxt() -> String
+    func giveTransactionNumberTxt( ) -> String
     {
-        return "Tranzakcja: \(nrTransakcji)"
+        return "\(nrTransakcji)"
     }
     func giveRandomInt(max: Int) -> Int {
         let value = arc4random_uniform(UInt32(max))

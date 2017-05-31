@@ -56,13 +56,12 @@ class PaymentCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         print("===============")
         print("polubienia.count \(polubienia.count)")
         zestawIcon.removeAll(keepingCapacity: false)
                 for i in 0..<polubienia.count {
-                    if polubienia[i] == true {
-                        zestawIcon.append(Icon(name: filmList.giveIcon(row: i).name, price: filmList.giveIcon(row: i).price,  isFeatured: true))
+                    if polubienia[i] == true {                        
+                        zestawIcon.append(Icon(name: filmList.giveIcon(row: i).name, title: filmList.giveIcon(row: i).title, price: filmList.giveIcon(row: i).price,  isFeatured: true))
             }
         print("zestawIcon.count \(zestawIcon.count)")
         for i in 0..<zestawIcon.count{

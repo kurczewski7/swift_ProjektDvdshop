@@ -21,8 +21,8 @@ class BillViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var  filmy : [(title: String, price:String)] = [(title:"Ambassada",price:"55.20"), (title:"Bogowie wojny:",price:"25.50"), (title:"Joe", price:"99.20")]
-        var jedenFilm: (title: String,price:String)
+        var  filmy : [(title: String, price:String)] = []
+        var jedenFilm: (title: String, price:String)
         let secondValute = isValute ? "(\(totalPriceTmp))" : ""
         
 
@@ -31,10 +31,17 @@ class BillViewController: UIViewController {
         //        let price_str = String(format: "%6.2f", icon.price)
         //        cell.filmImageView.image = UIImage(named: icon.name)
         //        cell.priceLabel.text = "\(price_str) zł"
+        
+        //let dane = filmList.give(row: listaUlubionych[indexPath.row])        
+        //cell.titleLabel.text = dane.title
+
+        
         for i in 0..<zestawIcon.count {
-            jedenFilm.title=zestawIcon[i].name
-            jedenFilm.price=kantor.doubleToString(zestawIcon[i].price)
-            filmy.append(jedenFilm)
+             if zestawIcon[i].isFeatured {
+               jedenFilm.title=zestawIcon[i].title
+               jedenFilm.price=kantor.doubleToString(zestawIcon[i].price)
+               filmy.append(jedenFilm)
+            }
         }
         
         let htmlString: String! = prepareHtml(tranzactionNo: tranzactionNoTmp , userAdress: userTmp, filmy: filmy,totalPrice: totalValuteTmp, secondValute: secondValute)

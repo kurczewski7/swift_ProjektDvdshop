@@ -60,6 +60,8 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
         cell.layer.cornerRadius=5.0
         cell.delegate = self
         
+        
+        
         return cell
     }
     

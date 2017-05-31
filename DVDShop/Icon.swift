@@ -11,8 +11,10 @@ struct Icon {
     var name: String = ""
     var price = 0.0
     var isFeatured: Bool = false
-    init(name: String, price: Double, isFeatured: Bool){
+    var title: String = ""
+    init(name: String, title: String, price: Double, isFeatured: Bool){
         self.name=name
+        self.title=title
         self.price=price
         self.isFeatured=isFeatured
     }

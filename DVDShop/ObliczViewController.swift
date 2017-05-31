@@ -20,7 +20,7 @@ class ObliczViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet var numerTransakcjiLabel: UILabel! {
         didSet {
             kantor.setTransactionId()
-            numerTransakcjiLabel.text=kantor.giveTransactionNumberTxt()
+            numerTransakcjiLabel.text="Transakcja: \(kantor.giveTransactionNumberTxt())"
         }
     }
     @IBOutlet var numerKontaLabel: UILabel! {
@@ -80,7 +80,7 @@ class ObliczViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // Pass the selected object to the new view controller.
         if segue.identifier=="showBill" {
                 let destinatonController = segue.destination as! BillViewController
-                destinatonController.tranzactionNoTmp = numerTransakcjiLabel.text!
+                destinatonController.tranzactionNoTmp = kantor.giveTransactionNumberTxt()
                 destinatonController.totalPriceTmp = naleznoscLabel.text!
                 destinatonController.totalValuteTmp = wartoscWalucieLabel.text!
                 destinatonController.isValute=walutySegment.selectedSegmentIndex != 0
