@@ -105,7 +105,13 @@
                             <outlet property="delegate" destination="GZk-Eu-sMi" id="9de-dV-08r"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Filmy" id="s72-hp-1eM"/>
+                    <navigationItem key="navigationItem" title="Filmy" id="s72-hp-1eM">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="bgc-71-bg8">
+                            <connections>
+                                <action selector="refreshActionBarButton:" destination="GZk-Eu-sMi" id="Yte-zd-rDD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoq-Bp-dr6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -732,6 +738,18 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Płatność za" id="Rbl-4W-m4b">
+                        <leftBarButtonItems>
+                            <barButtonItem image="Cofnij" id="QTX-1p-gwD">
+                                <connections>
+                                    <segue destination="cvu-xi-cln" kind="unwind" unwindAction="unwindBeckWithSegue:" id="HhP-DB-FcA"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="KbF-cc-5cT">
+                                <connections>
+                                    <action selector="refreshActionBarButton:" destination="ySp-BM-LJx" id="Ra7-Kq-nTO"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem image="Worek" style="done" id="5bx-VW-tM1">
                                 <connections>
@@ -750,8 +768,9 @@
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VgJ-qt-R5L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cvu-xi-cln" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1758" y="892"/>
+            <point key="canvasLocation" x="1798" y="892"/>
         </scene>
         <!--Oblicz View Controller-->
         <scene sceneID="Wqw-Y1-mqI">

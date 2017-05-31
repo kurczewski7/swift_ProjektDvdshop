@@ -27,6 +27,9 @@ class MasterTableViewController: UITableViewController {
     var dvdFilms = [(picture: String, title: String, actors: String, type: TypeOfFilm, price: String)]()
     var myDvd = ("aaa", "bbb", "cccc", TypeOfFilm.komedia)
     
+    @IBAction func refreshActionBarButton(_ sender: Any) {
+       tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

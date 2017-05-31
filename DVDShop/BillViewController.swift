@@ -67,7 +67,7 @@ class BillViewController: UIViewController {
         haadHtml+="</head>"
         haadHtml+="<body>"
         haadHtml+="<table id=\"t01\">"
-        haadHtml+="<caption>Rachunek za filmy numer tranzakcji: <b>\(tranzactionNo)</b></caption>"
+        haadHtml+="<caption>Rachunek za filmy numer transakcji: <b>\(tranzactionNo)</b></caption>"
         haadHtml+="<thead>"
         haadHtml+="<tr>"
         haadHtml+="<th style=\"width:5%\">Lp</th>"

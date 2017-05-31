@@ -17,7 +17,7 @@ class Kantor  {
     var kursyWalut: [Double]=[1.0, 3.86, 4.21]
     var urlBanku: [String]=["https://www.payu.pl","https://www.paypal.com/pl/home","https://www.pekao24.pl","http://www.mbank.com.pl","https://aliorbank.pl","https://moj.raiffeisenpolbank.com"]
     var nazwaBanku: [String]=["PayU","PayPal", "PKO","mBank","Alior","Raiffeisen polbank"]
-    var numerBanku: Int = 0
+    var numerBanku: Int = 2
 
     init(){
         self.dolarKurs=kursyWalut[1]

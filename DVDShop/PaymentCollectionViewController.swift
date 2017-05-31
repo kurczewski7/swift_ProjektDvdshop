@@ -18,11 +18,24 @@ class PaymentCollectionViewController: UICollectionViewController {
     @IBOutlet var trashButton: UIBarButtonItem!
     
     // MARK: Action metod
+    @IBAction func refreshActionBarButton(_ sender: UIBarButtonItem) {
+        trashEnabled=false
+        selectedIcons.removeAll(keepingCapacity: false)        
+        zestawIcon.removeAll(keepingCapacity: false)
+        zestawIcon=database.fillIkonList()
+
+        
+        for i in 0..<zestawIcon.count {
+        zestawIcon[i].isFeatured = true
+        }
+        
+        
+        collectionView?.reloadData()
+    }
     @IBAction func trashButtonTapped(sender: AnyObject) {
         print("trashEnabled=\(trashEnabled)")
         printIcon()
         if trashEnabled {
-            print("&&&&&")
             if selectedIcons.count  > 0
             {
             print("selectedIcons.count=\(selectedIcons.count)" )
