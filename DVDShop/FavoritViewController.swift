@@ -16,12 +16,15 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
     //private
     @IBAction func refreshAction(_ sender: UIBarButtonItem) {
         listaUlubionych = database.fillLikeList()
-        collectionView.reloadData()        
+        collectionView.reloadData()
+        print("Refresh")
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        listaUlubionych = database.fillLikeList()
+        collectionView.reloadData()
 
         // Do any additional setup after loading the view.
     }
@@ -51,13 +54,14 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FavoriteCollectionViewCell
-        let dane = filmList.give(row: listaUlubionych[indexPath.row])
+        //let dane = filmList.give(row: listaUlubionych[indexPath.row])
+        let dane=database.getFilm(row: listaUlubionych[indexPath.row])
+        
         
         cell.titleLabel.text = dane.title
         cell.typeLabel.text = dane.type
-        cell.priceLabel.text = dane.price
-      
-        cell.imageView.image = dane.filmImage
+        cell.priceLabel.text = kantor.doubleToString(dane.price)
+        cell.imageView.image = database.getUIImageFromDb(cuurrentPhoto: dane.filmImage!)
         cell.isLiked=dane.isLiked
         cell.layer.cornerRadius=5.0
         cell.delegate = self
@@ -69,11 +73,14 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
     func didLikeButtonPressed(cell: FavoriteCollectionViewCell) {
         if let indexPath=collectionView.indexPath(for: cell) {
             let newValue = filmList.give(row: indexPath.row).isLiked ? false : true
-            print("newValue=\(newValue)")
             cell.isLiked = newValue
-            filmList.setIsLike(row: indexPath.row, isLike: newValue)
+            
             let phisicalRow = listaUlubionych[indexPath.row]
             database.setCheckRecord(phisicalRow: phisicalRow, value: newValue)
+            database.saveDatabase()
+            filmList.setIsLike(row: indexPath.row, isLike: newValue)
+            
+            print("newValue=\(newValue)","\(phisicalRow)")
             
 //          database.setCheckRecord(phisicalRow: phisicalRow, value: true)
 //          database.saveDatabase()

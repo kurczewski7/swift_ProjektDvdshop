@@ -166,6 +166,14 @@ class Database {
     func getImageDataFromDb(phisicalRow: Int) -> Data {
         return flimsbaseFull[phisicalRow].filmImage! as Data
     }
+    
+    func getUIImageFromDb(cuurrentPhoto: NSData) -> UIImage {
+        return UIImage(data: cuurrentPhoto as Data)!
+    }
+
+    
+    
+    
     func checkFilm(currentFilm: Filmsbase, field: TypeFilterFields, seekValue: String) -> Bool{
         var warunek:Bool = false
         switch field {
