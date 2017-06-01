@@ -105,7 +105,7 @@ class Server {
         let brak = "brak"
         
         tekst =  "INSERT INTO `dvds` (`filmId`, `title`, `filmDirector`, `actors`, `type`, `filmDescription`, `filmImageName`, `youtubeUrl`, `price`, `isLiked`) VALUES \n"
-        tekst += "("
+
         for i in 0..<db.flimsbaseFull.count  {
             tx[0] = db.flimsbaseFull[i].filmId ??  brak
             tx[1] = db.flimsbaseFull[i].title ?? ""
@@ -116,7 +116,7 @@ class Server {
             tx[6] = db.flimsbaseFull[i].pictureName ?? ""
             tx[7] = db.flimsbaseFull[i].youtubeUrl ?? ""
             
-           
+            tekst += "("           
             for t in 0..<tx.count {
                 tekst += "'\(tx[t])', "
             }

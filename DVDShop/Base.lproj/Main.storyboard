@@ -328,6 +328,11 @@
                                 <segue destination="6Xe-6o-55u" kind="unwind" unwindAction="unwindBeckWithSegue:" id="PhA-cl-ZEq"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="Drukuj" id="9aA-SJ-22i">
+                            <connections>
+                                <action selector="printBillNavigationItem:" destination="TZ7-8w-HuS" id="eZG-E7-Xye"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="rachunekSzczegolowyVebView" destination="fQf-Ay-knb" id="fYO-1V-dlT"/>
@@ -632,11 +637,21 @@
                             <constraint firstAttribute="trailing" secondItem="7jk-7p-vYO" secondAttribute="trailing" id="pMV-dK-OBp"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Przelew" id="ej1-as-RO7">
+                        <barButtonItem key="leftBarButtonItem" image="Cofnij" id="fgG-l9-dQD">
+                            <connections>
+                                <segue destination="5jq-30-ME1" kind="unwind" unwindAction="unwindBeckWithSegue:" id="yWh-47-rVF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="PrzelewWebView" destination="7jk-7p-vYO" id="ndz-Dp-uAa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3E5-uE-pZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5jq-30-ME1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3377" y="892"/>
         </scene>
@@ -882,7 +897,7 @@
                                     <segue destination="iNH-gl-zO7" kind="show" id="RI8-8e-2aP"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="compose" id="9kt-Sw-sfQ">
+                            <barButtonItem image="Kartka" id="9kt-Sw-sfQ">
                                 <connections>
                                     <segue destination="TZ7-8w-HuS" kind="show" identifier="showBill" id="PbP-Fz-8PZ"/>
                                 </connections>
@@ -1267,7 +1282,9 @@
     <resources>
         <image name="Cofnij" width="25" height="25"/>
         <image name="DVD" width="25" height="25"/>
+        <image name="Drukuj" width="25" height="25"/>
         <image name="Filter" width="25" height="25"/>
+        <image name="Kartka" width="25" height="25"/>
         <image name="Like" width="25" height="25"/>
         <image name="Shopping" width="25" height="25"/>
         <image name="Visa" width="25" height="25"/>
