@@ -26,6 +26,19 @@ class AdminViewController: UIViewController {
     @IBAction func sentButton(_ sender: Any) {
         textView.text = server.makeJsonTxt(database: database)
     }
+    @IBAction func readJsonFromWebActionButton(_ sender: Any) {
+        tekst="count=\(server.dvds.count)\n"
+        tekst+=server.dvds[0].title+"\n"
+        for i in 0..<server.dvds.count {
+            tekst+=server.dvds[i].title+"\n"
+            tekst+=server.dvds[i].filmDescription+"\n"
+            tekst+=server.dvds[i].filmImageName+"\n"
+            tekst+=server.dvds[i].type+"\n"
+            tekst+=server.dvds[i].price+"\n"
+            tekst+="--------\n"
+        }
+        textView.text=tekst
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -19,8 +19,10 @@ class Server {
     // http://skurczewski1.myqnapcloud.com/dvdshop/dvds.json
     // https://api.kivaws.org/v1/loans/newest.json
     // http://www.learnswiftonline.com/Samples/subway.json
+    
+    // http://skurczewski1.myqnapcloud.com/dvdshop/api.php/dvds/
     init() {
-        self.urlString = "http://skurczewski1.myqnapcloud.com/dvdshop/dvds.json"
+        self.urlString = "http://skurczewski1.myqnapcloud.com/dvdshop/api.php/dvds/"
         getLatestDvds()
     }
     
@@ -51,16 +53,27 @@ class Server {
                  let jsonResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
                     
             // Parse JSON data
-            let xx=jsonResult?.count
-            let yy = jsonResult?.description
-            print("jsonResult=\(String(describing: jsonResult))")
-            print("xx=\(String(describing: xx))")
-            print("yy=\(String(describing: yy))")
+            
+//            let xx=jsonResult?.count
+//            let yy = jsonResult?.description
+//            print("jsonResult=\(String(describing: jsonResult))")
+//            print("xx=\(String(describing: xx))")
+//            print("yy=\(String(describing: yy))")
 
                     let jsonDvds = jsonResult?["dvds"] as! [AnyObject]
                     for jsonDvd in jsonDvds {
                         let dvd = Dvd()
-                        print("t:\(dvd.title)", "a:\(dvd.actors)","y:\(dvd.youtubeUrl)",jsonDvd.absoluteString)
+                        
+                        dvd.actors=jsonDvd["title"] as! String
+                        dvd.filmDescription=jsonDvd["filmDescription"] as! String
+                        dvd.filmDirector=jsonDvd["filmDirector"] as! String
+                        dvd.filmId=jsonDvd["filmId"] as! String
+                        dvd.filmImageName=jsonDvd["filmImageName"] as! String
+                        dvd.isLiked = (jsonDvd["isLiked"] as! String)=="1" ? true : false
+                        dvd.price=jsonDvd["price"] as! String
+                        dvd.title=jsonDvd["title"] as! String
+                        dvd.type=jsonDvd["type"] as! String
+                        dvd.youtubeUrl=jsonDvd["type"] as! String
                         dvds.append(dvd)
                     }
                 } catch {    print(error)     }

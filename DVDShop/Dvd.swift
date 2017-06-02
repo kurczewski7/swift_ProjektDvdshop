@@ -10,9 +10,9 @@ import Foundation
 class Dvd  {
     var filmId: String = ""
     var title: String = ""
-    var vartype: String = ""
+    var type: String = ""
     var filmDirector: String = ""
-    var filmDescriptor: String = ""
+    var filmDescription: String = ""
     var actors: String = ""
     var filmImageName: String = ""
     var price: String = ""
