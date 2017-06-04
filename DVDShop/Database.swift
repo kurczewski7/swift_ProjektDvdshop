@@ -102,6 +102,37 @@ class Database {
         }
     }
     
+    func addDataToBaseFromWeb(dvds: [Dvd])
+    {
+        var currentFilm: UserRekord
+        var currentPictureName: String = ""
+        //server = Server()
+        
+        for i in 0..<obrazki.count
+        {
+            // let dane = filmList.give(row: i)
+            currentFilm.title           = dvds[i].title
+            currentFilm.actors          = dvds[i].actors
+            currentFilm.description     = dvds[i].filmDescription
+            currentFilm.filmDirector    = dvds[i].filmDirector
+            currentFilm.filmId          = dvds[i].filmId
+            currentFilm.filmImage       = UIImage(named: "gwiezdne-wojny-przebudzenie-mocy-w-iext48175252")!
+            currentFilm.isLiked         = dvds[i].isLiked
+            currentFilm.price           = dvds[i].price
+            currentFilm.type            = dvds[i].type
+            currentFilm.youtubeUrl      = dvds[i].youtubeUrl    //"WyHv2WqkPCQ"
+            currentPictureName = filmList.giveCurrentPictureName(row: i)
+            
+            
+            
+            print("i=\(i),tytul=\(currentFilm.title),\(tytuly[i])")
+            createDatabaseRow(rek: currentFilm, currentPictureName: currentPictureName)
+        }
+    }
+
+    
+    
+    
     func policzRecords() -> (accesableRecords: Int, allRecords: Int)
     {
         let accesableRecords = Filmsbase.accessibilityElementCount()

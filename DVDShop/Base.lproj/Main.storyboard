@@ -965,7 +965,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="siP-EI-sFk">
-                                <rect key="frame" x="0.0" y="64" width="375" height="444"/>
+                                <rect key="frame" x="0.0" y="152" width="375" height="356"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -996,6 +996,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="orf-dG-S8I">
+                                <rect key="frame" x="16" y="72" width="67" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.72549019609999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1006,7 +1011,7 @@
                             <constraint firstItem="PUq-kT-TUB" firstAttribute="baseline" secondItem="7WH-tb-IOe" secondAttribute="baseline" id="c2f-rT-2q8"/>
                             <constraint firstItem="PUq-kT-TUB" firstAttribute="centerX" secondItem="siP-EI-sFk" secondAttribute="centerX" id="caQ-Sd-4oS"/>
                             <constraint firstItem="PUq-kT-TUB" firstAttribute="centerX" secondItem="ZEV-lk-4tQ" secondAttribute="centerX" id="nvm-Aj-y2P"/>
-                            <constraint firstItem="siP-EI-sFk" firstAttribute="top" secondItem="4cL-Ss-86S" secondAttribute="bottom" id="s8K-qJ-cqa"/>
+                            <constraint firstItem="siP-EI-sFk" firstAttribute="top" secondItem="4cL-Ss-86S" secondAttribute="bottom" constant="88" id="s8K-qJ-cqa"/>
                             <constraint firstItem="PUq-kT-TUB" firstAttribute="baseline" secondItem="GiE-zw-RLb" secondAttribute="baseline" id="yn7-s4-ewl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GiE-zw-RLb" secondAttribute="trailing" constant="22" id="zmG-b0-3QQ"/>
                         </constraints>
@@ -1015,6 +1020,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="QRr-jm-qyM"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="obrazekImageView" destination="orf-dG-S8I" id="Tpq-Pg-wQV"/>
                         <outlet property="textView" destination="siP-EI-sFk" id="ve5-Vy-HIT"/>
                     </connections>
                 </viewController>

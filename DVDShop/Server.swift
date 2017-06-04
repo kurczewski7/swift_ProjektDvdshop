@@ -139,4 +139,25 @@ class Server {
          }
         return tekst
     }
+    
+    func getPictureWeb(pictureNo: Int) -> Data? {
+        let name = "http://skurczewski1.myqnapcloud.com/dvdshop/img/"
+        var data:Data?
+        let url = URL(string: "\(name)\(dvds[pictureNo].filmImageName).jpg")
+        
+        do {  data = try Data(contentsOf: url!)
+        } catch {
+            data = nil
+            print("Błąd połączenia")        }
+        return data
+    }
+    
+    func fillDatabaseFromWeb() {
+ //       for dvd in dvds 
+//        {
+//        
+//        }
+    
+    }
+
 }

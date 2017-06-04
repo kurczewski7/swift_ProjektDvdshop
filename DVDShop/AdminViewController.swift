@@ -13,10 +13,13 @@ class AdminViewController: UIViewController {
     var tx: [String] = ["","","","","","","","","","",""]
     let server = Server()
     
-    
+    @IBOutlet var obrazekImageView: UIImageView!
     @IBOutlet var textView: UITextView!
     @IBAction func getSqlButton(_ sender: UIButton) {
         textView.text = server.makeSqlTxt(database: database)
+        let data = server.getPictureWeb(pictureNo: 55)
+        obrazekImageView.image=UIImage(data: data!)
+        print("Obrazek")
     }
     @IBAction func downloadButton(_ sender: UIButton) {
        
@@ -49,6 +52,9 @@ class AdminViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
     
 
     /*
