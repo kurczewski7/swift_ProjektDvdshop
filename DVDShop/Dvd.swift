@@ -15,6 +15,7 @@ class Dvd  {
     var filmDescription: String = ""
     var actors: String = ""
     var filmImageName: String = ""
+    var filmImageData : Data? = nil
     var price: String = ""
     var youtubeUrl: String = ""
     var isLiked: Bool = false

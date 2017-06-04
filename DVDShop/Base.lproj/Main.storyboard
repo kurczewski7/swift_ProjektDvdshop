@@ -987,14 +987,20 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i49-rN-xqR">
-                                <rect key="frame" x="155" y="485" width="46" height="30"/>
+                                <rect key="frame" x="149" y="485" width="58" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="DB clear"/>
+                                <connections>
+                                    <action selector="dBClearActionButton:" destination="Ow9-Ra-maf" eventType="touchUpInside" id="k84-7n-p2u"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wep-Fx-7TF">
-                                <rect key="frame" x="279" y="485" width="46" height="30"/>
+                                <rect key="frame" x="276" y="485" width="53" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="DB web"/>
+                                <connections>
+                                    <action selector="dbWebActonButton:" destination="Ow9-Ra-maf" eventType="touchUpInside" id="VbX-Le-o6K"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="orf-dG-S8I">
                                 <rect key="frame" x="16" y="72" width="67" height="72"/>

@@ -17,7 +17,7 @@ class AdminViewController: UIViewController {
     @IBOutlet var textView: UITextView!
     @IBAction func getSqlButton(_ sender: UIButton) {
         textView.text = server.makeSqlTxt(database: database)
-        let data = server.getPictureWeb(pictureNo: 55)
+        let data = server.getPictureWeb(pictureName: server.dvds[55].filmImageName)
         obrazekImageView.image=UIImage(data: data!)
         print("Obrazek")
     }
@@ -42,6 +42,17 @@ class AdminViewController: UIViewController {
         }
         textView.text=tekst
     }
+    
+    @IBAction func dBClearActionButton(_ sender: UIButton) {
+        database.deleteTableBase()
+        database.saveDatabase()
+    }
+    
+    @IBAction func dbWebActonButton(_ sender: UIButton) {
+        database.addDataToBaseFromWeb(dvds: server.dvds)
+        database.saveDatabase()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import UIKit
 class Server {
     
     var urlString: String = ""
+    var pictureUrlString = ""
     var url: URL? = nil
     var urlRequest:URLRequest? = nil
     var task: URLSession? = nil
@@ -19,15 +21,15 @@ class Server {
     // http://skurczewski1.myqnapcloud.com/dvdshop/dvds.json
     // https://api.kivaws.org/v1/loans/newest.json
     // http://www.learnswiftonline.com/Samples/subway.json
-    
     // http://skurczewski1.myqnapcloud.com/dvdshop/api.php/dvds/
+    
     init() {
         self.urlString = "http://skurczewski1.myqnapcloud.com/dvdshop/api.php/dvds/"
+        self.pictureUrlString = "http://skurczewski1.myqnapcloud.com/dvdshop/img/"
         getLatestDvds()
     }
     
     func getLatestDvds() {
-        
         guard let url = URL(string: urlString) else {
             return        }
         let request = URLRequest(url: url)
@@ -52,28 +54,22 @@ class Server {
            do {
                  let jsonResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
                     
-            // Parse JSON data
-            
-//            let xx=jsonResult?.count
-//            let yy = jsonResult?.description
-//            print("jsonResult=\(String(describing: jsonResult))")
-//            print("xx=\(String(describing: xx))")
-//            print("yy=\(String(describing: yy))")
-
+                    // Parse JSON data
                     let jsonDvds = jsonResult?["dvds"] as! [AnyObject]
                     for jsonDvd in jsonDvds {
                         let dvd = Dvd()
                         
-                        dvd.actors=jsonDvd["title"] as! String
-                        dvd.filmDescription=jsonDvd["filmDescription"] as! String
-                        dvd.filmDirector=jsonDvd["filmDirector"] as! String
-                        dvd.filmId=jsonDvd["filmId"] as! String
-                        dvd.filmImageName=jsonDvd["filmImageName"] as! String
-                        dvd.isLiked = (jsonDvd["isLiked"] as! String)=="1" ? true : false
-                        dvd.price=jsonDvd["price"] as! String
-                        dvd.title=jsonDvd["title"] as! String
-                        dvd.type=jsonDvd["type"] as! String
-                        dvd.youtubeUrl=jsonDvd["type"] as! String
+                        dvd.actors          = jsonDvd["title"] as! String
+                        dvd.filmDescription = jsonDvd["filmDescription"] as! String
+                        dvd.filmDirector    = jsonDvd["filmDirector"] as! String
+                        dvd.filmId          = jsonDvd["filmId"] as! String
+                        dvd.filmImageName   = jsonDvd["filmImageName"] as! String
+                        dvd.filmImageData   =  getPictureWeb(pictureName: dvd.filmImageName)
+                        dvd.isLiked         = (jsonDvd["isLiked"] as! String)=="1" ? true : false
+                        dvd.price           = jsonDvd["price"] as! String
+                        dvd.title           = jsonDvd["title"] as! String
+                        dvd.type            = jsonDvd["type"] as! String
+                        dvd.youtubeUrl      = jsonDvd["type"] as! String
                         dvds.append(dvd)
                     }
                 } catch {    print(error)     }
@@ -107,12 +103,6 @@ class Server {
     }
     
     func makeSqlTxt(database db : Database) -> String  {
-        
-//        INSERT INTO `dvds` (`filmId`, `title`, `filmDirector`, `actors`, `type`, `filmDescription`, `filmImageName`, `youtubeUrl`, `price`, `isLiked`) VALUES
-//        ('film1', 'Ambassada', 'Nieznany', 'aaaaaaaaaaaa', 'komedia', 'dddddddd', 'film1', 'youtube', 43.5, 1),
-//        ('film1', 'Film2', 'nnnnnnnnnn', 'tttttttttt', 'horror', 'fghjjjjjj', 'film2', 'noweyoutube2', 55, 0);
-        
-        
         var tekst: String = ""
         var tx: [String] = ["","","","","","","",""]
         let brak = "brak"
@@ -140,15 +130,17 @@ class Server {
         return tekst
     }
     
-    func getPictureWeb(pictureNo: Int) -> Data? {
-        let name = "http://skurczewski1.myqnapcloud.com/dvdshop/img/"
+    func getPictureWeb(pictureName: String) -> Data? {
         var data:Data?
-        let url = URL(string: "\(name)\(dvds[pictureNo].filmImageName).jpg")
+        let url = URL(string: "\(pictureUrlString)\(pictureName).jpg")  // dvds[pictureNo].filmImageName
         
         do {  data = try Data(contentsOf: url!)
         } catch {
             data = nil
-            print("Błąd połączenia")        }
+            if let img = UIImage(named: "placeholder.jpg"){
+                 data = UIImagePNGRepresentation(img)
+            }
+        }
         return data
     }
     

@@ -116,13 +116,12 @@ class Database {
             currentFilm.description     = dvds[i].filmDescription
             currentFilm.filmDirector    = dvds[i].filmDirector
             currentFilm.filmId          = dvds[i].filmId
-            currentFilm.filmImage       = UIImage(named: "gwiezdne-wojny-przebudzenie-mocy-w-iext48175252")!
+            currentFilm.filmImage       = UIImage(data: dvds[i].filmImageData!)!
             currentFilm.isLiked         = dvds[i].isLiked
             currentFilm.price           = dvds[i].price
             currentFilm.type            = dvds[i].type
             currentFilm.youtubeUrl      = dvds[i].youtubeUrl    //"WyHv2WqkPCQ"
-            currentPictureName = filmList.giveCurrentPictureName(row: i)
-            
+            currentPictureName          = dvds[i].filmImageName                   //filmList.giveCurrentPictureName(row: i)
             
             
             print("i=\(i),tytul=\(currentFilm.title),\(tytuly[i])")
