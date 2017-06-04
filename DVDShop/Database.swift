@@ -24,16 +24,12 @@ class Database {
         get { return isFilterOn ? filmsbaseFilter.count: flimsbaseFull.count }
         
     }
-   //var fullFllmbase=[Filmsbase]()
-    //  let fetchRequest = NSFetchRequest<Filmsbase>(entityName: "Filmsbase")
-    //    var fieldSort = "title"
     
     init(){
         print("Ilość rekordów,  allRecords=\(policzRecords().allRecords),accesableRecords=\(policzRecords().accesableRecords)")
         if(policzRecords().allRecords==0) && policzRecords().accesableRecords==0
         {
             print("Dodanie rekordów,  allRecords=\(policzRecords().allRecords),accesableRecords=\(policzRecords().accesableRecords)")
-            //addDataToBase()
         }
         loadData()
     }
@@ -42,13 +38,10 @@ class Database {
         do {            flimsbaseFull = try managedContext.fetch(fetchRequest)
         } catch {       print("Nie można załadować danych \(error.localizedDescription)")    }
         print("loadData End  flimsbaseFull.count=\(flimsbaseFull.count)")
-        //        let fetchRequest: NSFetchRequest)")
-        //        let fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
     }
     func createDatabaseRow(rek:  UserRekord, currentPictureName pictName: String )
     {
         let dbRow = Filmsbase(context: managedContext)
-        //let priceInt=kantor.
         dbRow.title = rek.title
         dbRow.price = kantor.stringToDouble(value: rek.price)
         dbRow.actors = rek.actors
@@ -61,13 +54,9 @@ class Database {
         dbRow.isLiked = rek.isLiked
         print("rek.filmId:\(rek.filmId)")
         
-        
-        //let image = UIImage(named: rek.filmId)
-        
         let image = rek.filmImage
         let imgData = UIImageJPEGRepresentation(image, 1)
         dbRow.filmImage=imgData! as NSData
-        
         saveDatabase()
     }
     
@@ -106,11 +95,9 @@ class Database {
     {
         var currentFilm: UserRekord
         var currentPictureName: String = ""
-        //server = Server()
         
         for i in 0..<obrazki.count
         {
-            // let dane = filmList.give(row: i)
             currentFilm.title           = dvds[i].title
             currentFilm.actors          = dvds[i].actors
             currentFilm.description     = dvds[i].filmDescription
@@ -120,17 +107,13 @@ class Database {
             currentFilm.isLiked         = dvds[i].isLiked
             currentFilm.price           = dvds[i].price
             currentFilm.type            = dvds[i].type
-            currentFilm.youtubeUrl      = dvds[i].youtubeUrl    //"WyHv2WqkPCQ"
-            currentPictureName          = dvds[i].filmImageName                   //filmList.giveCurrentPictureName(row: i)
-            
+            currentFilm.youtubeUrl      = dvds[i].youtubeUrl
+            currentPictureName          = dvds[i].filmImageName
             
             print("i=\(i),tytul=\(currentFilm.title),\(tytuly[i])")
             createDatabaseRow(rek: currentFilm, currentPictureName: currentPictureName)
         }
     }
-
-    
-    
     
     func policzRecords() -> (accesableRecords: Int, allRecords: Int)
     {
@@ -145,7 +128,6 @@ class Database {
     
     func deleteTableBase()
     {
-//        let fetchRequest = NSFetchRequest<Filmsbase>(entityName: DatabaseTables.fllms.rawValue)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
         
         do { try managedContext.execute(deleteRequest) }
@@ -261,9 +243,6 @@ class Database {
 //------------------------
     func setFilter(field: TypeFilterFields, seekValue: String){
     }
-//        fetchRequest.sortDescriptors=[sortDescriptor]
-//        fetchRequest.predicate = NSPredicate(format: "title == %@", seekValue)
-//        loadData()
 
     func feachExercises(){
         let fetchRequest=NSFetchRequest<NSFetchRequestResult>(entityName: "Filmsbase")
@@ -271,26 +250,4 @@ class Database {
         fetchRequest.sortDescriptors=[sortDescriptor]
     }
 }
-        //let x= NSFRCfiltr
-        
-//        do { try let  bmanagedContext;.execute(fetchRequest)
-//        
-//        }
-//        catch { print("Nie można zapisać danych \(error.localizedDescription)")}
-
-//        let fetchResult: [Filmsbase] = managedContext.execute(fetchRequest) as [Filmsbase]
-//         flimsbase = fetchResult
-        
-//            do { try managedContext.execute(deleteRequest) }
-//            catch { print("Nie można zapisać danych \(error.localizedDescription)")}
-
-        
-        
-//        switch field {
-//            case .tytul:
-//            case .aktorzy:
-//            case .gatunek:
-//            case .cenaDo:
-//            default:
-//        }
     

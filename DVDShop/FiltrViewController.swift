@@ -10,8 +10,6 @@ import UIKit
 
 var database=Database()
 class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    //var filmsbase=[Filmsbase]()
-    //let menagedContext=filmList.database.managedContext
     // MARK: Outlets
     
     @IBAction func prestLogGesture(_ sender: Any) {
@@ -35,16 +33,11 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         database.setupDataFromAssets()
         typePickerData.selectRow(4, inComponent: 0, animated: true)
         findValueTextField.text = TypeOfFilm.sciencefiction.rawValue
-        //fieldSegmentAction()
-        // database.isFilterOn=false
-        //typePickerData.isHidden=false
         typePickerData.isUserInteractionEnabled=true
         findValueTextField.isUserInteractionEnabled=true
         
         startAdminModeButton.isUserInteractionEnabled = false
         startAdminModeButton.isHidden = true
-
-        
         
         // Do any additional setup after loading the view.
     }
@@ -60,10 +53,8 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         switch fleldSegmentControll.selectedSegmentIndex
         {
             case 0: findValueTextField.text = typeOfFilm[typePickerData.selectedRow(inComponent: 0)].rawValue
-                //typePickerData.accessibilityElementCount() > 0 ?  typeOfFilm[typePickerData.selectedRow(inComponent: 0)].rawValue : ""
                     findValueTextField.isUserInteractionEnabled=false
                     findValueTextField.placeholder = ""
-                    //findValueTextField.endEditing(false)
                     typePickerData.isUserInteractionEnabled=true
                     typePickerData.isHidden=false
                     findValueTextField.isUserInteractionEnabled=true
@@ -71,7 +62,6 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                     typePickerData.isHidden=true
             case 2: findValueTextField.placeholder="Wpisz szukanego aktora"
                     typePickerData.isHidden=true
-            
             case 3: findValueTextField.placeholder="Wpisz maksymalną cenę"
                     findValueTextField.keyboardType = .decimalPad
                     typePickerData.isHidden=true
@@ -118,8 +108,6 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             destinatonController.fieldTypeTmp = fieldType
             destinatonController.fieldNameTmp=""
             destinatonController.seekValueTmp = findValueTextField.text!
-            //database.fillFilterData(field: .tytul, seekValue: seekValueTmp)
-            
             print("segue showSeek)")
         }
     }

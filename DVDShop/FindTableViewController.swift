@@ -23,12 +23,8 @@ class FindTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         database.filmsbaseFilter=database.fillFilterData(field: fieldTypeTmp, seekValue: seekValueTmp)
-        
-        
         self.title="Filmy znalezione: \(database.filmCount)"
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
@@ -49,9 +45,6 @@ class FindTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return  database.filmCount
     }
-        //database.isFilterOn ?  database.filmsbaseFilter.count :  database.flimsbaseFull.count
-
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FindTableViewCell
@@ -59,12 +52,8 @@ class FindTableViewController: UITableViewController {
         print("row TV =\(indexPath.row), filmCount=\(database.filmCount), flimsbaseFull.count=\(database.flimsbaseFull.count), filmsbaseFilter.count=\(database.filmsbaseFilter.count)")
         print("filtr:\(database.isFilterOn)")
         // Configure the cell...
-        //let film=database.getFilm(row: indexPath.row)
-        
         
         let row = database.getPhisicalRow(row: indexPath.row, onFilter: database.isFilterOn )
-         //   database.filmsbaseFilter[0]
-        //indexPath.row
         
         let film=database.getFilm(row: row)
         if database.filmCount > indexPath.row {
@@ -91,7 +80,6 @@ class FindTableViewController: UITableViewController {
             if let indexPath=tableView.indexPathForSelectedRow {
                 let destinatonController = segue.destination as! FoundDetailViewController
                 
-                //let rek=filmList.give(row: indexPath.row)
                 let cuurRow = database.isFilterOn ? database.filmsbaseFilter[indexPath.row] : indexPath.row
                 let rek=database.getFilm(row: cuurRow)
                 destinatonController.dvdImageTmp   =  filmList.giveCurrentPictureName(row: indexPath.row)
@@ -100,29 +88,17 @@ class FindTableViewController: UITableViewController {
                 destinatonController.typeLabelTmp  =  rek.type!
                 destinatonController.priceLabelTmp =  kantor.doubleToString(rek.price)
                 destinatonController.youtubeUrlTmp =  rek.youtubeUrl!
-                destinatonController.descriptionLabelTmp =  rek.filmDescription!   //filmList.give(row: indexPath.row).description
+                destinatonController.descriptionLabelTmp =  rek.filmDescription!
                 destinatonController.rowTmp=kantor.intToString(indexPath.row)
                 destinatonController.phisicalRowTmp = kantor.intToString(database.getPhisicalRow(row: indexPath.row, onFilter: database.isFilterOn))
                 
                 print("segue showFound, row=\(indexPath.row)")
-                //flimsbase[indexPath.row]
             }
         }
     }
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         // Social Sharing Button
-//        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share", handler: { (action, indexPath) -> Void in
-//            
-//            let defaultText = "Just checking in at \(indexPath.row)"
-//            
-//            if let imageToShare = UIImage(named: obrazki[indexPath.row]) {
-//                let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
-//                self.present(activityController, animated: true, completion: nil)
-//            }
-//        })
-        
-
         let  currCell = tableView.cellForRow(at: indexPath)
         let isChecked = currCell?.accessoryType == .checkmark
         let phisicalRow = database.getPhisicalRow(row: indexPath.row, onFilter: database.isFilterOn)
@@ -153,7 +129,6 @@ class FindTableViewController: UITableViewController {
             filmList.setIsLike(row: phisicalRow, isLike: false)
         })
         
-        //shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
         checkAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
         unCheckAction.backgroundColor = UIColor.lightGray
         deleteAction.backgroundColor = UIColor.red
@@ -170,20 +145,8 @@ class FindTableViewController: UITableViewController {
         return true
     }
     */
-
  
     // Override to support editing the table view.
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            // Delete the row from the data source
-//            database.filmsbaseFilter.remove(at: indexPath.row)
-//            self.title="Filmy znalezione: \(database.filmsbaseFilter.count)"
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        } else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }    
-//    }
-
 
     /*
     // Override to support rearranging the table view.

@@ -74,38 +74,9 @@ struct Film {
     }
     
     
-    mutating func giveCurrentData() -> UserRekord {
-        
+    mutating func giveCurrentData() -> UserRekord {        
         var rek: UserRekord
-        
-//        switch type {
-//        case .komedia:          type_str = "Komedia"
-//        case .horror:           type_str = "Horror"
-//        case .sensacja:         type_str = "Sensacja"
-//        case .kostiumowy:       type_str = "Kostiumowy"
-//        case .wojenny:          type_str = "Wojenny"
-//        case .obyczajowy:       type_str = "obyczajowy"
-//        case .dlaDzieci:        type_str = "Dla dzieci"
-//        case .muzyczny:         type_str = "Muzyczny"
-//        case .familijny:        type_str = "Familijny"
-//        case .mlodziezowy:      type_str = "Młodzieżowy"
-//        case .kryminal:         type_str = "Kryminał"
-//        case .autobiograficzny: type_str = "Autobiograficzny"
-//        case .sciencefiction:   type_str = "Fantastyka naukowa"
-//        case .fantasy:          type_str = "Fantazy"
-//        case .thiler:            type_str = "Thiller"
-//        }
-   type_str=type.rawValue
-        
-//        print("----------------")
-//        print("filmId=\(filmId)")
-//        print("title=\(title)")
-//        print("actors=\(actors)")
-//        print("type=\(type)")
-//        print("description=\(description)")
-//        print("price=\(price)")
-//        print(isLiked ? "isLiked=true": "isLiked=false")
-//        print("-")
+        type_str=type.rawValue
         
         rek.filmId=filmId
         rek.title=title
@@ -118,10 +89,7 @@ struct Film {
         rek.youtubeUrl=youtubeUrl
         rek.isLiked=isLiked
         
-
-        
-//        return (filmId: self.filmId, title: self.title, actors: self.actors, filmDirector: self.filmDirector , type: self.type_str, description: self.description, price: price_str, filmImage: self.filmImage!, youtubeUrl: youtubeUrl, isLiked: self.isLiked)
-        return rek
+    return rek
     }
     
 }

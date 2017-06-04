@@ -95,9 +95,6 @@ var rezyser:[String]=["Machulski Juliusz",
 var listaUlubionych: [Int] = []
 var zestawIcon: [Icon] = []
 var kantor = Kantor()
-//var daneTmp: (filmId: String, title: String, actors: String, type: TypeOfFilm, description: String, price: String, filmImage: UIImage, isLiked: Bool)
-// = ("", "")
-
 
 let obrazki = ["ambassada-dvd-w-iext36127150",
                "anatomia-zla-w-iext41886960",

@@ -24,21 +24,14 @@ class VideoViewController: UIViewController {
     }
     @IBOutlet var videoView: UIWebView! {
         didSet {
-        
-        //let filmUrl=filmList.giveYoutubeUrl(row: 222)
-            
-        let filmUrl=youtubeUrlTmp
-        let youtubeUrl="<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/\(filmUrl)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>"
-        videoView.loadHTMLString(youtubeUrl, baseURL: nil)  //loadHTMLString(youtubeUrl, baseURL: nil)
+            let filmUrl=youtubeUrlTmp
+            let youtubeUrl="<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/\(filmUrl)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>"
+            videoView.loadHTMLString(youtubeUrl, baseURL: nil)
  
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        
-        
-   
 
         // Do any additional setup after loading the view.
     }

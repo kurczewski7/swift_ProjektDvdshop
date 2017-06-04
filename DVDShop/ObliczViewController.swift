@@ -29,7 +29,6 @@ class ObliczViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    
     @IBAction func zmianaWalutySegment(sender: UISegmentedControl) {
         wartoscWalucieLabel.text = kantor.giveValuteText(country: walutySegment.selectedSegmentIndex)
         kursLabel.text=kantor.giveKursText(country: walutySegment.selectedSegmentIndex)
@@ -45,7 +44,6 @@ class ObliczViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         wartoscWalucieLabel.text = kantor.giveValuteText(country: 0)  //String.init(format: "%7.2f zł", wynik)
         kursLabel.text=kantor.giveKursText(country: 0)
         
-        //kantor.setTransactionId()
         // Do any additional setup after loading the view.
     }
 

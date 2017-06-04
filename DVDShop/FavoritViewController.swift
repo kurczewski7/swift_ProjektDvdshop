@@ -19,13 +19,11 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
         collectionView.reloadData()
         print("Refresh")
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         listaUlubionych = database.fillLikeList()
         collectionView.reloadData()
-
         // Do any additional setup after loading the view.
     }
 
@@ -79,15 +77,8 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
             database.setCheckRecord(phisicalRow: phisicalRow, value: newValue)
             database.saveDatabase()
             filmList.setIsLike(row: indexPath.row, isLike: newValue)
-            
             print("newValue=\(newValue)","\(phisicalRow)")
-            
-//          database.setCheckRecord(phisicalRow: phisicalRow, value: true)
-//          database.saveDatabase()
-//          filmList.setIsLike(row: phisicalRow, isLike: true)
-            }
+        }
 
     }
-    
-
 }

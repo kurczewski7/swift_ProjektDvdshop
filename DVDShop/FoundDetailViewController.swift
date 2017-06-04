@@ -41,10 +41,6 @@ class FoundDetailViewController: UIViewController {
         let phisicalRow=Int(phisicalRowTmp)
         print("FoundDetailViewController, row=\(rowTmp), phisicalRow=\(phisicalRowTmp)")
         dvdImage.image=UIImage(data: database.getImageDataFromDb(phisicalRow: phisicalRow!))
-        
-        //dvdImage.image=UIImage(data: database.flimsbaseFull[row: phisicalRow.filmImage as Data,)
-        //database.flimsbase[row!].filmImage! as Data.getFilm(row: phisicalRow!)
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,7 +63,6 @@ class FoundDetailViewController: UIViewController {
             destinatonController.descriptionLabelTmp=descriptionLabelTmp
         }
     }
-
     
 
     /*

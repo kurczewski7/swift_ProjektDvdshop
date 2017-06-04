@@ -9,9 +9,8 @@
 import UIKit
 
 class FilmList {
-    //var database: Database
-    var film: Film
-    
+
+    var film: Film    
     var filmsName: [String]
     var titles: [String]
     var actorsList: [String]
@@ -20,12 +19,11 @@ class FilmList {
     var priceList: [Double]
     var youtubeUrlList: [String]
     var likedList: [Bool]
-    var defaultYoutubeUrls: [String] = ["7ynBUJPNEdM",  "WyHv2WqkPCQ","WlYC8gDvutc","WyHv2WqkPCQ"]
+    var defaultYoutubeUrls: [String] = ["7ynBUJPNEdM",  "zi8QIsuf7kU","WlYC8gDvutc","zi8QIsuf7kU"]
     
     init(filmsName: [String], titles: [String], actorsList: [String], typeList: [TypeOfFilm], descriptions: [String], priceList: [Double],  youtubeUrlList : [String], likedList: [Bool])
     {
         film=Film()
-        // database=Database()
         
         self.filmsName=filmsName
         self.titles=titles
@@ -49,23 +47,8 @@ class FilmList {
         r.youtubeUrl      =  giveYoutubeUrl(row: row)
         r.isLiked         = (likedList.count > row) ? likedList[row]          : false
         
-        
-        
-        
-        
-        
-        
-//        print("row=\(row)")
-//        print("filmsName:\(filmsName[(filmsName.count < row) ? row : row %  filmsName.count])")
-//        print("titles:\(titles[(titles.count < row) ? row : row %  titles.count])")
-//        print("priceList:\(priceList[row])")
-//        print("typeList:\(typeList[row])")
-//        print("descriptions:\(descriptions[row])")
-        
         film.fill(pictureName: r.pictureName, titleName: r.titleName, price: r.price, type:  r.type, filmDescription: r.filmDescription, actor: r.actor, filmDirector: r.filmDirector, youtubeUrl: r.youtubeUrl, isLiked: r.isLiked)
         
-//                film.fill(pictureName: filmsName[row], titleName: titles[row], price: priceList[row] , type: typeList[row], filmDescription: descriptions[row], actor: actorsList[row], filmDirector: "brak", youtubeUrl: giveYoutubeUrl(row: row), isLiked: likedList[row])
-//       
         return film.giveCurrentData()
     }
     

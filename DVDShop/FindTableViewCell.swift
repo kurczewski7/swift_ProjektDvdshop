@@ -16,9 +16,6 @@ class FindTableViewCell: UITableViewCell {
     @IBOutlet var typLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     
-    
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

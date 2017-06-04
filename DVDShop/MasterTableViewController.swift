@@ -16,9 +16,6 @@ var filmList:FilmList = FilmList(filmsName: obrazki, titles: tytuly, actorsList:
 //var database: Database
 class MasterTableViewController: UITableViewController {
     
-//        let titles = ["Ostatni wojownik","Ogniem i mieczem","Jak zostać królem"]
-//        let actors = ["Bruce Lee","Dustin Hoffman","Harisson Ford"]
-//        let types = ["Science ficton","Horror","Komedia romantyczna"]
     let prices:[Double] = [22.50,17.99,34.40,49.99,75.50]
     
     var film: TypeOfFilm = .horror
@@ -29,6 +26,7 @@ class MasterTableViewController: UITableViewController {
     
     @IBAction func refreshActionBarButton(_ sender: Any) {
        tableView.reloadData()
+       self.title="Filmy : \(database.flimsbaseFull.count)"
     }
     
     override func viewDidLoad() {
@@ -38,12 +36,6 @@ class MasterTableViewController: UITableViewController {
         self.title="Filmy : \(database.flimsbaseFull.count)"
         print("----- MasterTableViewController ------")
     }
-    
-    
-
-//    override func viewWillAppear(_ animated: true) {
-//        tableView.reloadData()
-//    }
     
     func readSampleData() {
         for i in 1...obrazki.count{
@@ -234,7 +226,6 @@ class MasterTableViewController: UITableViewController {
             filmList.setIsLike(row: phisicalRow, isLike: false)
         })
         
-        //shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
         checkAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
         unCheckAction.backgroundColor = UIColor.lightGray
         shareAction.backgroundColor = UIColor.blue

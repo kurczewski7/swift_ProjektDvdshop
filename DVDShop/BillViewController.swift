@@ -24,24 +24,10 @@ class BillViewController: UIViewController {
                 let printInfo=UIPrintInfo(dictionary: nil)
                 printInfo.outputType = .general
                 printInfo.jobName="Print Resource"
-
                 printControler.printInfo=printInfo
                 printControler.printFormatter=rachunekSzczegolowyVebView.viewPrintFormatter()
                 printControler.showsNumberOfCopies=true
-                //printControler.showsPageRange=true
                 printControler.present(animated: true, completionHandler: nil)
-        
-        //        printControler.printingItem = rachunekSzczegolowyVebView
-        
-//        let printControler=UIPrintInteractionController.shared
-//        let printInfo=UIPrintInfo(dictionary: nil)
-//        printInfo.jobName="Print Resource"
-//        printInfo.outputType = .general
-//        printControler.printInfo=printInfo
-//        printControler.printingItem = rachunekSzczegolowyVebView
-        
-        
-//        let pic= UIPrintInteractionController.shared1-8  
     }
     
     override func viewDidLoad() {
@@ -118,11 +104,6 @@ class BillViewController: UIViewController {
             bodyHtml+="<td>\(filmy[i].price)</td>"
             bodyHtml+="</tr>"
         }
-//        let icon=zestawIcon[indexPath.row]
-//        let price_str = String(format: "%6.2f", icon.price)
-//        cell.filmImageView.image = UIImage(named: icon.name)
-//        cell.priceLabel.text = "\(price_str) zł"
-        
         
         footerHtml+="</table>"
         
@@ -152,9 +133,6 @@ class BillViewController: UIViewController {
         adresatHtml+="</html>"
         
         return haadHtml+bodyHtml+footerHtml+adresatHtml
-    
-        
-        
     }
 
     /*

@@ -17,12 +17,11 @@ class AdminViewController: UIViewController {
     @IBOutlet var textView: UITextView!
     @IBAction func getSqlButton(_ sender: UIButton) {
         textView.text = server.makeSqlTxt(database: database)
-        let data = server.getPictureWeb(pictureName: server.dvds[55].filmImageName)
+        let data = server.getPictureWeb(pictureName: server.dvds[19].filmImageName)
         obrazekImageView.image=UIImage(data: data!)
-        print("Obrazek")
+        print("Obrazek="+server.dvds[19].filmImageName)
     }
     @IBAction func downloadButton(_ sender: UIButton) {
-       
         server.getLatestDvds()
         print("Załadowano \(server.dvds.count) rekordów z sieci")
     }
@@ -38,6 +37,7 @@ class AdminViewController: UIViewController {
             tekst+=server.dvds[i].filmImageName+"\n"
             tekst+=server.dvds[i].type+"\n"
             tekst+=server.dvds[i].price+"\n"
+            tekst+=server.dvds[i].youtubeUrl+"\n"
             tekst+="--------\n"
         }
         textView.text=tekst

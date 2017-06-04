@@ -16,12 +16,6 @@ class Server {
     var urlRequest:URLRequest? = nil
     var task: URLSession? = nil
     var dvds = [Dvd]()
-    //
-    // http://skurczewski1.myqnapcloud.com/dvdshop/api.php/dvds
-    // http://skurczewski1.myqnapcloud.com/dvdshop/dvds.json
-    // https://api.kivaws.org/v1/loans/newest.json
-    // http://www.learnswiftonline.com/Samples/subway.json
-    // http://skurczewski1.myqnapcloud.com/dvdshop/api.php/dvds/
     
     init() {
         self.urlString = "http://skurczewski1.myqnapcloud.com/dvdshop/api.php/dvds/"
@@ -69,7 +63,7 @@ class Server {
                         dvd.price           = jsonDvd["price"] as! String
                         dvd.title           = jsonDvd["title"] as! String
                         dvd.type            = jsonDvd["type"] as! String
-                        dvd.youtubeUrl      = jsonDvd["type"] as! String
+                        dvd.youtubeUrl      = jsonDvd["youtubeUrl"] as! String
                         dvds.append(dvd)
                     }
                 } catch {    print(error)     }
@@ -117,7 +111,8 @@ class Server {
             tx[4] = db.flimsbaseFull[i].type ?? ""
             tx[5] = db.flimsbaseFull[i].filmDescription ?? ""
             tx[6] = db.flimsbaseFull[i].pictureName ?? ""
-            tx[7] = db.flimsbaseFull[i].youtubeUrl ?? ""
+            tx[7] = db.flimsbaseFull[i].youtubeUrl ?? ""            
+            print("SQL picName:"+db.flimsbaseFull[i].pictureName!)
             
             tekst += "("           
             for t in 0..<tx.count {
@@ -132,7 +127,7 @@ class Server {
     
     func getPictureWeb(pictureName: String) -> Data? {
         var data:Data?
-        let url = URL(string: "\(pictureUrlString)\(pictureName).jpg")  // dvds[pictureNo].filmImageName
+        let url = URL(string: "\(pictureUrlString)\(pictureName).jpg")
         
         do {  data = try Data(contentsOf: url!)
         } catch {
@@ -145,10 +140,6 @@ class Server {
     }
     
     func fillDatabaseFromWeb() {
- //       for dvd in dvds 
-//        {
-//        
-//        }
     
     }
 

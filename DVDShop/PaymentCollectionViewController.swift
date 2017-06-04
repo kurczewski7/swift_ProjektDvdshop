@@ -23,13 +23,8 @@ class PaymentCollectionViewController: UICollectionViewController {
         selectedIcons.removeAll(keepingCapacity: false)        
         zestawIcon.removeAll(keepingCapacity: false)
         zestawIcon=database.fillIkonList()
-
         
-        for i in 0..<zestawIcon.count {
-        zestawIcon[i].isFeatured = true
-        }
-        
-        
+        for i in 0..<zestawIcon.count {            zestawIcon[i].isFeatured = true        }
         collectionView?.reloadData()
     }
     @IBAction func trashButtonTapped(sender: AnyObject) {
@@ -105,7 +100,6 @@ class PaymentCollectionViewController: UICollectionViewController {
             zestawIcon[indexPath.row].isFeatured=true
         }
     }
-    
 
      override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -151,9 +145,7 @@ class PaymentCollectionViewController: UICollectionViewController {
         if !icon.isFeatured {            cell.backgroundColor=UIColor.yellow        }
         else  { cell.backgroundColor = nil }
         
-        cell.selectedBackgroundView=UIImageView(image: UIImage(named: "icon-selected"))
-        //
-    
+        cell.selectedBackgroundView=UIImageView(image: UIImage(named: "icon-selected"))    
         return cell
     }
     

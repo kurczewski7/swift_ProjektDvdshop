@@ -18,8 +18,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var typeLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
-    @IBOutlet var likeButton: UIButton!
-    
+    @IBOutlet var likeButton: UIButton!    
 
     var isLiked: Bool = false {
         didSet {
