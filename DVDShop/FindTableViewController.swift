@@ -135,6 +135,14 @@ class FindTableViewController: UITableViewController {
         
         return isChecked ? [deleteAction, unCheckAction] : [deleteAction, checkAction]
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 100, 0)
+        cell.layer.transform=rotationTransform
+        UIView.animate(withDuration: 0.6) {            cell.layer.transform = CATransform3DIdentity        }
+        
+    }
+
 
     
 

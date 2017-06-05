@@ -67,6 +67,7 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
         return cell
     }
     
+    
     // MARK: wypełnienie mojego zdefiniowanego protokółu
     func didLikeButtonPressed(cell: FavoriteCollectionViewCell) {
         if let indexPath=collectionView.indexPath(for: cell) {
