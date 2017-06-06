@@ -23,45 +23,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dvd-shop" translatesAutoresizingMaskIntoConstraints="NO" id="8Kj-Sr-bEE">
-                                <rect key="frame" x="66" y="220" width="243" height="166"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="politechnika" translatesAutoresizingMaskIntoConstraints="NO" id="8Kj-Sr-bEE">
+                                <rect key="frame" x="36" y="220" width="303" height="233"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="8Kj-Sr-bEE" secondAttribute="height" multiplier="60:41" id="UgW-58-QfL"/>
+                                    <constraint firstAttribute="width" secondItem="8Kj-Sr-bEE" secondAttribute="height" multiplier="303:233" id="YbG-YX-ZS2"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Politechnika Wrocawska" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMp-ef-EuB">
-                                <rect key="frame" x="57" y="445" width="260" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <rect key="frame" x="46" y="468" width="281" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Studia Podyplomowe Android i iOS nowoczesne aplikacje mobilne" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ng5-8Q-R48">
-                                <rect key="frame" x="36" y="84" width="303" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="DVD Shop" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQh-UA-4Dz">
+                                <rect key="frame" x="21" y="105" width="343" height="55"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="41"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Studia Podyplomowe " textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ng5-8Q-R48">
+                                <rect key="frame" x="35" y="48" width="303" height="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ng5-8Q-R48" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="20" id="DsG-QQ-JI2"/>
-                            <constraint firstItem="ZMp-ef-EuB" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HlR-fB-mDl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="8Kj-Sr-bEE" secondAttribute="trailing" constant="50" id="IlY-wx-q7M"/>
-                            <constraint firstItem="ng5-8Q-R48" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="64" id="OfE-YZ-PfS"/>
-                            <constraint firstItem="ng5-8Q-R48" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="XCk-wu-0xG"/>
-                            <constraint firstItem="ZMp-ef-EuB" firstAttribute="top" secondItem="8Kj-Sr-bEE" secondAttribute="bottom" constant="59" id="hbw-w0-3on"/>
-                            <constraint firstItem="8Kj-Sr-bEE" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="50" id="obt-CZ-Mun"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8Kj-Sr-bEE" secondAttribute="trailing" constant="20" id="7ga-la-Pdu"/>
+                            <constraint firstItem="ng5-8Q-R48" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="19" id="DsG-QQ-JI2"/>
+                            <constraint firstItem="ZMp-ef-EuB" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="-1" id="HlR-fB-mDl"/>
+                            <constraint firstItem="MQh-UA-4Dz" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="5" id="KXp-7N-bnt"/>
+                            <constraint firstItem="ng5-8Q-R48" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="28" id="OfE-YZ-PfS"/>
+                            <constraint firstItem="MQh-UA-4Dz" firstAttribute="top" secondItem="ng5-8Q-R48" secondAttribute="bottom" constant="30" id="STn-N4-FaB"/>
+                            <constraint firstItem="8Kj-Sr-bEE" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="20" id="W1K-vY-AM3"/>
+                            <constraint firstItem="ng5-8Q-R48" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="-1" id="XCk-wu-0xG"/>
+                            <constraint firstItem="ZMp-ef-EuB" firstAttribute="top" secondItem="8Kj-Sr-bEE" secondAttribute="bottom" constant="15" id="XzE-2U-awr"/>
+                            <constraint firstItem="MQh-UA-4Dz" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" constant="5" id="YJR-9c-jlw"/>
+                            <constraint firstItem="8Kj-Sr-bEE" firstAttribute="top" secondItem="MQh-UA-4Dz" secondAttribute="bottom" constant="60" id="g6B-CE-YTT"/>
+                            <constraint firstItem="ZMp-ef-EuB" firstAttribute="top" secondItem="8Kj-Sr-bEE" secondAttribute="bottom" constant="15" id="hbw-w0-3on"/>
                             <constraint firstItem="8Kj-Sr-bEE" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="200" id="svz-T2-hjV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ng5-8Q-R48" secondAttribute="trailing" constant="20" id="tYD-bQ-7zg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ng5-8Q-R48" secondAttribute="trailing" constant="21" id="tYD-bQ-7zg"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="51.5" y="374.5"/>
         </scene>
     </scenes>
     <resources>
-        <image name="dvd-shop" width="320" height="240"/>
+        <image name="politechnika" width="350" height="233"/>
     </resources>
 </document>
