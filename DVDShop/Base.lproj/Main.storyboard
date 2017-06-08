@@ -307,7 +307,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQf-Ay-knb">
-                                <rect key="frame" x="16" y="64" width="375" height="603"/>
+                                <rect key="frame" x="10" y="0.0" width="355" height="593"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="TZ7-8w-HuS" id="a5R-aT-cdf"/>
@@ -316,10 +316,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="fQf-Ay-knb" secondAttribute="trailing" constant="-16" id="1q1-pW-vN2"/>
-                            <constraint firstItem="fQf-Ay-knb" firstAttribute="top" secondItem="sDn-rf-uEq" secondAttribute="bottom" id="Rwg-fR-hPv"/>
-                            <constraint firstItem="fQf-Ay-knb" firstAttribute="leading" secondItem="3IS-IU-wc6" secondAttribute="leading" constant="16" id="T0q-xS-t8d"/>
-                            <constraint firstItem="j5Q-F0-hUR" firstAttribute="top" secondItem="fQf-Ay-knb" secondAttribute="bottom" constant="-49" id="tZa-tw-dHU"/>
+                            <constraint firstItem="j5Q-F0-hUR" firstAttribute="top" secondItem="fQf-Ay-knb" secondAttribute="bottom" constant="25" id="6G4-Vp-7iK"/>
+                            <constraint firstAttribute="trailing" secondItem="fQf-Ay-knb" secondAttribute="trailing" constant="10" id="BR3-8Z-F9d"/>
+                            <constraint firstItem="fQf-Ay-knb" firstAttribute="top" secondItem="3IS-IU-wc6" secondAttribute="top" id="gZH-AQ-Nrp"/>
+                            <constraint firstItem="fQf-Ay-knb" firstAttribute="leading" secondItem="3IS-IU-wc6" secondAttribute="leading" constant="10" id="iwh-ls-xI6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Rachunek szczegółowy" id="te2-1E-ThN">
