@@ -8,16 +8,19 @@
 
 import UIKit
 import CoreData
-var exercises = [Filmsbase]()
+// var exercises = [Filmsbase]()
 class Database {
     // bufor wyjściowy tabeli danych Filmsbase
+    var flimsbaseFull = [Filmsbase]()
+    var personbase = [Personbase]()
+    
     var isFilterOn: Bool = true
     var isAscending: Bool = true
-    var flimsbaseFull = [Filmsbase]()
     var filmsbaseFilter: [Int]=[50,50,50,50,1,1,1,1,0,0]
     var liczbaRekordow: (accesableRecords: Int, allRecords:Int)=(0,0)
     var managedContext: NSManagedObjectContext! = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var fetchRequest: NSFetchRequest<Filmsbase> = Filmsbase.fetchRequest()
+    var feachPersonRequest: NSFetchRequest<Personbase> = Personbase.fetchRequest()
     let sortDescriptor = NSSortDescriptor(key: "title", ascending: false)
     var filmCount: Int
     {
@@ -26,19 +29,38 @@ class Database {
     }
     
     init(){
+        let personRek: PersonRekord
         print("Ilość rekordów,  allRecords=\(policzRecords().allRecords),accesableRecords=\(policzRecords().accesableRecords)")
         if(policzRecords().allRecords==0) && policzRecords().accesableRecords==0
         {
             print("Dodanie rekordów,  allRecords=\(policzRecords().allRecords),accesableRecords=\(policzRecords().accesableRecords)")
         }
         loadData()
+        
+        // fill person rekord
+        personRek.firstName="Jan "
+        personRek.lastName="Nowak"
+        personRek.postCode="00-950"
+        personRek.cityName="Warszawa"
+        personRek.streetName="Mazowiecka"
+        personRek.buildingNumer="12A"
+        personRek.flatNumber=55
+        addOneRecordPerson(person: personRek)
+        loadPersonData()
     }
     func loadData(){
         print("loadData  Start flimsbaseFull.count=\(flimsbaseFull.count)")
         do {            flimsbaseFull = try managedContext.fetch(fetchRequest)
         } catch {       print("Nie można załadować danych \(error.localizedDescription)")    }
+        print("loadData End  personbase.count=\(personbase.count)")
+    }
+    func loadPersonData(){
+        print("loadData  Start personbase.count=\(personbase.count)")
+        do {            personbase = try managedContext.fetch(feachPersonRequest)
+        } catch {       print("Nie można załadować danych \(error.localizedDescription)")    }
         print("loadData End  flimsbaseFull.count=\(flimsbaseFull.count)")
     }
+
     func createDatabaseRow(rek:  UserRekord, currentPictureName pictName: String )
     {
         let dbRow = Filmsbase(context: managedContext)
@@ -89,6 +111,33 @@ class Database {
             print("i=\(i),tytul=\(currentFilm.title),\(tytuly[i])")
             createDatabaseRow(rek: currentFilm, currentPictureName: currentPictureName)
         }
+    }
+    
+    func addOneRecordPerson(person rek: PersonRekord) {
+        if personbase.count < 1 {
+            let dbRow = Personbase(context: managedContext)
+            dbRow.firstName     = rek.firstName
+            dbRow.lastName      = rek.lastName
+            dbRow.postCode      = rek.postCode
+            dbRow.cityName      = rek.cityName
+            dbRow.streetName    = rek.streetName
+            dbRow.buildingNumer = rek.buildingNumer
+            dbRow.flatNumber    = Int16(rek.flatNumber)
+            saveDatabase()
+        }
+    }
+    
+    func changePerson(person data: PersonRekord){
+        if( personbase.count)>0 {
+            personbase[0].firstName     = data.firstName
+            personbase[0].lastName      = data.lastName
+            personbase[0].postCode      = data.postCode
+            personbase[0].cityName      = data.cityName
+            personbase[0].streetName    = data.streetName
+            personbase[0].buildingNumer = data.buildingNumer
+            personbase[0].flatNumber    = Int16(data.flatNumber)
+        }
+        saveDatabase()
     }
     
     func addDataToBaseFromWeb(dvds: [Dvd])
@@ -182,9 +231,6 @@ class Database {
     func getUIImageFromDb(cuurrentPhoto: NSData) -> UIImage {
         return UIImage(data: cuurrentPhoto as Data)!
     }
-
-    
-    
     
     func checkFilm(currentFilm: Filmsbase, field: TypeFilterFields, seekValue: String) -> Bool{
         var warunek:Bool = false

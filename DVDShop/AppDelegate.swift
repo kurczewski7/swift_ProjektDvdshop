@@ -11,9 +11,12 @@ import CoreData
 
 typealias UserRekord = (filmId: String, title: String, actors: String, filmDirector: String,  type: String, description: String, price: String, filmImage: UIImage, youtubeUrl: String, isLiked: Bool)
 
+typealias PersonRekord = (firstName: String, lastName: String, postCode: String, cityName: String, streetName: String, buildingNumer: String, flatNumber: Int)
+
 enum DatabaseTables: String {
-    case fllms = "Filmsbase"
-    case icons = "Iconsbase"
+    case fllms  = "Filmsbase"
+    case icons  = "Iconsbase"
+    case person = "Personbase"
 }
 var bazyDanych:DatabaseTables = .fllms
 

@@ -10,12 +10,16 @@ import UIKit
 
 var database=Database()
 class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    var clickCount = 0
     // MARK: Outlets
     
     @IBAction func prestLogGesture(_ sender: Any) {
-        print("UWAGA","Włączono tryb Administratora")
-        startAdminModeButton.isUserInteractionEnabled = true
-        startAdminModeButton.isHidden =  false
+        clickCount += 1        
+        if clickCount > 3 {
+          print("UWAGA","Włączono tryb Administratora")
+          startAdminModeButton.isUserInteractionEnabled = true
+          startAdminModeButton.isHidden =  false
+        }
     }
     
     @IBOutlet var presetLongPressGesture: UILongPressGestureRecognizer!

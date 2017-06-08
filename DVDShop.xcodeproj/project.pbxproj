@@ -29,6 +29,7 @@
 		2C4979911EB3FF37000A2E33 /* FavoritViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4979901EB3FF37000A2E33 /* FavoritViewController.swift */; };
 		2C58851A1ECBA7DD00EBB819 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5885191ECBA7DD00EBB819 /* Server.swift */; };
 		2C58851C1ECBB57400EBB819 /* Dvd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58851B1ECBB57400EBB819 /* Dvd.swift */; };
+		2C5A3A121EE8AC2900E977B2 /* AdresatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5A3A111EE8AC2900E977B2 /* AdresatViewController.swift */; };
 		2C5E82541ECC87F900C95504 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5E82531ECC87F900C95504 /* AdminViewController.swift */; };
 		2C603CA71EBB34E700F4BC17 /* Kantor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C603CA61EBB34E700F4BC17 /* Kantor.swift */; };
 		2C603CA91EBB52EB00F4BC17 /* PrzelewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C603CA81EBB52EB00F4BC17 /* PrzelewViewController.swift */; };
@@ -85,6 +86,7 @@
 		2C4979901EB3FF37000A2E33 /* FavoritViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritViewController.swift; sourceTree = "<group>"; };
 		2C5885191ECBA7DD00EBB819 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		2C58851B1ECBB57400EBB819 /* Dvd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dvd.swift; sourceTree = "<group>"; };
+		2C5A3A111EE8AC2900E977B2 /* AdresatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdresatViewController.swift; sourceTree = "<group>"; };
 		2C5E82531ECC87F900C95504 /* AdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		2C603CA61EBB34E700F4BC17 /* Kantor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kantor.swift; sourceTree = "<group>"; };
 		2C603CA81EBB52EB00F4BC17 /* PrzelewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrzelewViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				2C1573991EAFFC8C00B48306 /* Main.storyboard */,
+				2C5A3A111EE8AC2900E977B2 /* AdresatViewController.swift */,
 			);
 			name = VIEWS;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				2C147E871EB930D200E0E92A /* ObliczViewController.swift in Sources */,
 				2C49798D1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift in Sources */,
 				2C17DB101EBC9B2800575581 /* VideoViewController.swift in Sources */,
+				2C5A3A121EE8AC2900E977B2 /* AdresatViewController.swift in Sources */,
 				2C970E531EDE173400705715 /* BillViewController.swift in Sources */,
 				2C147E891EB93AE800E0E92A /* Icon.swift in Sources */,
 				2C147E831EB91AE900E0E92A /* PaymentCollectionViewCell.swift in Sources */,

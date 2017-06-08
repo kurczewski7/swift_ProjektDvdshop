@@ -17,9 +17,19 @@
     <entity name="Iconsbase" representedClassName="Iconsbase" syncable="YES" codeGenerationType="class">
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Personbase" representedClassName="Personbase" syncable="YES" codeGenerationType="class">
+        <attribute name="buildingNumer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flatNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="streetName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
+        <element name="Entity" positionX="-63" positionY="63" width="128" height="45"/>
         <element name="Filmsbase" positionX="-63" positionY="-18" width="128" height="210"/>
         <element name="Iconsbase" positionX="-63" positionY="63" width="128" height="60"/>
-        <element name="Entity" positionX="-63" positionY="63" width="128" height="43"/>
+        <element name="Personbase" positionX="-63" positionY="63" width="128" height="150"/>
     </elements>
 </model>

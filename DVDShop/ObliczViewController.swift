@@ -78,14 +78,21 @@ class ObliczViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // Pass the selected object to the new view controller.
         if segue.identifier=="showBill" {
                 let destinatonController = segue.destination as! BillViewController
+            
                 destinatonController.tranzactionNoTmp = kantor.giveTransactionNumberTxt()
                 destinatonController.totalPriceTmp = naleznoscLabel.text!
                 destinatonController.totalValuteTmp = wartoscWalucieLabel.text!
                 destinatonController.isValute=walutySegment.selectedSegmentIndex != 0
             
-                destinatonController.userTmp.fullName="Jan Matejko"
-                destinatonController.userTmp.codeAndCity="00-950 Warszawa"
-                destinatonController.userTmp.streetNo="Wrocławska 12 m 53"
+            destinatonController.userTmp.fullName       = "Jan Matejko"
+            destinatonController.userTmp.codeAndCity    = "00-950 Warszawa"
+            destinatonController.userTmp.streetNo       = "Wrocławska 12 m 53"
+            if  database.personbase.count>0 {
+                destinatonController.userTmp.fullName    = database.personbase[0].firstName!+" "+database.personbase[0].lastName!
+                destinatonController.userTmp.codeAndCity = database.personbase[0].postCode!+" "+database.personbase[0].cityName!
+                destinatonController.userTmp.streetNo    = database.personbase[0].streetName!+" "+database.personbase[0].buildingNumer!+" "
+                destinatonController.userTmp.streetNo   += (database.personbase[0].flatNumber==0) ? " " : "m "+String(database.personbase[0].flatNumber)
+            }
         }
     }
     

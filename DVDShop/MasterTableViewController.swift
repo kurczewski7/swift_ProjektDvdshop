@@ -140,7 +140,7 @@ class MasterTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.alpha=0
+        cell.alpha=0.2
         UIView.animate(withDuration: 1.0, animations:  { cell.alpha = 1})
     }
     
