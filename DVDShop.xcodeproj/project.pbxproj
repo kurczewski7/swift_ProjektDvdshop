@@ -192,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				2C1573991EAFFC8C00B48306 /* Main.storyboard */,
-				2C5A3A111EE8AC2900E977B2 /* AdresatViewController.swift */,
 			);
 			name = VIEWS;
 			sourceTree = "<group>";
@@ -217,6 +216,7 @@
 				2CBF06AA1EC116CE00A4FA95 /* FindTableViewCell.swift */,
 				2C5E82531ECC87F900C95504 /* AdminViewController.swift */,
 				2C970E521EDE173400705715 /* BillViewController.swift */,
+				2C5A3A111EE8AC2900E977B2 /* AdresatViewController.swift */,
 			);
 			name = CONTROLERS;
 			sourceTree = "<group>";

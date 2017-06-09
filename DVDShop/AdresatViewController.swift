@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdresatViewController: UIViewController {
+class AdresatViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var firstNameTextField: UITextField!
     @IBOutlet var lastNameTextField: UITextField!
     @IBOutlet var postCodeTextField: UITextField!
@@ -47,9 +47,15 @@ class AdresatViewController: UIViewController {
             streetTextField.text=rec.streetName
             buildingNoTextField.text=rec.buildingNumer
             flatNoTextField.text=kantor.intToString(Int(rec.flatNumber))
+            
+            self.flatNoTextField.delegate=self
         }
 
         // Do any additional setup after loading the view.
+    }
+    func textFieldShouldReturn(_ textField:  UITextField) -> Bool {
+            self.view.endEditing(true)
+            return false
     }
 
     override func didReceiveMemoryWarning() {

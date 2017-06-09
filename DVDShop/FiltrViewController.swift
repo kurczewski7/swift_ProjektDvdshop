@@ -9,7 +9,7 @@
 import UIKit
 
 var database=Database()
-class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     var clickCount = 0
     // MARK: Outlets
     
@@ -44,6 +44,10 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         startAdminModeButton.isHidden = true
         
         // Do any additional setup after loading the view.
+        
+        // Set return key to hide keyboard
+        self.findValueTextField.delegate=self
+        
     }
     // MARK: Action functions
     @IBAction func fieldSegmentAction(_ sender: UISegmentedControl) {
@@ -73,6 +77,11 @@ class FiltrViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             default: findValueTextField.placeholder=""
         }
     }
+    func textFieldShouldReturn(_ textField:  UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+
     
     @IBAction  func unwindBeck(segue: UIStoryboardSegue) {
     }
