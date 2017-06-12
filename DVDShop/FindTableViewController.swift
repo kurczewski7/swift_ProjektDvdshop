@@ -13,6 +13,9 @@ class FindTableViewController: UITableViewController {
     var fieldNameTmp  = ""
     var seekValueTmp = ""
     var fieldTypeTmp: TypeFilterFields = .tytul
+    
+    @IBOutlet var totalPriceTextField: UITextField!
+    
     @IBAction func presetCellLongPresureRecognizer(_ sender: UILongPressGestureRecognizer) {
         print("******","Naciśnięto długo")
     }
@@ -23,7 +26,9 @@ class FindTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         database.filmsbaseFilter=database.fillFilterData(field: fieldTypeTmp, seekValue: seekValueTmp)
-        self.title="Filmy znalezione: \(database.filmCount)"
+        self.title="Znalezione: \(database.filmCount)"
+        kantor.setTotalPriceTexeditAtrybute(totalPrice: totalPriceTextField)
+        
         // Uncomment the following line to preserve selection between presentations
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -140,11 +145,11 @@ class FindTableViewController: UITableViewController {
         let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 100, 0)
         cell.layer.transform=rotationTransform
         UIView.animate(withDuration: 0.6) {            cell.layer.transform = CATransform3DIdentity        }
-        
     }
-
-
-    
+    override func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        database.refreshTotalPrice()
+        self.totalPriceTextField.text =  kantor.giveTotalPriceZlotyText()
+    }
 
     /*
     // Override to support conditional editing of the table view.

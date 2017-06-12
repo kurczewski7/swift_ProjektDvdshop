@@ -40,7 +40,7 @@ class MasterTableViewController: UITableViewController {
         self.title="Filmy : \(database.flimsbaseFull.count)"
         print("----- MasterTableViewController ------")
         kantor.totalPriceInZloty=database.totalPrice
-        totalPriceTextField.text = kantor.giveTotalPriceZlotyText()          //doubleToString(kantor.totalPriceInZloty)+"zł"
+        totalPriceTextField.text = kantor.giveTotalPriceZlotyText()
         totalPriceTextField.isEnabled=false
         totalPriceTextField.isUserInteractionEnabled=false
         totalPriceTextField.backgroundColor = UIColor.clear
@@ -228,7 +228,6 @@ class MasterTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
-        print("Koniec edycji wiersza")
         database.refreshTotalPrice()
         self.totalPriceTextField.text =  kantor.giveTotalPriceZlotyText()
         

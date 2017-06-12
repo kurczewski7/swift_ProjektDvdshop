@@ -13,10 +13,14 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
     var film: Film = Film()
     @IBOutlet var collectionView: UICollectionView!
     
+    @IBOutlet var totalPriceTextField: UITextField!
     //private
     @IBAction func refreshAction(_ sender: UIBarButtonItem) {
         database.fillLikeList()
         collectionView.reloadData()
+        database.refreshTotalPrice()
+        totalPriceTextField.text=kantor.giveTotalPriceZlotyText()
+
         print("Refresh")
     }
 
@@ -24,6 +28,8 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
         super.viewDidLoad()
         database.fillLikeList()
         collectionView.reloadData()
+        kantor.setTotalPriceTexeditAtrybute(totalPrice: totalPriceTextField)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -78,6 +84,9 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
             database.setCheckRecord(phisicalRow: phisicalRow, value: newValue)
             database.saveDatabase()
             filmList.setIsLike(row: indexPath.row, isLike: newValue)
+            database.refreshTotalPrice()
+            totalPriceTextField.text=kantor.giveTotalPriceZlotyText()
+            
             print("newValue=\(newValue)","\(phisicalRow)")
         }
 

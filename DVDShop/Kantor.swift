@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 class Kantor  {
     var zloty: Double = 1.0
     var dolarKurs: Double
@@ -118,11 +119,18 @@ class Kantor  {
             }
         }
         totalPriceInZloty=suma
-//      database.fillIkonList()
-//      kantor.policz(selectedDvd: database.zestawIcon)
-
     }
     
+    func setTotalPriceTexeditAtrybute(totalPrice textField: UITextField){
+        database.refreshTotalPrice()
+        textField.isEnabled=false
+        textField.isUserInteractionEnabled=false
+        textField.backgroundColor = UIColor.clear
+        textField.text=giveTotalPriceZlotyText()
+    }
+
+//      database.fillIkonList()
+//      kantor.policz(selectedDvd: database.zestawIcon)
     
 
 }
