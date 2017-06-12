@@ -37,10 +37,10 @@ class BillViewController: UIViewController {
         var jedenFilm: (title: String, price:String)
         let secondValute = isValute ? "(\(totalPriceTmp))" : ""
         
-        for i in 0..<zestawIcon.count {
-             if zestawIcon[i].isFeatured {
-               jedenFilm.title=zestawIcon[i].title
-               jedenFilm.price=kantor.doubleToString(zestawIcon[i].price)
+        for i in 0..<database.zestawIcon.count {
+             if database.zestawIcon[i].isFeatured {
+               jedenFilm.title=database.zestawIcon[i].title
+               jedenFilm.price=kantor.doubleToString(database.zestawIcon[i].price)
                filmy.append(jedenFilm)
             }
         }

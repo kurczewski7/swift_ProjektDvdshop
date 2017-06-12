@@ -104,6 +104,18 @@ class Kantor  {
         return (value.lowercased().range(of: seekValue.lowercased()) != nil ) ? true : false
     }
     
+    func policz(selectedDvd: [Icon])  {
+        var suma: Double = 0.0
+        for i in 0..<selectedDvd.count {
+            if selectedDvd[i].isFeatured {
+                suma+=selectedDvd[i].price
+            }
+        }
+        totalPriceInZloty=suma
+//        zestawIcon.removeAll(keepingCapacity: false)
+//        zestawIcon=database.fillIkonList()
+
+    }
     
     
 

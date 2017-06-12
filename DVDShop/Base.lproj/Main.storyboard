@@ -59,11 +59,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSb-OV-1zc">
-                                                    <rect key="frame" x="0.0" y="49.5" width="244" height="68.5"/>
+                                                    <rect key="frame" x="0.0" y="49.5" width="244" height="35.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="DyJ-l6-3f1">
+                                                    <rect key="frame" x="0.0" y="87" width="244" height="31"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="MSb-OV-1zc" firstAttribute="top" secondItem="C1f-A5-6LZ" secondAttribute="bottom" constant="2" id="E4h-2j-dVB"/>
@@ -71,17 +74,10 @@
                                                 <constraint firstItem="C1f-A5-6LZ" firstAttribute="top" secondItem="SXD-O2-8QT" secondAttribute="bottom" constant="2" id="mIU-Go-F7d"/>
                                             </constraints>
                                         </stackView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="DyJ-l6-3f1">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="DyJ-l6-3f1" firstAttribute="leading" secondItem="4sF-8c-sGG" secondAttribute="leading" id="0zX-A8-TSz"/>
-                                        <constraint firstItem="DyJ-l6-3f1" firstAttribute="top" secondItem="4sF-8c-sGG" secondAttribute="top" id="5Fu-Z3-bqt"/>
                                         <constraint firstItem="haR-Ow-yZO" firstAttribute="top" secondItem="4sF-8c-sGG" secondAttribute="topMargin" constant="2" id="77j-Wt-ohT"/>
-                                        <constraint firstAttribute="trailing" secondItem="DyJ-l6-3f1" secondAttribute="trailing" id="DmD-VH-Tgy"/>
                                         <constraint firstItem="haR-Ow-yZO" firstAttribute="leading" secondItem="h0Z-Zi-LyT" secondAttribute="trailing" constant="5" id="DqO-yF-mXr"/>
-                                        <constraint firstAttribute="bottom" secondItem="DyJ-l6-3f1" secondAttribute="bottom" id="GEw-4X-H1M"/>
                                         <constraint firstItem="h0Z-Zi-LyT" firstAttribute="centerY" secondItem="4sF-8c-sGG" secondAttribute="centerY" id="MpU-7V-J1F"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="haR-Ow-yZO" secondAttribute="bottom" constant="8" id="NMG-1t-v4q"/>
                                         <constraint firstItem="h0Z-Zi-LyT" firstAttribute="leading" secondItem="4sF-8c-sGG" secondAttribute="leadingMargin" id="OEK-mU-N9K"/>
@@ -111,11 +107,23 @@
                                 <action selector="refreshActionBarButton:" destination="GZk-Eu-sMi" id="Yte-zd-rDD"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" width="5" style="done" id="0nu-dU-JgP">
+                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1999.50zł" borderStyle="roundedRect" textAlignment="right" minimumFontSize="14" id="XBP-pm-KYn">
+                                <rect key="frame" x="262" y="7" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="totalPriceTextField" destination="XBP-pm-KYn" id="9c4-WX-wNE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoq-Bp-dr6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2034" y="137"/>
+            <point key="canvasLocation" x="2204" y="135"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="f5X-8w-N0a">
@@ -214,7 +222,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVW-UK-Tjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="vux-He-srW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2516" y="137"/>
+            <point key="canvasLocation" x="2911" y="135"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="wdi-zY-ZET">
@@ -273,7 +281,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCO-Gp-QgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="D0p-zm-607" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2976" y="137"/>
+            <point key="canvasLocation" x="3586" y="136"/>
         </scene>
         <!--Filmy-->
         <scene sceneID="bmE-6a-r3o">
@@ -292,7 +300,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhL-Nj-HRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1551" y="137"/>
+            <point key="canvasLocation" x="1498" y="134"/>
         </scene>
         <!--Bill View Controller-->
         <scene sceneID="XZF-p5-uB2">
@@ -653,7 +661,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3E5-uE-pZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5jq-30-ME1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2480" y="883"/>
+            <point key="canvasLocation" x="2751" y="889"/>
         </scene>
         <!--Wybrane-->
         <scene sceneID="SVH-UY-PdK">
@@ -691,7 +699,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2km-Cd-CUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="883"/>
+            <point key="canvasLocation" x="444" y="883"/>
         </scene>
         <!--Payment For VievController-->
         <scene sceneID="RMa-vf-BtK">
@@ -785,7 +793,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VgJ-qt-R5L" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cvu-xi-cln" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1494" y="883"/>
+            <point key="canvasLocation" x="1196" y="888"/>
         </scene>
         <!--Oblicz View Controller-->
         <scene sceneID="Wqw-Y1-mqI">

@@ -14,6 +14,8 @@ class Database {
     var flimsbaseFull = [Filmsbase]()
     var personbase = [Personbase]()
     
+    var zestawIcon: [Icon] = []
+    
     var isFilterOn: Bool = true
     var isAscending: Bool = true
     var filmsbaseFilter: [Int]=[50,50,50,50,1,1,1,1,0,0]

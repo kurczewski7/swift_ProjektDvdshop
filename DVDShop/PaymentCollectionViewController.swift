@@ -21,10 +21,10 @@ class PaymentCollectionViewController: UICollectionViewController {
     @IBAction func refreshActionBarButton(_ sender: UIBarButtonItem) {
         trashEnabled=false
         selectedIcons.removeAll(keepingCapacity: false)        
-        zestawIcon.removeAll(keepingCapacity: false)
-        zestawIcon=database.fillIkonList()
+        database.zestawIcon.removeAll(keepingCapacity: false)
+        database.zestawIcon=database.fillIkonList()
         
-        for i in 0..<zestawIcon.count {            zestawIcon[i].isFeatured = true        }
+        for i in 0..<database.zestawIcon.count {            database.zestawIcon[i].isFeatured = true        }
         collectionView?.reloadData()
     }
     @IBAction func trashButtonTapped(sender: AnyObject) {
@@ -64,8 +64,8 @@ class PaymentCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        zestawIcon.removeAll(keepingCapacity: false)
-        zestawIcon=database.fillIkonList()
+        database.zestawIcon.removeAll(keepingCapacity: false)
+        database.zestawIcon=database.fillIkonList()
         }
     
         // Uncomment the following line to preserve selection between presentations
@@ -79,11 +79,11 @@ class PaymentCollectionViewController: UICollectionViewController {
             return
         }
         // okrela wybraną metodę użyeaną w indexPath
-        let selectedIcon=zestawIcon[indexPath.row]
+        let selectedIcon=database.zestawIcon[indexPath.row]
         
         // dodaje ikonę do tablicy wybranych
         selectedIcons.append(selectedIcon)
-        zestawIcon[indexPath.row].isFeatured=false
+        database.zestawIcon[indexPath.row].isFeatured=false
         
     }
     
@@ -93,11 +93,11 @@ class PaymentCollectionViewController: UICollectionViewController {
         guard trashEnabled else {
             return
         }
-        let deSelectedIcon=zestawIcon[indexPath.row]
+        let deSelectedIcon=database.zestawIcon[indexPath.row]
         // szuka indeksu odznaczonej ikony
         if let index=selectedIcons.index(where: {$0.name == deSelectedIcon.name}){
             selectedIcons.remove(at: index)
-            zestawIcon[indexPath.row].isFeatured=true
+            database.zestawIcon[indexPath.row].isFeatured=true
         }
     }
 
@@ -126,7 +126,7 @@ class PaymentCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return zestawIcon.count
+        return database.zestawIcon.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -136,7 +136,7 @@ class PaymentCollectionViewController: UICollectionViewController {
         
         //let dane = filmList.give(row: listaUlubionych[indexPath.row])
         
-        let icon=zestawIcon[indexPath.row]
+        let icon=database.zestawIcon[indexPath.row]
         let price_str = String(format: "%6.2f", icon.price)
         cell.filmImageView.image = UIImage(named: icon.name)
         cell.priceLabel.text = "\(price_str) zł"

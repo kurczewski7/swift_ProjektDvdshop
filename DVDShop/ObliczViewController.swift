@@ -35,10 +35,7 @@ class ObliczViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-   
-        let wynik=policz(selectedDvd: zestawIcon)
-        kantor.setTotalPrice(totalPrice: wynik)
-        
+        kantor.policz(selectedDvd: database.zestawIcon)
         bankiPickerView.selectRow(2, inComponent: 0, animated: true)
         naleznoscLabel.text = kantor.giveValuteText(country: 0)  //String.init(format: "%7.2f zł", wynik)
         wartoscWalucieLabel.text = kantor.giveValuteText(country: 0)  //String.init(format: "%7.2f zł", wynik)
@@ -50,15 +47,6 @@ class ObliczViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    func policz(selectedDvd: [Icon]) -> Double {
-        var suma: Double = 0.0
-        for i in 0..<selectedDvd.count {
-            if selectedDvd[i].isFeatured {
-                suma+=selectedDvd[i].price
-            }
-        }
-    return suma
     }
     
 

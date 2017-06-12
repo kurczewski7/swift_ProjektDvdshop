@@ -96,7 +96,7 @@ var rezyser:[String]=["Machulski Juliusz",
                       "Title Stacy"]
 
 var listaUlubionych: [Int] = []
-var zestawIcon: [Icon] = []
+//var zestawIcon: [Icon] = []
 var kantor = Kantor()
 
 let obrazki = ["ambassada-dvd-w-iext36127150",

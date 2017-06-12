@@ -16,6 +16,8 @@ var filmList:FilmList = FilmList(filmsName: obrazki, titles: tytuly, actorsList:
 //var database: Database
 class MasterTableViewController: UITableViewController {
     
+    @IBOutlet var totalPriceTextField: UITextField!
+   
     let prices:[Double] = [22.50,17.99,34.40,49.99,75.50]
     
     var film: TypeOfFilm = .horror
@@ -35,6 +37,17 @@ class MasterTableViewController: UITableViewController {
         tableView.reloadData()
         self.title="Filmy : \(database.flimsbaseFull.count)"
         print("----- MasterTableViewController ------")
+        totalPriceTextField.text = kantor.doubleToString(kantor.totalPriceInZloty)+"zł"  //"6986.20zł"
+        totalPriceTextField.isEnabled=false
+        totalPriceTextField.isUserInteractionEnabled=false
+
+        
+//        findValueTextField.text=""
+//        typePickerData.isUserInteractionEnabled=false
+//        findValueTextField.isUserInteractionEnabled=true
+
+        
+        
     }
     
     func readSampleData() {
