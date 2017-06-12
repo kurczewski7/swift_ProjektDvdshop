@@ -29,6 +29,7 @@ class MasterTableViewController: UITableViewController {
     @IBAction func refreshActionBarButton(_ sender: Any) {
        tableView.reloadData()
        self.title="Filmy : \(database.flimsbaseFull.count)"
+       database.refreshTotalPrice()
        self.totalPriceTextField.text =  kantor.giveTotalPriceZlotyText()
     }
     
@@ -38,10 +39,12 @@ class MasterTableViewController: UITableViewController {
         tableView.reloadData()
         self.title="Filmy : \(database.flimsbaseFull.count)"
         print("----- MasterTableViewController ------")
-        totalPriceTextField.text = kantor.doubleToString(kantor.totalPriceInZloty)+"zł"  //"6986.20zł"
+        kantor.totalPriceInZloty=database.totalPrice
+        totalPriceTextField.text = kantor.giveTotalPriceZlotyText()          //doubleToString(kantor.totalPriceInZloty)+"zł"
         totalPriceTextField.isEnabled=false
         totalPriceTextField.isUserInteractionEnabled=false
         totalPriceTextField.backgroundColor = UIColor.clear
+        
     }
     
     func readSampleData() {
@@ -216,14 +219,19 @@ class MasterTableViewController: UITableViewController {
         checkAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
         unCheckAction.backgroundColor = UIColor.lightGray
         shareAction.backgroundColor = UIColor.blue
-        kantor.policz(selectedDvd: database.zestawIcon)
-        
         return isChecked ? [shareAction, unCheckAction] : [shareAction, checkAction]
     }
 
 
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "Usuń"
+    }
+    
+    override func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        print("Koniec edycji wiersza")
+        database.refreshTotalPrice()
+        self.totalPriceTextField.text =  kantor.giveTotalPriceZlotyText()
+        
     }
     /*
     // Override to support conditional editing of the table view.

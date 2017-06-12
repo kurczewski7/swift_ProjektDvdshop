@@ -16,6 +16,7 @@ class Database {
     
     var zestawIcon: [Icon] = []
     var listaUlubionych: [Int] = []
+    var totalPrice: Double = 0.0
     
     var isFilterOn: Bool = true
     var isAscending: Bool = true
@@ -50,6 +51,8 @@ class Database {
         personRek.flatNumber=55
         addOneRecordPerson(person: personRek)
         loadPersonData()
+        
+         fillLikeList()
     }
     func loadData(){
         print("loadData  Start flimsbaseFull.count=\(flimsbaseFull.count)")
@@ -271,14 +274,15 @@ class Database {
     }
     func fillLikeList() {
        var likedList: [Int] = []
+       var totalPrice: Double = 0.0
        for i in 0..<flimsbaseFull.count {
             if(flimsbaseFull[i].isLiked){
                likedList.append(i)
+               totalPrice += flimsbaseFull[i].price
             }
          }
          listaUlubionych=likedList
-        //return likedList
-        //database.listaUlubionych = database.fillLikeList()
+         self.totalPrice=totalPrice
         }
     
     func fillIkonList() {
@@ -289,6 +293,17 @@ class Database {
             }
         }
         zestawIcon = ikonList
+    }
+    
+    func refreshTotalPrice(){
+        var totalPrice: Double = 0.0
+        for i in 0..<flimsbaseFull.count {
+            if(flimsbaseFull[i].isLiked){
+                totalPrice += flimsbaseFull[i].price
+            }
+        }
+        self.totalPrice=totalPrice
+        kantor.setTotalPrice(totalPrice: self.totalPrice)
     }
 
 //------------------------
