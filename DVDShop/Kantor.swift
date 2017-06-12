@@ -11,7 +11,7 @@ class Kantor  {
     var zloty: Double = 1.0
     var dolarKurs: Double
     var euroKurs: Double
-    var totalPriceInZloty: Double = 0
+    var totalPriceInZloty: Double = 77.77
     var numerKonta="58 1240 1112 1111 0010 0944 9739"
     var nrTransakcji: String="201703041655001234"
     var kursyWalut: [Double]=[1.0, 3.86, 4.21]
@@ -43,6 +43,11 @@ class Kantor  {
         }
         return wynik
     }
+    func giveTotalPriceZlotyText() -> String
+    {
+        return doubleToString(totalPriceInZloty)+"zł"
+    }
+    
     func giveKursText(country: Int) -> String {
         var wynik = ""
     switch country {
@@ -104,6 +109,7 @@ class Kantor  {
         return (value.lowercased().range(of: seekValue.lowercased()) != nil ) ? true : false
     }
     
+    
     func policz(selectedDvd: [Icon])  {
         var suma: Double = 0.0
         for i in 0..<selectedDvd.count {
@@ -112,8 +118,8 @@ class Kantor  {
             }
         }
         totalPriceInZloty=suma
-//        zestawIcon.removeAll(keepingCapacity: false)
-//        zestawIcon=database.fillIkonList()
+//      database.fillIkonList()
+//      kantor.policz(selectedDvd: database.zestawIcon)
 
     }
     

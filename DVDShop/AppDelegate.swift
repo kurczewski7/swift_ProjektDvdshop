@@ -95,7 +95,7 @@ var rezyser:[String]=["Machulski Juliusz",
                       "Maguire Sharon",
                       "Title Stacy"]
 
-var listaUlubionych: [Int] = []
+//var listaUlubionych: [Int] = []
 //var zestawIcon: [Icon] = []
 var kantor = Kantor()
 

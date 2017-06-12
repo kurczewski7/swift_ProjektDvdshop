@@ -59,14 +59,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSb-OV-1zc">
-                                                    <rect key="frame" x="0.0" y="49.5" width="244" height="35.5"/>
+                                                    <rect key="frame" x="0.0" y="49.5" width="244" height="68.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-bg-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="DyJ-l6-3f1">
-                                                    <rect key="frame" x="0.0" y="87" width="244" height="31"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="MSb-OV-1zc" firstAttribute="top" secondItem="C1f-A5-6LZ" secondAttribute="bottom" constant="2" id="E4h-2j-dVB"/>
@@ -74,6 +71,10 @@
                                                 <constraint firstItem="C1f-A5-6LZ" firstAttribute="top" secondItem="SXD-O2-8QT" secondAttribute="bottom" constant="2" id="mIU-Go-F7d"/>
                                             </constraints>
                                         </stackView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell-bg-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="DyJ-l6-3f1">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="144"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="haR-Ow-yZO" firstAttribute="top" secondItem="4sF-8c-sGG" secondAttribute="topMargin" constant="2" id="77j-Wt-ohT"/>
@@ -123,7 +124,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoq-Bp-dr6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2204" y="135"/>
+            <point key="canvasLocation" x="2204" y="134.48275862068968"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="f5X-8w-N0a">

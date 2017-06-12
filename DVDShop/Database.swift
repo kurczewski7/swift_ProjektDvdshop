@@ -15,6 +15,7 @@ class Database {
     var personbase = [Personbase]()
     
     var zestawIcon: [Icon] = []
+    var listaUlubionych: [Int] = []
     
     var isFilterOn: Bool = true
     var isAscending: Bool = true
@@ -268,24 +269,26 @@ class Database {
         }
     
     }
-    func fillLikeList() -> [Int]{
+    func fillLikeList() {
        var likedList: [Int] = []
        for i in 0..<flimsbaseFull.count {
             if(flimsbaseFull[i].isLiked){
                likedList.append(i)
             }
          }
-         return likedList
+         listaUlubionych=likedList
+        //return likedList
+        //database.listaUlubionych = database.fillLikeList()
         }
     
-    func fillIkonList() -> [Icon]{
+    func fillIkonList() {
         var ikonList: [Icon] = []
         for i in 0..<flimsbaseFull.count {
             if(flimsbaseFull[i].isLiked){
                 ikonList.append(Icon(name: flimsbaseFull[i].pictureName!, title: flimsbaseFull[i].title!, price: flimsbaseFull[i].price, isFeatured: true))
             }
         }
-        return ikonList
+        zestawIcon = ikonList
     }
 
 //------------------------

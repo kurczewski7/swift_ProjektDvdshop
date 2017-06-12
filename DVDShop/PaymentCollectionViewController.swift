@@ -22,7 +22,7 @@ class PaymentCollectionViewController: UICollectionViewController {
         trashEnabled=false
         selectedIcons.removeAll(keepingCapacity: false)        
         database.zestawIcon.removeAll(keepingCapacity: false)
-        database.zestawIcon=database.fillIkonList()
+        database.fillIkonList()
         
         for i in 0..<database.zestawIcon.count {            database.zestawIcon[i].isFeatured = true        }
         collectionView?.reloadData()
@@ -65,7 +65,7 @@ class PaymentCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         database.zestawIcon.removeAll(keepingCapacity: false)
-        database.zestawIcon=database.fillIkonList()
+        database.fillIkonList()
         }
     
         // Uncomment the following line to preserve selection between presentations

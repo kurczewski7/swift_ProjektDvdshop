@@ -15,14 +15,14 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
     
     //private
     @IBAction func refreshAction(_ sender: UIBarButtonItem) {
-        listaUlubionych = database.fillLikeList()
+        database.fillLikeList()
         collectionView.reloadData()
         print("Refresh")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        listaUlubionych = database.fillLikeList()
+        database.fillLikeList()
         collectionView.reloadData()
         // Do any additional setup after loading the view.
     }
@@ -48,12 +48,12 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listaUlubionych.count
+        return database.listaUlubionych.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FavoriteCollectionViewCell
         //let dane = filmList.give(row: listaUlubionych[indexPath.row])
-        let dane=database.getFilm(row: listaUlubionych[indexPath.row])
+        let dane=database.getFilm(row: database.listaUlubionych[indexPath.row])
         
         
         cell.titleLabel.text = dane.title
@@ -74,7 +74,7 @@ class FavoritViewController: UIViewController, UICollectionViewDelegate,UICollec
             let newValue = filmList.give(row: indexPath.row).isLiked ? false : true
             cell.isLiked = newValue
             
-            let phisicalRow = listaUlubionych[indexPath.row]
+            let phisicalRow = database.listaUlubionych[indexPath.row]
             database.setCheckRecord(phisicalRow: phisicalRow, value: newValue)
             database.saveDatabase()
             filmList.setIsLike(row: indexPath.row, isLike: newValue)

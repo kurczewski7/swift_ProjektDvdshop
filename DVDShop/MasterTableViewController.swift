@@ -29,6 +29,7 @@ class MasterTableViewController: UITableViewController {
     @IBAction func refreshActionBarButton(_ sender: Any) {
        tableView.reloadData()
        self.title="Filmy : \(database.flimsbaseFull.count)"
+       self.totalPriceTextField.text =  kantor.giveTotalPriceZlotyText()
     }
     
     override func viewDidLoad() {
@@ -40,14 +41,7 @@ class MasterTableViewController: UITableViewController {
         totalPriceTextField.text = kantor.doubleToString(kantor.totalPriceInZloty)+"zł"  //"6986.20zł"
         totalPriceTextField.isEnabled=false
         totalPriceTextField.isUserInteractionEnabled=false
-
-        
-//        findValueTextField.text=""
-//        typePickerData.isUserInteractionEnabled=false
-//        findValueTextField.isUserInteractionEnabled=true
-
-        
-        
+        totalPriceTextField.backgroundColor = UIColor.clear
     }
     
     func readSampleData() {
@@ -103,7 +97,7 @@ class MasterTableViewController: UITableViewController {
         typyFilmow[95] = .dlaDzieci
         typyFilmow[109] = .thiler
         
-        listaUlubionych = database.fillLikeList()
+        database.fillLikeList()
     }
     
 
@@ -222,6 +216,7 @@ class MasterTableViewController: UITableViewController {
         checkAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
         unCheckAction.backgroundColor = UIColor.lightGray
         shareAction.backgroundColor = UIColor.blue
+        kantor.policz(selectedDvd: database.zestawIcon)
         
         return isChecked ? [shareAction, unCheckAction] : [shareAction, checkAction]
     }
