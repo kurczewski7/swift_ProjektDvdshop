@@ -11,17 +11,14 @@ import UIKit
 
 // MARK: Wczytywanie danych zewnętrznych do obiektu
 
-var filmList:FilmList = FilmList(filmsName: obrazki, titles: tytuly, actorsList: aktorzy, typeList: typyFilmow, descriptions: opisyFilmow, priceList: cenyFilmow, youtubeUrlList: youtubeUrls, likedList: polubienia)
+var filmList:FilmList = FilmList(filmsName: setup.obrazki, titles: setup.tytuly, actorsList: setup.aktorzy, typeList: setup.typyFilmow, descriptions: setup.opisyFilmow, priceList: setup.cenyFilmow, youtubeUrlList: setup.youtubeUrls, likedList: setup.polubienia)
 
 //var database: Database
 class MasterTableViewController: UITableViewController {
     
     @IBOutlet var totalPriceTextField: UITextField!
-   
-    let prices:[Double] = [22.50,17.99,34.40,49.99,75.50]
     
     var film: TypeOfFilm = .horror
-    
     let  dvdFilm: (picture: String, title: String, actors: String, type: TypeOfFilm, price: String) = (picture: "obrazek",  title: "tytul",  actors: "Aktorzy", type: .horror, price: "Cena")
     var dvdFilms = [(picture: String, title: String, actors: String, type: TypeOfFilm, price: String)]()
     var myDvd = ("aaa", "bbb", "cccc", TypeOfFilm.komedia)
@@ -35,77 +32,13 @@ class MasterTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        readSampleData()
+        setup.readSampleData()
         tableView.reloadData()
         self.title="Filmy : \(database.flimsbaseFull.count)"
         print("----- MasterTableViewController ------")
         kantor.totalPriceInZloty=database.totalPrice
         kantor.setTotalPriceTexeditAtrybute(totalPrice: totalPriceTextField)
-        
-        
-//        totalPriceTextField.text = kantor.giveTotalPriceZlotyText()
-//        totalPriceTextField.isEnabled=false
-//        totalPriceTextField.isUserInteractionEnabled=false
-//        totalPriceTextField.backgroundColor = UIColor.clear
-        
     }
-    
-    func readSampleData() {
-        for i in 1...obrazki.count{
-            typyFilmow.append((i % 2 == 0) ? TypeOfFilm.sensacja : TypeOfFilm.obyczajowy)
-            cenyFilmow.append(prices[kantor.giveRandomInt(max: prices.count)])      //(i % 2 == 0) ? 72.50 : 35.20)
-            opisyFilmow.append("Super Film")
-            aktorzy.append("Aktorzy nieznani")
-            polubienia.append(false)
-        }
-        polubienia[1]=true
-//        polubienia[2]=true
-        polubienia[5]=true
-        polubienia[8]=true
-        polubienia[14]=true
-        polubienia[21]=true
-        polubienia[35]=true
-        polubienia[45]=true
-        polubienia[82]=true
-        polubienia[97]=true
-        polubienia[109]=true
-        
-        typyFilmow[0] = .komedia
-        typyFilmow[1] = .kryminal
-        typyFilmow[2] = .dlaDzieci
-        typyFilmow[3] = .familijny
-        typyFilmow[4] = .dlaDzieci
-        typyFilmow[5] = .kryminal
-        typyFilmow[6] = .kostiumowy
-        typyFilmow[7] = .autobiograficzny
-        typyFilmow[8] = .obyczajowy
-        typyFilmow[9] = .komedia
-        typyFilmow[10] = .horror
-        typyFilmow[11] = .obyczajowy
-        typyFilmow[12] = .horror
-        typyFilmow[13] = .kryminal
-        typyFilmow[14] = .sensacja
-        typyFilmow[15] = .sensacja
-        typyFilmow[16] = .kryminal
-        typyFilmow[17] = .kryminal
-        typyFilmow[18] = .sciencefiction
-        typyFilmow[19] = .fantasy
-        typyFilmow[20] = .komedia
-        typyFilmow[21] = .kryminal
-        typyFilmow[24] = .sciencefiction
-        typyFilmow[25] = .sciencefiction
-        typyFilmow[26] = .sciencefiction
-        typyFilmow[27] = .fantasy
-        typyFilmow[38] = .dlaDzieci
-        typyFilmow[42] = .muzyczny
-        typyFilmow[77] = .dlaDzieci
-        typyFilmow[81] = .dlaDzieci
-        typyFilmow[95] = .dlaDzieci
-        typyFilmow[109] = .thiler
-        
-        database.fillLikeList()
-    }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -157,9 +90,6 @@ class MasterTableViewController: UITableViewController {
         UIView.animate(withDuration: 1.0, animations:  { cell.alpha = 1})
     }
     
-    
-    
-    
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     
@@ -194,8 +124,8 @@ class MasterTableViewController: UITableViewController {
         
          //Social Sharing Button
          let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share", handler: { (action, indexPath) -> Void in
-                    let defaultText = "Polecany  \(tytuly[indexPath.row])"
-                    if let imageToShare = UIImage(named: obrazki[indexPath.row]) {
+                    let defaultText = "Polecany  \(setup.tytuly[indexPath.row])"
+                    if let imageToShare = UIImage(named: setup.obrazki[indexPath.row]) {
                         let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
                         self.present(activityController, animated: true, completion: nil)
                     }
@@ -235,6 +165,7 @@ class MasterTableViewController: UITableViewController {
         self.totalPriceTextField.text =  kantor.giveTotalPriceZlotyText()
         
     }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -242,9 +173,6 @@ class MasterTableViewController: UITableViewController {
         return true
     }
     */
-
-    
-    
 
     /*
     // Override to support rearranging the table view.

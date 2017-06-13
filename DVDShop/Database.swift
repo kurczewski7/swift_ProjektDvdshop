@@ -99,7 +99,7 @@ class Database {
         var currentFilm: UserRekord
         var currentPictureName: String = ""
         
-        for i in 0..<obrazki.count
+        for i in 0..<setup.obrazki.count
         {
             let dane = filmList.give(row: i)            
             currentFilm.title           = dane.title
@@ -114,7 +114,7 @@ class Database {
             currentFilm.youtubeUrl      = dane.youtubeUrl    //"WyHv2WqkPCQ"
             currentPictureName = filmList.giveCurrentPictureName(row: i)
         
-            print("i=\(i),tytul=\(currentFilm.title),\(tytuly[i])")
+            print("i=\(i),tytul=\(currentFilm.title),\(setup.tytuly[i])")
             createDatabaseRow(rek: currentFilm, currentPictureName: currentPictureName)
         }
     }
@@ -151,7 +151,7 @@ class Database {
         var currentFilm: UserRekord
         var currentPictureName: String = ""
         
-        for i in 0..<obrazki.count
+        for i in 0..<setup.obrazki.count
         {
             currentFilm.title           = dvds[i].title
             currentFilm.actors          = dvds[i].actors
@@ -165,7 +165,7 @@ class Database {
             currentFilm.youtubeUrl      = dvds[i].youtubeUrl
             currentPictureName          = dvds[i].filmImageName
             
-            print("i=\(i),tytul=\(currentFilm.title),\(tytuly[i])")
+            print("i=\(i),tytul=\(currentFilm.title),\(setup.tytuly[i])")
             createDatabaseRow(rek: currentFilm, currentPictureName: currentPictureName)
         }
     }
@@ -260,7 +260,7 @@ class Database {
            addDataToBase()
            loadData()
         }
-        if flimsbaseFull.count > obrazki.count {
+        if flimsbaseFull.count > setup.obrazki.count {
             deleteTableBase()
             addDataToBase()
             loadData()

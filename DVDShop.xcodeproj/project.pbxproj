@@ -24,6 +24,7 @@
 		2C17972A1EC05803004B52E1 /* FiltrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1797291EC05803004B52E1 /* FiltrViewController.swift */; };
 		2C17DB101EBC9B2800575581 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17DB0F1EBC9B2800575581 /* VideoViewController.swift */; };
 		2C1F5A761EB1528100A68B4B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1F5A751EB1528100A68B4B /* DetailViewController.swift */; };
+		2C2AFA2C1EF09A890099532B /* Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2AFA2B1EF09A890099532B /* Setup.swift */; };
 		2C49798D1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49798C1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift */; };
 		2C49798F1EB3F8ED000A2E33 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49798E1EB3F8ED000A2E33 /* Film.swift */; };
 		2C4979911EB3FF37000A2E33 /* FavoritViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4979901EB3FF37000A2E33 /* FavoritViewController.swift */; };
@@ -81,6 +82,7 @@
 		2C1797291EC05803004B52E1 /* FiltrViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrViewController.swift; sourceTree = "<group>"; };
 		2C17DB0F1EBC9B2800575581 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		2C1F5A751EB1528100A68B4B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2C2AFA2B1EF09A890099532B /* Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setup.swift; sourceTree = "<group>"; };
 		2C49798C1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C49798E1EB3F8ED000A2E33 /* Film.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		2C4979901EB3FF37000A2E33 /* FavoritViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		2C1573C61EAFFE3300B48306 /* MODELS */ = {
 			isa = PBXGroup;
 			children = (
+				2C2AFA2B1EF09A890099532B /* Setup.swift */,
 				2C49798E1EB3F8ED000A2E33 /* Film.swift */,
 				2C710A541EB89150007C81AF /* FilmList.swift */,
 				2C147E881EB93AE800E0E92A /* Icon.swift */,
@@ -374,6 +377,7 @@
 				2C710A551EB89150007C81AF /* FilmList.swift in Sources */,
 				2C147E871EB930D200E0E92A /* ObliczViewController.swift in Sources */,
 				2C49798D1EB3E1A1000A2E33 /* FavoriteCollectionViewCell.swift in Sources */,
+				2C2AFA2C1EF09A890099532B /* Setup.swift in Sources */,
 				2C17DB101EBC9B2800575581 /* VideoViewController.swift in Sources */,
 				2C5A3A121EE8AC2900E977B2 /* AdresatViewController.swift in Sources */,
 				2C970E531EDE173400705715 /* BillViewController.swift in Sources */,
