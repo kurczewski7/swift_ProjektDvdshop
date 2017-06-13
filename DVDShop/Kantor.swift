@@ -12,7 +12,7 @@ class Kantor  {
     var zloty: Double = 1.0
     var dolarKurs: Double
     var euroKurs: Double
-    var totalPriceInZloty: Double = 77.77
+    var totalPriceInZloty: Double = 0.0
     var numerKonta="58 1240 1112 1111 0010 0944 9739"
     var nrTransakcji: String="201703041655001234"
     var kursyWalut: [Double]=[1.0, 3.86, 4.21]

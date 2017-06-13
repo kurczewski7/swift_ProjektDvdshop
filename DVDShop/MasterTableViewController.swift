@@ -40,10 +40,13 @@ class MasterTableViewController: UITableViewController {
         self.title="Filmy : \(database.flimsbaseFull.count)"
         print("----- MasterTableViewController ------")
         kantor.totalPriceInZloty=database.totalPrice
-        totalPriceTextField.text = kantor.giveTotalPriceZlotyText()
-        totalPriceTextField.isEnabled=false
-        totalPriceTextField.isUserInteractionEnabled=false
-        totalPriceTextField.backgroundColor = UIColor.clear
+        kantor.setTotalPriceTexeditAtrybute(totalPrice: totalPriceTextField)
+        
+        
+//        totalPriceTextField.text = kantor.giveTotalPriceZlotyText()
+//        totalPriceTextField.isEnabled=false
+//        totalPriceTextField.isUserInteractionEnabled=false
+//        totalPriceTextField.backgroundColor = UIColor.clear
         
     }
     

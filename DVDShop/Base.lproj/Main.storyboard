@@ -513,7 +513,7 @@
                                 <action selector="refreshAction:" destination="xCx-hG-ogr" id="ZnP-ok-85b"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" id="vAb-Ea-duP">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Item" style="done" id="vAb-Ea-duP">
                             <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="1234.55zł" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="14" id="iW8-nt-iza">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1286,14 +1286,21 @@
                             <outlet property="delegate" destination="eCq-du-pko" id="qCD-vE-FQb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Filmy znalezione" id="NUr-CG-kP4">
-                        <barButtonItem key="leftBarButtonItem" image="Cofnij" style="done" id="Ixy-I9-m7O">
-                            <connections>
-                                <segue destination="Vgm-xP-uGx" kind="unwind" unwindAction="unwindBeckWithSegue:" id="dgI-6S-Kez"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="R7n-K3-haW">
-                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234.55zł" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="7nk-KE-NZ8">
+                    <navigationItem key="navigationItem" title="Znalezione" id="NUr-CG-kP4">
+                        <leftBarButtonItems>
+                            <barButtonItem image="Cofnij" style="done" id="Ixy-I9-m7O">
+                                <connections>
+                                    <segue destination="Vgm-xP-uGx" kind="unwind" unwindAction="unwindBeckWithSegue:" id="dgI-6S-Kez"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="Ufo-tJ-oX6">
+                                <connections>
+                                    <action selector="refreshActonBarButton:" destination="eCq-du-pko" id="gjn-Wa-4qg"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" style="done" id="R7n-K3-haW">
+                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234.55zł" textAlignment="right" minimumFontSize="17" id="7nk-KE-NZ8">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

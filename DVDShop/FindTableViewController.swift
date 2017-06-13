@@ -16,6 +16,11 @@ class FindTableViewController: UITableViewController {
     
     @IBOutlet var totalPriceTextField: UITextField!
     
+    @IBAction func refreshActonBarButton(_ sender: UIBarButtonItem) {
+        tableView.reloadData()
+    }
+    
+    
     @IBAction func presetCellLongPresureRecognizer(_ sender: UILongPressGestureRecognizer) {
         print("******","Naciśnięto długo")
     }
