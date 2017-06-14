@@ -97,7 +97,7 @@ class MasterTableViewController: UITableViewController {
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("----- prepare  MasterTableViewController  ------")
+        print("-----   prepare  MasterTableViewController   ------")
 
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
