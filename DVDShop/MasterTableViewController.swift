@@ -70,7 +70,7 @@ class MasterTableViewController: UITableViewController {
                     cell.DVDImage.image=UIImage(data: film.filmImage! as Data)
                     cell.accessoryType = film.isLiked ? .checkmark : .none
                     cell.backgroundColor = film.isLiked ? UIColor.green : UIColor.clear
-                    print("tytul=\(cell.titleLabel)")
+                    print("tytul = \(cell.titleLabel)")
                 }
         return cell
     }
@@ -97,7 +97,7 @@ class MasterTableViewController: UITableViewController {
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("----- prepare  MasterTableViewController ------")
+        print("----- prepare  MasterTableViewController  ------")
 
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
